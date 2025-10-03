@@ -83,12 +83,12 @@ const Hero = () => {
             </div>
             
             {/* Floating elements */}
-            <div className="absolute -top-6 -right-6 bg-card p-4 rounded-xl shadow-lg animate-float hidden lg:block">
+            <div className="absolute top-4 right-4 bg-card p-3 rounded-xl shadow-lg animate-float hidden lg:block">
               <div className="text-xs text-muted-foreground">Economize em média</div>
               <div className="text-2xl font-bold text-primary">R$ 500/mês</div>
             </div>
             
-            <div className="absolute -bottom-6 -left-6 bg-card p-4 rounded-xl shadow-lg animate-float-delayed hidden lg:block">
+            <div className="absolute bottom-4 left-4 bg-card p-3 rounded-xl shadow-lg animate-float-delayed hidden lg:block">
               <div className="text-xs text-muted-foreground">Tempo de setup</div>
               <div className="text-2xl font-bold text-accent">2 minutos</div>
             </div>
