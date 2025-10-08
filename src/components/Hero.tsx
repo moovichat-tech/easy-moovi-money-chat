@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
 import mooviLogo from "@/assets/moovi-logo.png";
-import mooviMascot from "@/assets/moovi-mascot-circle.png";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Hero = () => {
@@ -70,13 +69,11 @@ const Hero = () => {
           <div className={`relative fade-in-scroll fade-in-scroll-delay-300 ${isVisible ? 'visible' : ''}`}>
             <div className="relative bg-primary rounded-3xl p-4 shadow-2xl max-w-md mx-auto">
               {/* WhatsApp Header */}
-                <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
                 <div className="bg-primary/10 p-4 flex items-center gap-3">
-                  <img 
-                    src={mooviMascot} 
-                    alt="MOOVI Mascot" 
-                    className="w-10 h-10 rounded-full object-cover"
-                  />
+                  <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+                    <span className="text-white font-bold text-sm">M</span>
+                  </div>
                   <div>
                     <div className="font-semibold text-gray-900">MOOVI</div>
                     <div className="text-xs text-gray-500">online</div>
