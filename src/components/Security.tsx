@@ -1,23 +1,21 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Lock, Shield, Clock, ArrowRight } from "lucide-react";
-import securityIllustration from "@/assets/security-illustration.jpg";
+import { Lock, Database, Clock, ArrowRight } from "lucide-react";
 
 const securityFeatures = [
   {
     icon: Lock,
     title: "Criptografia ponta-a-ponta",
-    description: "Todas as suas conversas e dados financeiros são protegidos com a mesma tecnologia do WhatsApp.",
+    description: "Suas conversas e dados financeiros são protegidos com a mesma segurança do WhatsApp.",
   },
   {
-    icon: Shield,
+    icon: Database,
     title: "Armazenamento seguro",
-    description: "Seus dados ficam em servidores protegidos com os mais altos padrões de segurança do mercado.",
+    description: "Seus dados são armazenados em servidores seguros com backup automático.",
   },
   {
     icon: Clock,
     title: "Disponível 24/7",
-    description: "Acesse suas informações financeiras a qualquer momento, de forma rápida e segura.",
+    description: "O MOOVI está sempre online, pronto para ajudar quando você precisar.",
   },
 ];
 
@@ -27,73 +25,54 @@ const Security = () => {
   };
 
   return (
-    <section className="py-24 bg-gradient-to-b from-background to-muted/30">
+    <section className="py-24 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left column - Content */}
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
-                Suas finanças{" "}
-                <span className="text-primary">seguras</span> e{" "}
-                <span className="text-accent">protegidas</span>
-              </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Levamos a segurança dos seus dados a sério. Você pode confiar no MOOVI 
-                para manter suas informações financeiras sempre protegidas.
-              </p>
-            </div>
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">
+            Seus dados estão seguros
+          </h2>
+          <p className="text-lg text-gray-600">
+            Levamos a segurança das suas informações financeiras muito a sério.
+          </p>
+        </div>
 
-            <div className="space-y-6">
-              {securityFeatures.map((feature, index) => {
-                const Icon = feature.icon;
-                return (
-                  <Card 
-                    key={index}
-                    className="border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-lg"
-                  >
-                    <CardContent className="p-6">
-                      <div className="flex gap-4">
-                        <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                          <Icon className="w-6 h-6 text-primary" />
-                        </div>
-                        <div className="space-y-2">
-                          <h3 className="text-lg font-semibold">{feature.title}</h3>
-                          <p className="text-muted-foreground leading-relaxed">
-                            {feature.description}
-                          </p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
+        {/* Security features - horizontal layout */}
+        <div className="grid md:grid-cols-3 gap-8 mb-12">
+          {securityFeatures.map((feature, index) => {
+            const Icon = feature.icon;
+            return (
+              <div key={index} className="text-center space-y-4">
+                <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center mx-auto">
+                  <Icon className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900">{feature.title}</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
+            );
+          })}
+        </div>
 
-            <Button 
-              size="xl" 
-              variant="cta"
-              onClick={scrollToCTA}
-              className="group"
-            >
-              Começar com segurança
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
+        {/* Quote box */}
+        <div className="max-w-3xl mx-auto mb-12">
+          <div className="rounded-2xl p-8 text-center" style={{ backgroundColor: 'hsl(42, 100%, 95%)' }}>
+            <p className="text-lg text-gray-700 italic">
+              "Utilizamos as mesmas práticas de segurança dos maiores bancos digitais do Brasil."
+            </p>
           </div>
+        </div>
 
-          {/* Right column - Image */}
-          <div className="relative">
-            <div className="relative z-10">
-              <img 
-                src={securityIllustration} 
-                alt="Security Illustration" 
-                className="rounded-2xl shadow-2xl w-full"
-              />
-            </div>
-            
-            {/* Decorative elements */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/5 rounded-full blur-3xl -z-10"></div>
-          </div>
+        {/* CTA */}
+        <div className="text-center">
+          <Button 
+            size="xl" 
+            className="bg-primary hover:bg-primary-hover text-white shadow-lg group"
+            onClick={scrollToCTA}
+          >
+            Começar com segurança
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </Button>
         </div>
       </div>
     </section>
