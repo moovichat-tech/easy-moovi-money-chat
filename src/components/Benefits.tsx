@@ -9,6 +9,7 @@ import {
   Calendar,
   ArrowRight
 } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const benefits = [
   {
@@ -44,19 +45,21 @@ const benefits = [
 ];
 
 const Benefits = () => {
+  const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.15 });
+  
   const scrollToCTA = () => {
     document.getElementById('cta-section')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <section id="benefits" className="py-24 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8" ref={elementRef}>
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">
+          <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 fade-in-scroll ${isVisible ? 'visible' : ''}`}>
             Transforme finanças complicadas em algo simples e automático
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className={`text-lg text-gray-600 fade-in-scroll fade-in-scroll-delay-100 ${isVisible ? 'visible' : ''}`}>
             O MOOVI funciona do jeito que você já vive. Sem apps novos, sem curva de aprendizado.
           </p>
         </div>
@@ -65,10 +68,12 @@ const Benefits = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {benefits.map((benefit, index) => {
             const Icon = benefit.icon;
+            const delay = 200 + (index * 100);
+            const delayClass = `fade-in-scroll-delay-${Math.min(delay, 800)}`;
             return (
               <Card 
                 key={index}
-                className="border-0 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                className={`border-0 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 fade-in-scroll ${delayClass} ${isVisible ? 'visible' : ''}`}
                 style={{ backgroundColor: 'hsl(42, 100%, 95%)' }}
               >
                 <CardContent className="p-6 space-y-4">
@@ -89,7 +94,7 @@ const Benefits = () => {
         <div className="text-center">
           <Button 
             size="xl" 
-            className="bg-primary hover:bg-primary-hover text-white shadow-lg group"
+            className={`bg-primary hover:bg-primary-hover text-white shadow-lg group fade-in-scroll fade-in-scroll-delay-800 ${isVisible ? 'visible' : ''}`}
             onClick={scrollToCTA}
           >
             Teste grátis por 3 dias

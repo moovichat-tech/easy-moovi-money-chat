@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
 import mooviLogo from "@/assets/moovi-logo.png";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Hero = () => {
+  const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2, triggerOnce: true });
+  
   const scrollToCTA = () => {
     document.getElementById('cta-section')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -10,28 +13,28 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center" ref={elementRef}>
           {/* Left column - Content */}
-          <div className="space-y-8 animate-fade-in">
+          <div className="space-y-8">
             <img 
               src={mooviLogo} 
               alt="MOOVI Logo" 
-              className="h-12"
+              className={`h-12 fade-in-scroll ${isVisible ? 'visible' : ''}`}
             />
             
             <div className="space-y-4">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-gray-900">
+              <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-gray-900 fade-in-scroll fade-in-scroll-delay-100 ${isVisible ? 'visible' : ''}`}>
                 Controle suas finanças{" "}
                 <span className="block">direto no WhatsApp</span>
               </h1>
               
-              <p className="text-lg text-gray-600 max-w-xl">
+              <p className={`text-lg text-gray-600 max-w-xl fade-in-scroll fade-in-scroll-delay-200 ${isVisible ? 'visible' : ''}`}>
                 Registre despesas, receba alertas e veja relatórios — tudo no app que você já usa todo dia
               </p>
             </div>
 
             {/* Trust indicators */}
-            <div className="space-y-3">
+            <div className={`space-y-3 fade-in-scroll fade-in-scroll-delay-300 ${isVisible ? 'visible' : ''}`}>
               <div className="flex items-center gap-3 text-gray-700">
                 <Check className="w-5 h-5 text-primary shrink-0" />
                 <span>Teste grátis 3 dias</span>
@@ -49,7 +52,7 @@ const Hero = () => {
             {/* CTA Button */}
             <Button 
               size="xl" 
-              className="bg-primary hover:bg-primary-hover text-white shadow-lg group"
+              className={`bg-primary hover:bg-primary-hover text-white shadow-lg group fade-in-scroll fade-in-scroll-delay-400 ${isVisible ? 'visible' : ''}`}
               onClick={scrollToCTA}
             >
               Começar agora
@@ -57,13 +60,13 @@ const Hero = () => {
             </Button>
 
             {/* Security note */}
-            <p className="text-sm text-gray-500 flex items-center gap-2">
+            <p className={`text-sm text-gray-500 flex items-center gap-2 fade-in-scroll fade-in-scroll-delay-500 ${isVisible ? 'visible' : ''}`}>
               🔒 Seus dados estão seguros com criptografia ponta-a-ponta
             </p>
           </div>
 
           {/* Right column - WhatsApp Mockup */}
-          <div className="relative animate-scale-in">
+          <div className={`relative fade-in-scroll fade-in-scroll-delay-300 ${isVisible ? 'visible' : ''}`}>
             <div className="relative bg-primary rounded-3xl p-4 shadow-2xl max-w-md mx-auto">
               {/* WhatsApp Header */}
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
