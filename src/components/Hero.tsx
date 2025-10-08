@@ -2,25 +2,25 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
 import mooviLogo from "@/assets/moovi-logo.png";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-
 const Hero = () => {
-  const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2, triggerOnce: true });
-  
+  const {
+    elementRef,
+    isVisible
+  } = useScrollAnimation({
+    threshold: 0.2,
+    triggerOnce: true
+  });
   const scrollToCTA = () => {
-    document.getElementById('cta-section')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('cta-section')?.scrollIntoView({
+      behavior: 'smooth'
+    });
   };
-
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-50">
+  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center" ref={elementRef}>
           {/* Left column - Content */}
           <div className="space-y-8">
-            <img 
-              src={mooviLogo} 
-              alt="MOOVI Logo" 
-              className={`h-12 fade-in-scroll ${isVisible ? 'visible' : ''}`}
-            />
+            <img src={mooviLogo} alt="MOOVI Logo" className={`h-12 fade-in-scroll ${isVisible ? 'visible' : ''}`} />
             
             <div className="space-y-4">
               <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-gray-900 fade-in-scroll fade-in-scroll-delay-100 ${isVisible ? 'visible' : ''}`}>
@@ -50,11 +50,7 @@ const Hero = () => {
             </div>
 
             {/* CTA Button */}
-            <Button 
-              size="xl" 
-              className={`bg-primary hover:bg-primary-hover text-white shadow-lg group fade-in-scroll fade-in-scroll-delay-400 ${isVisible ? 'visible' : ''}`}
-              onClick={scrollToCTA}
-            >
+            <Button size="xl" className={`bg-primary hover:bg-primary-hover text-white shadow-lg group fade-in-scroll fade-in-scroll-delay-400 ${isVisible ? 'visible' : ''}`} onClick={scrollToCTA}>
               Começar agora
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
@@ -72,7 +68,7 @@ const Hero = () => {
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
                 <div className="bg-primary/10 p-4 flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">M</span>
+                    
                   </div>
                   <div>
                     <div className="font-semibold text-gray-900">MOOVI</div>
@@ -114,8 +110,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
