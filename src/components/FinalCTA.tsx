@@ -7,8 +7,7 @@ const FinalCTA = () => {
   const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
   
   const scrollToCTA = () => {
-    // In a real app, this would open WhatsApp or a signup form
-    window.open('https://wa.me/5511999999999?text=Quero%20testar%20o%20MOOVI', '_blank');
+    window.open('https://api.whatsapp.com/send/?phone=5511989269937&text=Quero+testar+o+MOOVI&type=phone_number&app_absent=0', '_blank');
   };
 
   const currentYear = new Date().getFullYear();

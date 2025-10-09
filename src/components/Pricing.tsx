@@ -57,7 +57,7 @@ export function Pricing() {
   ];
 
   return (
-    <section className="py-20 bg-muted/30">
+    <section id="pricing-section" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8" ref={elementRef}>
         {/* Header */}
         <div className="text-center space-y-4 mb-12">

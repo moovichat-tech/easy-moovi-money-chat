@@ -12,7 +12,7 @@ const Hero = () => {
     triggerOnce: true
   });
   const scrollToCTA = () => {
-    document.getElementById('cta-section')?.scrollIntoView({
+    document.getElementById('pricing-section')?.scrollIntoView({
       behavior: 'smooth'
     });
   };

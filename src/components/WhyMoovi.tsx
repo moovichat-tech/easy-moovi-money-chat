@@ -43,7 +43,7 @@ const WhyMoovi = () => {
   const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.15 });
   
   const scrollToCTA = () => {
-    document.getElementById('cta-section')?.scrollIntoView({ behavior: 'smooth' });
+    window.open('https://api.whatsapp.com/send/?phone=5511989269937&text=Quero+testar+o+MOOVI&type=phone_number&app_absent=0', '_blank');
   };
 
   return (
