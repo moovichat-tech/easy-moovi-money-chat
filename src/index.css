@@ -228,4 +228,15 @@ All colors MUST be HSL.
       linear-gradient(to bottom, hsl(var(--border)) 1px, transparent 1px);
     background-size: 40px 40px;
   }
+  
+  /* Remove badge do editor Lovable */
+  .lovable-badge,
+  .lovable-watermark,
+  #lovable-badge,
+  .button-lovable,
+  .edit-with-lovable { 
+    display: none !important; 
+    visibility: hidden !important; 
+    pointer-events: none !important; 
+  }
 }
