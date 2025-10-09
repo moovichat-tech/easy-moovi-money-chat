@@ -23,7 +23,7 @@ export function Pricing() {
   const plans: PricingPlan[] = [
     {
       name: "Plano Mensal",
-      price: "R$ 29,90",
+      price: "R$ 24,90",
       period: "por mês",
       features: [
         "Registro ilimitado de gastos",
@@ -39,11 +39,11 @@ export function Pricing() {
     },
     {
       name: "Plano Anual",
-      price: "R$ 23,92",
+      price: "R$ 19,00",
       period: "por mês",
       features: [
         "Tudo do Plano Mensal",
-        "Economize 20% no valor total",
+        "Economize 24% no valor total",
         "Prioridade no suporte",
         "Relatórios anuais detalhados",
         "Sem aumentos de preço por 1 ano",
@@ -52,7 +52,7 @@ export function Pricing() {
       buttonText: "Assinar Anual",
       href: "https://buy.stripe.com/28E5kDcN78JL1s77k95c404",
       isPopular: true,
-      badge: "Economize 20%",
+      badge: "Economize 24%",
     },
   ];
 
@@ -122,7 +122,7 @@ export function Pricing() {
                 <p className="text-sm text-muted-foreground">{plan.period}</p>
                 {plan.isPopular && (
                   <p className="text-xs text-primary font-medium mt-2">
-                    cobrado anualmente (R$ 287)
+                    cobrado anualmente (R$ 228)
                   </p>
                 )}
               </div>
