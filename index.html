@@ -7,11 +7,48 @@
     <meta name="description" content="Controle financeiro simples e prático direto no WhatsApp. Registre gastos, receba alertas e organize seu dinheiro sem complicação. Teste grátis por 3 dias." />
     <meta name="author" content="MOOVI" />
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
-    <link rel="shortcut icon" href="/favicon.png" />
-    <link rel="apple-touch-icon" href="/favicon.png" />
+    <!-- Favicon with cache busting -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/moovi-favicon.png?v=2" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/moovi-favicon.png?v=2" />
+    <link rel="shortcut icon" href="/favicons/moovi-favicon.png?v=2" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/moovi-favicon.png?v=2" />
+    
+    <!-- Critical CSS to remove Lovable badge -->
+    <style>
+      .lovable-badge, .lovable-watermark, #lovable-badge, #lovable-root, #lovable-floating-button,
+      .lovable-floating-button, [id*="lovable"], [class*="lovable"], .button-lovable, .edit-with-lovable {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+      }
+    </style>
+    
+    <!-- Script to dynamically remove Lovable elements -->
+    <script>
+      (function() {
+        const hideLovable = () => {
+          const nodes = Array.from(document.querySelectorAll('div, a, button, span, iframe'));
+          nodes.forEach(el => {
+            try {
+              const t = (el.textContent || '').toLowerCase();
+              const id = (el.id || '').toLowerCase();
+              const cl = (el.className || '').toString().toLowerCase();
+              const aria = (el.getAttribute('aria-label') || '').toLowerCase();
+              if (id.includes('lovable') || cl.includes('lovable') || aria.includes('lovable') || t.includes('lovable')) {
+                el.style.display = 'none';
+                el.style.visibility = 'hidden';
+                el.style.opacity = '0';
+                el.style.pointerEvents = 'none';
+              }
+            } catch(e) {}
+          });
+        };
+        hideLovable();
+        const obs = new MutationObserver(hideLovable);
+        obs.observe(document.documentElement, { childList: true, subtree: true });
+      })();
+    </script>
 
     <meta property="og:title" content="MOOVI - Controle Financeiro Fácil no WhatsApp" />
     <meta property="og:description" content="Simplifique suas finanças com o MOOVI. Assistente financeiro inteligente no WhatsApp. Teste grátis por 3 dias." />
