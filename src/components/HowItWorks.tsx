@@ -46,6 +46,15 @@ const HowItWorks = () => {
         { type: 'user', text: 'Paguei R$ 120 no mercado' },
         { type: 'bot', text: '✓ Registrado em Supermercado. Total do mês: R$ 680.' }
       ]
+    },
+    {
+      icon: BarChart3,
+      title: "Relatórios Automáticos",
+      description: "Receba relatórios completos sem fazer nada. A Moovi organiza tudo automaticamente e te mostra onde você pode melhorar.",
+      conversation: [
+        { type: 'user', text: 'Como estão minhas finanças?' },
+        { type: 'bot', text: 'Preparei seu relatório do mês! Você economizou 15% 🎉' }
+      ]
     }
   ];
 

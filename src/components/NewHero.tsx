@@ -29,14 +29,13 @@ const NewHero = () => {
   return (
     <section className="relative py-12 md:py-20 lg:py-24 bg-gradient-to-br from-green-50 to-white overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8" ref={elementRef}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Content */}
+        <div className="max-w-4xl mx-auto text-center lg:text-left">
           <div className={`space-y-8 fade-in-scroll ${isVisible ? 'visible' : ''}`}>
             {/* Logo */}
             <img src={mooviLogo} alt="Moovi" className="h-16 md:h-20 lg:h-24" />
             
             {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-gray-900">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-gray-900">
               Pare de se preocupar com dinheiro.
               <span className="block text-primary mt-2">
                 Tenha um Assessor Financeiro Pessoal 24h no seu WhatsApp.
@@ -45,46 +44,19 @@ const NewHero = () => {
             
             {/* Subheadline */}
             <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
-              Organize suas finanças com a mesma facilidade de mandar uma mensagem. Sem planilhas, sem complicação — só você e a tranquilidade de ter tudo sob controle.
+              Controle seu dinheiro com a mesma facilidade de mandar um "oi" no WhatsApp.
+              Sem planilhas, sem aplicativos complicados, só conversas simples e resultados reais!
             </p>
             
-            {/* Trust Badges */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {trustBadges.map((badge, index) => (
-                <div 
-                  key={index}
-                  className="bg-white rounded-xl p-4 shadow-md border border-border"
-                >
-                  <badge.icon className="w-8 h-8 text-primary mb-2" />
-                  <h3 className="font-semibold text-sm mb-1">{badge.title}</h3>
-                  <p className="text-xs text-muted-foreground">{badge.description}</p>
-                </div>
-              ))}
-            </div>
-            
             {/* CTA */}
-            <div className="space-y-4">
+            <div className="flex justify-center lg:justify-start">
               <Button 
-                size="lg"
-                className="w-full sm:w-auto bg-accent hover:bg-accent/90 text-white font-semibold text-lg px-8 py-6 animate-pulse-soft"
+                size="xl"
+                className="bg-green-600 hover:bg-green-700 text-white font-bold text-xl px-12 py-8 shadow-2xl hover:shadow-3xl transition-all rounded-2xl"
                 onClick={() => scrollToSection('pricing-section')}
               >
-                Quero meu assessor no WhatsApp →
+                Quero começar agora 💚
               </Button>
-              <p className="text-sm text-muted-foreground">
-                Teste grátis por 3 dias. Sem cartão de crédito.
-              </p>
-            </div>
-          </div>
-          
-          {/* Right Column - WhatsApp Mockup */}
-          <div className={`fade-in-scroll fade-in-scroll-delay-200 ${isVisible ? 'visible' : ''}`}>
-            <div className="relative">
-              <img 
-                src={heroMockup} 
-                alt="Interface MOOVI no WhatsApp"
-                className="w-full rounded-3xl shadow-2xl"
-              />
             </div>
           </div>
         </div>

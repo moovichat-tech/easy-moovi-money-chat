@@ -9,7 +9,7 @@ const Authority = () => {
   const metrics = [
     {
       icon: Users,
-      number: "+10.000",
+      number: "+1.000",
       label: "usuários organizados",
       description: "Pessoas como você que decidiram ter controle total sobre suas finanças."
     },
@@ -56,11 +56,11 @@ const Authority = () => {
         
         <div className="text-center mt-12">
           <Button 
-            size="lg"
-            className="bg-green-700 hover:bg-green-800 text-white font-semibold shadow-lg hover:shadow-xl transition-all"
+            size="xl"
+            className="bg-green-700 hover:bg-green-800 text-white font-bold text-xl px-12 py-8 shadow-2xl hover:shadow-3xl transition-all rounded-2xl"
             onClick={openWhatsApp}
           >
-            Quero fazer parte →
+            Quero fazer parte
           </Button>
         </div>
       </div>
