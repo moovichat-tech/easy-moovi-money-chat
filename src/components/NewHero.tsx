@@ -33,7 +33,7 @@ const NewHero = () => {
           {/* Left Column - Content */}
           <div className={`space-y-8 fade-in-scroll ${isVisible ? 'visible' : ''}`}>
             {/* Logo */}
-            <img src={mooviLogo} alt="Moovi" className="h-12 md:h-14" />
+            <img src={mooviLogo} alt="Moovi" className="h-16 md:h-20 lg:h-24" />
             
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-gray-900">
