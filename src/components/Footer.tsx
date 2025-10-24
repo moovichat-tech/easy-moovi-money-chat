@@ -28,9 +28,6 @@ const Footer = () => {
             alt="Moovi.chat" 
             className="h-10 mx-auto mb-4 opacity-80 brightness-0 invert"
           />
-          <p className="text-gray-300 text-lg">
-            Seu Assessor Financeiro Pessoal no WhatsApp
-          </p>
           <p className="text-xl font-semibold text-green-400 mt-4">
             Organize. Controle. Respire.
           </p>
