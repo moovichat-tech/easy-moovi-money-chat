@@ -1,19 +1,25 @@
-import Hero from "@/components/Hero";
-import Benefits from "@/components/Benefits";
-import WhyMoovi from "@/components/WhyMoovi";
+import NewHero from "@/components/NewHero";
+import Transformation from "@/components/Transformation";
+import SocialProof from "@/components/SocialProof";
+import Authority from "@/components/Authority";
+import HowItWorks from "@/components/HowItWorks";
+import Differentials from "@/components/Differentials";
+import FinalCTASection from "@/components/FinalCTASection";
 import { Pricing } from "@/components/Pricing";
-import Security from "@/components/Security";
-import FinalCTA from "@/components/FinalCTA";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <Hero />
-      <Benefits />
-      <WhyMoovi />
+      <NewHero />
+      <Transformation />
+      <SocialProof />
+      <Authority />
+      <HowItWorks />
+      <Differentials />
+      <FinalCTASection />
       <Pricing />
-      <Security />
-      <FinalCTA />
+      <Footer />
     </div>
   );
 };
