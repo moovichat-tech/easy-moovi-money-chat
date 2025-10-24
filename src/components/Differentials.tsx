@@ -19,7 +19,7 @@ const Differentials = () => {
   ];
 
   return (
-    <section className="py-16 md:py-20 bg-muted/50">
+    <section className="py-16 md:py-20 bg-gray-100">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8" ref={elementRef}>
         <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-4 fade-in-scroll ${isVisible ? 'visible' : ''}`}>
           Não é só mais um app de finanças

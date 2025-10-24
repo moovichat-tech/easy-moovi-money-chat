@@ -8,7 +8,7 @@ const FinalCTASection = () => {
   return (
     <section 
       id="pricing-section"
-      className="py-16 md:py-20 bg-gradient-to-br from-secondary via-primary to-secondary text-white"
+      className="py-16 md:py-20 bg-gradient-to-br from-green-700 via-green-600 to-teal-700 text-white"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center" ref={elementRef}>
         <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-6 fade-in-scroll ${isVisible ? 'visible' : ''}`}>
@@ -28,7 +28,7 @@ const FinalCTASection = () => {
         </div>
         
         {/* Destaque teste grátis */}
-        <div className={`bg-white/10 backdrop-blur-sm rounded-2xl p-6 sm:p-8 max-w-2xl mx-auto mb-12 fade-in-scroll fade-in-scroll-delay-200 ${isVisible ? 'visible' : ''}`}>
+        <div className={`bg-green-800/40 backdrop-blur-md rounded-2xl p-6 sm:p-8 max-w-2xl mx-auto mb-12 border border-white/20 fade-in-scroll fade-in-scroll-delay-200 ${isVisible ? 'visible' : ''}`}>
           <p className="text-2xl sm:text-3xl font-bold mb-4">
             Teste grátis por 3 dias. Sem cartão de crédito.
           </p>
