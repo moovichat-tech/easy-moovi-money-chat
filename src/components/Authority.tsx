@@ -57,8 +57,7 @@ const Authority = () => {
         <div className="text-center mt-12">
           <Button 
             size="lg"
-            variant="outline"
-            className="font-semibold"
+            className="bg-green-700 hover:bg-green-800 text-white font-semibold shadow-lg hover:shadow-xl transition-all"
             onClick={openWhatsApp}
           >
             Quero fazer parte →

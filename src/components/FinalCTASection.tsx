@@ -85,8 +85,7 @@ const FinalCTASection = () => {
         
         <Button 
           size="lg"
-          variant="outline" 
-          className="mt-8 border-2 border-white text-white hover:bg-white hover:text-primary font-semibold"
+          className="mt-8 bg-green-700 hover:bg-green-800 text-white font-semibold shadow-lg hover:shadow-xl transition-all"
           onClick={openWhatsApp}
         >
           Quero ter controle total das minhas finanças →
