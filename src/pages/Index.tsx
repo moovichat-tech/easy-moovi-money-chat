@@ -4,7 +4,6 @@ import SocialProof from "@/components/SocialProof";
 import Authority from "@/components/Authority";
 import HowItWorks from "@/components/HowItWorks";
 import Differentials from "@/components/Differentials";
-import FinalCTASection from "@/components/FinalCTASection";
 import { Pricing } from "@/components/Pricing";
 import Footer from "@/components/Footer";
 
@@ -17,7 +16,6 @@ const Index = () => {
       <Authority />
       <HowItWorks />
       <Differentials />
-      <FinalCTASection />
       <Pricing />
       <Footer />
     </div>
