@@ -45,8 +45,12 @@ const Transformation = () => {
         </p>
         
         <div className="text-center">
-          <Button size="lg" onClick={openWhatsApp} className="bg-primary hover:bg-primary/90 text-white text-3xl font-bold">
-            Começar agora — é grátis por 3 dias →
+          <Button 
+            size="xl"
+            onClick={openWhatsApp} 
+            className="bg-green-600 hover:bg-green-700 text-white font-bold text-xl px-12 py-8 shadow-2xl hover:shadow-3xl transition-all rounded-2xl"
+          >
+            Quero começar agora 💚
           </Button>
         </div>
       </div>
