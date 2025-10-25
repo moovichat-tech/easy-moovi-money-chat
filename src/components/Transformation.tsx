@@ -27,7 +27,7 @@ const Transformation = () => {
         </div>
         
         {/* Benefícios */}
-        <div className="mb-12">
+        <div className="mb-12 text-xl">
           <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 text-center fade-in-scroll ${isVisible ? 'visible' : ''}`}>Quero começar agora - 
 é grátis por 3 dias💚</h2>
           <div className="space-y-4 max-w-4xl mx-auto">
