@@ -28,9 +28,8 @@ const Transformation = () => {
         
         {/* Benefícios */}
         <div className="mb-12">
-          <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 text-center fade-in-scroll ${isVisible ? 'visible' : ''}`}>
-            Imagine acordar todos os dias sabendo que:
-          </h2>
+          <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 text-center fade-in-scroll ${isVisible ? 'visible' : ''}`}>Quero começar agora - 
+é grátis por 3 dias💚</h2>
           <div className="space-y-4 max-w-4xl mx-auto">
             {benefits.map((benefit, i) => <div key={i} className={`flex items-start gap-4 bg-green-50 rounded-xl p-4 border border-green-200 fade-in-scroll fade-in-scroll-delay-${i * 100} ${isVisible ? 'visible' : ''}`}>
                 <Check className="text-primary w-6 h-6 shrink-0 mt-1" />
@@ -45,12 +44,8 @@ const Transformation = () => {
         </p>
         
         <div className="text-center">
-          <Button 
-            size="xl"
-            onClick={openWhatsApp} 
-            className="bg-green-600 hover:bg-green-700 text-white font-bold text-xl px-12 py-8 shadow-2xl hover:shadow-3xl transition-all rounded-2xl"
-          >
-            Quero começar agora 💚
+          <Button size="lg" onClick={openWhatsApp} className="bg-primary hover:bg-primary/90 text-white text-3xl font-bold">
+            Começar agora — é grátis por 3 dias →
           </Button>
         </div>
       </div>
