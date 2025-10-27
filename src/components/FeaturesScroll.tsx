@@ -1,5 +1,5 @@
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
-import { Edit3, Bell, BarChart3 } from "lucide-react";
+import { Edit3, Bell, BarChart3, Target, FileBarChart } from "lucide-react";
 import mooviAvatar from "@/assets/moovi-mascot-avatar.png";
 
 interface Feature {
@@ -35,6 +35,24 @@ export default function FeaturesScroll() {
       conversation: [
         { type: 'user', text: 'Gastei demais esse mês?' },
         { type: 'bot', text: 'Você gastou 30% a mais com delivery. Quer uma dica pra equilibrar?' }
+      ]
+    },
+    {
+      icon: Target,
+      title: "Categorização automática inteligente",
+      description: "A Moovi aprende com você e categoriza tudo sozinha. Você só precisa registrar — o resto é com ela.",
+      conversation: [
+        { type: 'user', text: 'Paguei R$ 120 no mercado' },
+        { type: 'bot', text: '✓ Registrado em Supermercado. Total do mês: R$ 680.' }
+      ]
+    },
+    {
+      icon: FileBarChart,
+      title: "Relatórios Automáticos",
+      description: "Receba relatórios completos sem fazer nada. A Moovi organiza tudo automaticamente e te mostra onde você pode melhorar.",
+      conversation: [
+        { type: 'bot', text: 'Como estão minhas finanças?' },
+        { type: 'bot', text: 'Preparei seu relatório do mês! Você economizou 15% 🎉' }
       ]
     }
   ];
