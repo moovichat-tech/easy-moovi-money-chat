@@ -1,5 +1,5 @@
+import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { Edit3, Bell, BarChart3 } from "lucide-react";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import mooviAvatar from "@/assets/moovi-mascot-avatar.png";
 
 interface Feature {
@@ -10,13 +10,11 @@ interface Feature {
 }
 
 export default function FeaturesScroll() {
-  const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.1 });
-
   const features: Feature[] = [
     {
       icon: Edit3,
-      title: "Registre suas despesas do jeito mais fácil",
-      description: "Por texto, áudio ou até foto do cupom fiscal. Você decide como quer conversar com seu assessor.",
+      title: "Registre suas despesas",
+      description: "Por texto, áudio ou até foto do cupom fiscal.",
       conversation: [
         { type: 'user', text: 'Gastei 45 reais no almoço' },
         { type: 'bot', text: 'Registrado! Almoço — R$ 45,00. Categoria: Alimentação.' }
@@ -24,16 +22,16 @@ export default function FeaturesScroll() {
     },
     {
       icon: Bell,
-      title: "Receba alertas inteligentes de tudo que importa",
-      description: "Nunca mais esqueça uma conta. A Moovi avisa você sobre vencimentos, gastos altos e oportunidades de economia.",
+      title: "Receba alertas inteligentes",
+      description: "Nunca mais esqueça uma conta importante.",
       conversation: [
         { type: 'bot', text: 'Oi! Seu boleto de internet vence amanhã. Já separou o valor?' }
       ]
     },
     {
       icon: BarChart3,
-      title: "Entenda suas finanças de verdade",
-      description: "Relatórios claros e insights que realmente fazem sentido. Descubra para onde seu dinheiro está indo — sem abrir planilhas.",
+      title: "Entenda suas finanças",
+      description: "Relatórios claros e insights práticos.",
       conversation: [
         { type: 'user', text: 'Gastei demais esse mês?' },
         { type: 'bot', text: 'Você gastou 30% a mais com delivery. Quer uma dica pra equilibrar?' }
@@ -42,13 +40,13 @@ export default function FeaturesScroll() {
   ];
 
   const WhatsAppConversation = ({ messages }: { messages: any[] }) => (
-    <div className="bg-card rounded-2xl shadow-xl p-4">
-      <div className="bg-muted/50 p-4 rounded-xl space-y-3 min-h-[140px]">
+    <div className="bg-white dark:bg-zinc-800 rounded-xl shadow-md p-3">
+      <div className="bg-gray-50 dark:bg-zinc-900 p-3 rounded-lg space-y-2">
         {messages.map((msg, i) => (
           <div 
             key={i}
             className={`
-              flex items-end gap-2 animate-fade-in
+              flex items-end gap-2
               ${msg.type === 'user' ? 'ml-auto flex-row-reverse' : 'mr-auto'}
             `}
           >
@@ -56,20 +54,20 @@ export default function FeaturesScroll() {
               <img 
                 src={mooviAvatar} 
                 alt="Moovi" 
-                className="w-6 h-6 rounded-full flex-shrink-0"
+                className="w-5 h-5 rounded-full flex-shrink-0"
               />
             )}
             
             <div
               className={`
-                rounded-lg p-3 max-w-[85%] text-sm
+                rounded-lg p-2 max-w-[85%] text-xs
                 ${msg.type === 'user' 
-                  ? 'bg-primary/10 text-right' 
-                  : 'bg-card shadow-sm'
+                  ? 'bg-green-100 dark:bg-green-900/30 text-right' 
+                  : 'bg-white dark:bg-zinc-800 shadow-sm'
                 }
               `}
             >
-              <p>{msg.text}</p>
+              <p className="text-gray-800 dark:text-gray-200">{msg.text}</p>
             </div>
           </div>
         ))}
@@ -78,39 +76,38 @@ export default function FeaturesScroll() {
   );
 
   return (
-    <section className="py-16 md:py-24 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8" ref={elementRef}>
-        <div className="text-center mb-12">
-          <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-            Seu Assessor Financeiro Pessoal
-          </h2>
-          <p className={`text-lg sm:text-xl lg:text-2xl text-muted-foreground ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-            Direto no WhatsApp 💚
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {features.map((feature, i) => (
-            <div 
-              key={i}
-              className={`
-                bg-card rounded-2xl shadow-lg border border-border p-6
-                flex flex-col gap-4 min-h-[320px]
-                ${isVisible ? 'animate-fade-in' : 'opacity-0'}
-              `}
-              style={{ animationDelay: `${i * 100}ms` }}
-            >
-              <div>
-                <feature.icon className="w-10 h-10 text-primary mb-3" />
-                <h3 className="text-lg font-bold mb-2">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
+    <section className="bg-background">
+      <ContainerScroll
+        titleComponent={
+          <div className="space-y-4">
+            <h2 className="text-4xl md:text-6xl font-bold text-foreground">
+              Seu Assessor Financeiro Pessoal
+            </h2>
+            <p className="text-xl md:text-2xl text-muted-foreground">
+              Direto no WhatsApp 💚
+            </p>
+          </div>
+        }
+      >
+        <div className="h-full w-full overflow-auto p-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 min-h-full">
+            {features.map((feature, i) => (
+              <div 
+                key={i}
+                className="bg-card rounded-xl shadow-lg border border-border p-4 flex flex-col gap-3"
+              >
+                <div>
+                  <feature.icon className="w-8 h-8 text-primary mb-2" />
+                  <h3 className="text-base font-bold mb-1">{feature.title}</h3>
+                  <p className="text-xs text-muted-foreground">{feature.description}</p>
+                </div>
+                
+                <WhatsAppConversation messages={feature.conversation} />
               </div>
-              
-              <WhatsAppConversation messages={feature.conversation} />
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      </ContainerScroll>
     </section>
   );
 }
