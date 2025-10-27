@@ -5,6 +5,7 @@ import Authority from "@/components/Authority";
 import HowItWorks from "@/components/HowItWorks";
 import Differentials from "@/components/Differentials";
 import { Pricing } from "@/components/Pricing";
+import Security from "@/components/Security";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -17,6 +18,7 @@ const Index = () => {
       <SocialProof />
       <Differentials />
       <Pricing />
+      <Security />
       <Footer />
     </div>
   );
