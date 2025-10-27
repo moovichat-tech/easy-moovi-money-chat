@@ -13,7 +13,7 @@ const Index = () => {
       <NewHero />
       <Transformation />
       <FeaturesScroll />
-      <HowItWorks />
+      
       <Authority />
       <SocialProof />
       <Differentials />
