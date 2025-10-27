@@ -111,7 +111,7 @@ export function Pricing() {
               </ul>
 
               {/* CTA Button */}
-              <Button asChild size="lg" variant={plan.isPopular ? "hero" : "secondary"} className="w-full font-semibold text-base">
+              <Button asChild size="lg" variant="hero" className="w-full font-semibold text-base">
                 <a href={plan.href} target="_blank" rel="noopener noreferrer">
                   {plan.buttonText}
                 </a>
