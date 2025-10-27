@@ -36,7 +36,7 @@ const WhatsAppWidget = () => {
           flex items-center justify-center
           transition-all duration-300
           hover:scale-110
-          animate-[pulse_2s_ease-in-out_infinite]
+          animate-[pulse_3s_ease-in-out_infinite]
         "
         aria-label="Falar com o Suporte Moovi no WhatsApp"
       >
