@@ -40,7 +40,7 @@ export default function FeaturesScroll() {
     {
       icon: Target,
       title: "Categorização automática inteligente",
-      description: "A Moovi aprende com você e categoriza tudo sozinha. Você só precisa registrar — o resto é com ela.",
+      description: "O Moovi aprende com você e categoriza tudo sozinho. Você só precisa registrar — o resto é com ele.",
       conversation: [
         { type: 'user', text: 'Paguei R$ 120 no mercado' },
         { type: 'bot', text: '✓ Registrado em Supermercado. Total do mês: R$ 680.' }
@@ -49,7 +49,7 @@ export default function FeaturesScroll() {
     {
       icon: FileBarChart,
       title: "Relatórios Automáticos",
-      description: "Receba relatórios completos sem fazer nada. A Moovi organiza tudo automaticamente e te mostra onde você pode melhorar.",
+      description: "Receba relatórios completos sem fazer nada. O Moovi organiza tudo automaticamente e te mostra onde você pode melhorar.",
       conversation: [
         { type: 'bot', text: 'Como estão minhas finanças?' },
         { type: 'bot', text: 'Preparei seu relatório do mês! Você economizou 15% 🎉' }

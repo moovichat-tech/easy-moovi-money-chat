@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { motion } from "framer-motion";
-import { Check, Star } from "lucide-react";
+import { Check, Star, Shield } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 interface PricingPlan {
   name: string;
@@ -127,6 +127,22 @@ export function Pricing() {
           <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
             🔒 <span>Pagamento 100% seguro processado pelo Stripe</span>
           </p>
+          
+          {/* Card de Segurança Bancária */}
+          <div className="mt-6 max-w-md mx-auto">
+            <div className="bg-card border border-border rounded-xl p-6 shadow-sm">
+              <div className="flex flex-col items-center gap-3">
+                <div className="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center">
+                  <Shield className="w-6 h-6 text-primary" />
+                </div>
+                <h4 className="font-semibold text-base">Segurança de nível bancário</h4>
+                <p className="text-sm text-muted-foreground text-center">
+                  Criptografia de ponta a ponta em todas as conversas. Seus dados financeiros 
+                  protegidos 24 horas por dia.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>;

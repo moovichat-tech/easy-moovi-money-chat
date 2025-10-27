@@ -33,7 +33,7 @@ const FinalCTASection = () => {
             Teste grátis por 3 dias. Sem cartão de crédito.
           </p>
           <p className="text-base sm:text-lg opacity-90">
-            Experimente a Moovi sem compromisso. Sinta a diferença de ter um assessor 
+            Experimente o Moovi sem compromisso. Sinta a diferença de ter um assessor 
             financeiro pessoal no seu WhatsApp. Se você gostar (e vai gostar), continue 
             por menos de um café por dia.
           </p>
@@ -64,7 +64,7 @@ const FinalCTASection = () => {
         <div className={`mt-12 max-w-2xl mx-auto fade-in-scroll fade-in-scroll-delay-400 ${isVisible ? 'visible' : ''}`}>
           <p className="text-sm opacity-75 leading-relaxed">
             <strong>Garantia de Satisfação:</strong> Se nos primeiros 3 dias você não 
-            sentir que a Moovi mudou sua relação com dinheiro, é só cancelar. Sem 
+            sentir que o Moovi mudou sua relação com dinheiro, é só cancelar. Sem 
             perguntas, sem complicação.
           </p>
         </div>

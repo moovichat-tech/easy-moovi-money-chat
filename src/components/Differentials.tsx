@@ -57,7 +57,7 @@ const Differentials = () => {
           <div className={`bg-red-50 rounded-2xl p-8 border-2 border-red-200 fade-in-scroll ${isVisible ? 'visible' : ''}`}>
             <h4 className="text-xl sm:text-2xl font-bold mb-6 flex items-center gap-3">
               <X className="text-red-500" />
-              Sem a Moovi
+              Sem o Moovi
             </h4>
             <ul className="space-y-4">
               {withoutMoovi.map((item, i) => (
@@ -73,7 +73,7 @@ const Differentials = () => {
           <div className={`bg-green-50 rounded-2xl p-8 border-2 border-green-200 fade-in-scroll fade-in-scroll-delay-200 ${isVisible ? 'visible' : ''}`}>
             <h4 className="text-xl sm:text-2xl font-bold mb-6 flex items-center gap-3">
               <Check className="text-primary" />
-              Com a Moovi
+              Com o Moovi
             </h4>
             <ul className="space-y-4">
               {withMoovi.map((item, i) => (

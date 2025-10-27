@@ -25,7 +25,7 @@ const HowItWorks = () => {
     {
       icon: Bell,
       title: "Receba alertas inteligentes de tudo que importa",
-      description: "Nunca mais esqueça uma conta. A Moovi avisa você sobre vencimentos, gastos altos e oportunidades de economia.",
+      description: "Nunca mais esqueça uma conta. O Moovi avisa você sobre vencimentos, gastos altos e oportunidades de economia.",
       conversation: [
         { type: 'bot', text: 'Oi! Seu boleto de internet vence amanhã. Já separou o valor?' }
       ]
@@ -42,7 +42,7 @@ const HowItWorks = () => {
     {
       icon: Target,
       title: "Categorização automática inteligente",
-      description: "A Moovi aprende com você e categoriza tudo sozinha. Você só precisa registrar — o resto é com ela.",
+      description: "O Moovi aprende com você e categoriza tudo sozinho. Você só precisa registrar — o resto é com ele.",
       conversation: [
         { type: 'user', text: 'Paguei R$ 120 no mercado' },
         { type: 'bot', text: '✓ Registrado em Supermercado. Total do mês: R$ 680.' }
@@ -51,7 +51,7 @@ const HowItWorks = () => {
     {
       icon: BarChart3,
       title: "Relatórios Automáticos",
-      description: "Receba relatórios completos sem fazer nada. A Moovi organiza tudo automaticamente e te mostra onde você pode melhorar.",
+      description: "Receba relatórios completos sem fazer nada. O Moovi organiza tudo automaticamente e te mostra onde você pode melhorar.",
       conversation: [
         { type: 'user', text: 'Como estão minhas finanças?' },
         { type: 'bot', text: 'Preparei seu relatório do mês! Você economizou 15% 🎉' }
@@ -104,7 +104,7 @@ const HowItWorks = () => {
           Seu Assessor Financeiro Pessoal no WhatsApp
         </h2>
         <p className={`text-lg sm:text-xl text-muted-foreground text-center mb-16 fade-in-scroll fade-in-scroll-delay-100 ${isVisible ? 'visible' : ''}`}>
-          É tão simples quanto mandar uma mensagem. A Moovi entende você.
+          É tão simples quanto mandar uma mensagem. O Moovi entende você.
         </p>
         
         <div className="space-y-20">

@@ -33,7 +33,7 @@ const Authority = () => {
   return <section className="py-16 md:py-20 bg-gradient-to-b from-green-50 to-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8" ref={elementRef}>
         <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-4 fade-in-scroll ${isVisible ? 'visible' : ''}`}>
-          A Moovi já ajudou milhares de pessoas a organizarem suas vidas financeiras
+          O Moovi já ajudou milhares de pessoas a organizarem suas vidas financeiras
         </h2>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
