@@ -1,5 +1,6 @@
 import NewHero from "@/components/NewHero";
 import Transformation from "@/components/Transformation";
+import FeaturesScroll from "@/components/FeaturesScroll";
 import SocialProof from "@/components/SocialProof";
 import Authority from "@/components/Authority";
 import HowItWorks from "@/components/HowItWorks";
@@ -13,6 +14,7 @@ const Index = () => {
     <div className="min-h-screen">
       <NewHero />
       <Transformation />
+      <FeaturesScroll />
       <HowItWorks />
       <Authority />
       <SocialProof />
