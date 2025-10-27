@@ -1,5 +1,6 @@
 import { Edit3, Bell, BarChart3, Shield, Target } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import mooviAvatar from "@/assets/moovi-mascot-avatar.png";
 
 interface Feature {
   icon: any;
@@ -65,14 +66,31 @@ const HowItWorks = () => {
           <div 
             key={i}
             className={`
-              rounded-lg p-3 max-w-[85%] animate-fade-in
-              ${msg.type === 'user' 
-                ? 'bg-green-100 ml-auto text-right' 
-                : 'bg-white mr-auto shadow-sm'
-              }
+              flex items-end gap-2 animate-fade-in
+              ${msg.type === 'user' ? 'ml-auto flex-row-reverse' : 'mr-auto'}
             `}
           >
-            <p className="text-sm text-gray-800">{msg.text}</p>
+            {/* Avatar apenas para mensagens do bot */}
+            {msg.type === 'bot' && (
+              <img 
+                src={mooviAvatar} 
+                alt="Moovi" 
+                className="w-8 h-8 rounded-full flex-shrink-0"
+              />
+            )}
+            
+            {/* Mensagem */}
+            <div
+              className={`
+                rounded-lg p-3 max-w-[85%]
+                ${msg.type === 'user' 
+                  ? 'bg-green-100 text-right' 
+                  : 'bg-white shadow-sm'
+                }
+              `}
+            >
+              <p className="text-sm text-gray-800">{msg.text}</p>
+            </div>
           </div>
         ))}
       </div>
