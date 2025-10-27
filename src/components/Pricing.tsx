@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { motion } from "framer-motion";
-import { Check, Star } from "lucide-react";
+import { Check, Star, Shield } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 interface PricingPlan {
@@ -68,6 +68,34 @@ export function Pricing() {
             Controle financeiro simples e prático. Comece com 3 dias grátis, sem precisar de cartão de crédito.
           </p>
         </div>
+
+        {/* Security Card */}
+        <motion.div
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className={`max-w-2xl mx-auto mb-8 fade-in-scroll fade-in-scroll-delay-200 ${isVisible ? 'visible' : ''}`}
+        >
+          <div className="bg-card rounded-xl p-6 shadow-md border border-border">
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Shield className="w-6 h-6 text-primary" />
+                </div>
+              </div>
+              <div className="text-left">
+                <h3 className="font-bold text-foreground mb-2">
+                  Segurança de nível bancário
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Criptografia de ponta a ponta em todas as conversas. 
+                  Seus dados financeiros protegidos 24 horas por dia.
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
 
         {/* Pricing Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
