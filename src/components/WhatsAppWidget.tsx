@@ -30,13 +30,12 @@ const WhatsAppWidget = () => {
         onMouseEnter={() => setShowTooltip(true)}
         onMouseLeave={() => setShowTooltip(false)}
         className="
-          w-14 h-14 md:w-16 md:h-16 
+          relative w-14 h-14 md:w-16 md:h-16 
           bg-[#25D366] hover:bg-[#20BA5A]
           rounded-full shadow-2xl
           flex items-center justify-center
           transition-all duration-300
           hover:scale-110
-          animate-pulse hover:animate-none
         "
         aria-label="Falar com suporte no WhatsApp"
       >
@@ -44,7 +43,7 @@ const WhatsAppWidget = () => {
       </button>
 
       {/* Pulse ring animado */}
-      <div className="absolute inset-0 rounded-full bg-[#25D366] opacity-20 animate-ping" />
+      <div className="absolute inset-0 rounded-full bg-[#25D366] animate-[pulse_3s_ease-in-out_infinite]" style={{ opacity: 0.3 }} />
     </div>
   );
 };
