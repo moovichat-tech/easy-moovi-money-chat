@@ -43,7 +43,7 @@ const WhatsAppWidget = () => {
       </button>
 
       {/* Pulse ring animado */}
-      <div className="absolute inset-0 rounded-full bg-[#25D366] animate-[pulse_3s_ease-in-out_infinite]" style={{ opacity: 0.3 }} />
+      <div className="absolute inset-0 rounded-full bg-[#25D366] animate-[pulse_3s_ease-in-out_infinite] pointer-events-none" style={{ opacity: 0.3 }} />
     </div>
   );
 };
