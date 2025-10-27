@@ -16,13 +16,11 @@ export default function FeaturesScroll() {
           </div>
         }
       >
-        <div className="h-full w-full overflow-hidden flex items-center justify-center bg-gradient-to-b from-white to-gray-50 dark:from-zinc-900 dark:to-zinc-800">
+        <div className="h-full w-full overflow-auto">
           <img 
             src={featuresMockup} 
             alt="Features do Moovi no WhatsApp" 
-            className="w-full h-full object-contain"
-            loading="eager"
-            decoding="async"
+            className="w-full h-auto object-contain"
           />
         </div>
       </ContainerScroll>
