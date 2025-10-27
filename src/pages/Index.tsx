@@ -8,10 +8,8 @@ import Differentials from "@/components/Differentials";
 import { Pricing } from "@/components/Pricing";
 import Security from "@/components/Security";
 import Footer from "@/components/Footer";
-
 const Index = () => {
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       <NewHero />
       <Transformation />
       <FeaturesScroll />
@@ -20,10 +18,8 @@ const Index = () => {
       <SocialProof />
       <Differentials />
       <Pricing />
-      <Security />
+      
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
