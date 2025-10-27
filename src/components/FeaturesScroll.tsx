@@ -40,8 +40,8 @@ export default function FeaturesScroll() {
   ];
 
   const WhatsAppConversation = ({ messages }: { messages: any[] }) => (
-    <div className="bg-white dark:bg-zinc-800 rounded-xl shadow-md p-3">
-      <div className="bg-gray-50 dark:bg-zinc-900 p-3 rounded-lg space-y-2">
+    <div className="bg-white dark:bg-zinc-800 rounded-xl shadow-md p-4">
+      <div className="bg-gray-50 dark:bg-zinc-900 p-4 rounded-lg space-y-3">
         {messages.map((msg, i) => (
           <div 
             key={i}
@@ -54,13 +54,13 @@ export default function FeaturesScroll() {
               <img 
                 src={mooviAvatar} 
                 alt="Moovi" 
-                className="w-5 h-5 rounded-full flex-shrink-0"
+                className="w-6 h-6 rounded-full flex-shrink-0"
               />
             )}
             
             <div
               className={`
-                rounded-lg p-2 max-w-[85%] text-xs
+                rounded-lg p-3 max-w-[85%] text-sm
                 ${msg.type === 'user' 
                   ? 'bg-green-100 dark:bg-green-900/30 text-right' 
                   : 'bg-white dark:bg-zinc-800 shadow-sm'
@@ -89,17 +89,17 @@ export default function FeaturesScroll() {
           </div>
         }
       >
-        <div className="h-full w-full overflow-auto p-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 min-h-full">
+        <div className="h-full w-full overflow-auto p-3">
+          <div className="grid grid-cols-1 gap-6">
             {features.map((feature, i) => (
               <div 
                 key={i}
-                className="bg-card rounded-xl shadow-lg border border-border p-4 flex flex-col gap-3"
+                className="bg-card rounded-xl shadow-lg border border-border p-5 md:p-6 flex flex-col gap-4"
               >
                 <div>
-                  <feature.icon className="w-8 h-8 text-primary mb-2" />
-                  <h3 className="text-base font-bold mb-1">{feature.title}</h3>
-                  <p className="text-xs text-muted-foreground">{feature.description}</p>
+                  <feature.icon className="w-10 h-10 text-primary mb-3" />
+                  <h3 className="text-lg md:text-xl font-bold mb-2">{feature.title}</h3>
+                  <p className="text-sm text-muted-foreground">{feature.description}</p>
                 </div>
                 
                 <WhatsAppConversation messages={feature.conversation} />
