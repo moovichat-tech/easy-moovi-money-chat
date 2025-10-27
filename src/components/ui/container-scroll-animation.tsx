@@ -26,7 +26,7 @@ export const ContainerScroll = ({
   }, []);
 
   const scaleDimensions = () => {
-    return isMobile ? [0.7, 0.9] : [1.05, 1];
+    return [1.05, 1]; // Mesma animação para mobile e desktop
   };
 
   const rotate = useTransform(scrollYProgress, [0, 1], [20, 0]);
