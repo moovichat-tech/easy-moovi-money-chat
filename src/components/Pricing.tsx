@@ -183,6 +183,23 @@ export function Pricing() {
           ))}
         </div>
 
+        {/* Frase de impacto */}
+        <p className={`text-2xl sm:text-3xl font-semibold text-center mt-12 mb-8 fade-in-scroll fade-in-scroll-delay-300 ${isVisible ? 'visible' : ''}`}>
+          Isso não é um sonho. É o que a Moovi faz por você.
+        </p>
+        
+        <div className="text-center mb-12">
+          <Button 
+            asChild
+            size="lg"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-xl px-12 py-6 shadow-xl hover:shadow-2xl transition-all rounded-2xl"
+          >
+            <a href="https://wa.me/5511999999999?text=Quero%20come%C3%A7ar%20agora" target="_blank" rel="noopener noreferrer">
+              Quero começar agora 💚
+            </a>
+          </Button>
+        </div>
+
         {/* Trust Badge */}
         <div className={`mt-12 text-center fade-in-scroll fade-in-scroll-delay-400 ${isVisible ? 'visible' : ''}`}>
           <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">

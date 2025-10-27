@@ -1,7 +1,5 @@
-import { Button } from "@/components/ui/button";
 import { X, Check } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { openWhatsApp } from "@/utils/scroll";
 const Transformation = () => {
   const {
     elementRef,
@@ -37,21 +35,6 @@ const Transformation = () => {
                 <p className="text-base sm:text-lg text-gray-700">{benefit}</p>
               </div>)}
           </div>
-        </div>
-        
-        {/* Frase de impacto */}
-        <p className={`text-2xl sm:text-3xl font-semibold text-center mt-12 mb-8 fade-in-scroll fade-in-scroll-delay-300 ${isVisible ? 'visible' : ''}`}>
-          Isso não é um sonho. É o que a Moovi faz por você.
-        </p>
-        
-        <div className="text-center">
-          <Button 
-            size="xl"
-            onClick={openWhatsApp} 
-            className="bg-green-600 hover:bg-green-700 text-white font-bold text-xl px-12 py-8 shadow-2xl hover:shadow-3xl transition-all rounded-2xl"
-          >
-            Quero começar agora 💚
-          </Button>
         </div>
       </div>
     </section>;
