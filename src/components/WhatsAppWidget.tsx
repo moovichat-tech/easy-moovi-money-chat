@@ -6,7 +6,7 @@ const WhatsAppWidget = () => {
   
   const handleClick = () => {
     window.open(
-      'https://wa.me/5511989269937?text=Olá%2C%20queria%20mais%20informações%20sobre%20o%20Plano%20Anual%20do%20Moovi',
+      'https://wa.me/5511989269937?text=Ol%C3%A1%2C%20queria%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Plano%20Anual%20do%20Moovi',
       '_blank'
     );
   };
@@ -20,7 +20,7 @@ const WhatsAppWidget = () => {
         whitespace-nowrap transition-all duration-300
         ${showTooltip ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'}
       `}>
-        Precisa de ajuda? 💬
+        Suporte Moovi 💬
         <div className="absolute top-full right-4 w-0 h-0 border-l-8 border-r-8 border-t-8 border-transparent border-t-gray-900" />
       </div>
 
@@ -37,7 +37,7 @@ const WhatsAppWidget = () => {
           transition-all duration-300
           hover:scale-110
         "
-        aria-label="Falar com suporte no WhatsApp"
+        aria-label="Falar com o Suporte Moovi no WhatsApp"
       >
         <MessageCircle className="w-7 h-7 md:w-8 md:h-8 text-white" />
       </button>
