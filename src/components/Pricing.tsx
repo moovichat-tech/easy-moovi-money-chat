@@ -129,7 +129,7 @@ export function Pricing() {
           </p>
           
           {/* Card de Segurança Bancária */}
-          <div className="mt-6 max-w-md mx-auto">
+          <div className="mt-6 max-w-md md:max-w-4xl mx-auto">
             <div className="bg-card border border-border rounded-xl p-6 shadow-sm">
               <div className="flex flex-col items-center gap-3">
                 <div className="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center">
