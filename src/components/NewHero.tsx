@@ -36,7 +36,11 @@ const NewHero = () => {
             
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-gray-900">
-              Relaxa. Cuidar do seu dinheiro nunca foi tão fácil.
+              Clareza no caos.
+              <br />
+              Controle no impulso.
+              <br />
+              Tranquilidade no fim do mês.
               <span className="block text-primary mt-2">
                 Tenha um Assessor Financeiro Pessoal 24h no seu WhatsApp.
               </span>
