@@ -10,7 +10,7 @@ export const scrollToSection = (sectionId: string) => {
 
 export const openWhatsApp = () => {
   window.open(
-    'https://api.whatsapp.com/send/?phone=5511989269937&text=Quero+testar+o+MOOVI&type=phone_number&app_absent=0',
+    'https://wa.me/5562994019788?text=quero%20o%20teste',
     '_blank'
   );
 };
