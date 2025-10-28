@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils"
-import { Avatar, AvatarImage } from "@/components/ui/avatar"
+import { Star } from "lucide-react"
 
 export interface TestimonialAuthor {
   name: string
@@ -35,22 +35,24 @@ export function TestimonialCard({
         className
       )}
     >
-      <div className="flex items-center gap-3">
-        <Avatar className="h-12 w-12">
-          <AvatarImage src={author.avatar} alt={author.name} />
-        </Avatar>
-        <div className="flex flex-col items-start">
-          <h3 className="text-md font-semibold leading-none">
-            {author.name}
-          </h3>
-          <p className="text-sm text-muted-foreground">
-            {author.role}
-          </p>
-        </div>
+      <div className="flex gap-1 mb-3">
+        {[...Array(5)].map((_, i) => (
+          <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+        ))}
       </div>
-      <p className="sm:text-md mt-4 text-sm text-muted-foreground">
+      
+      <p className="text-sm sm:text-md text-foreground mb-4 leading-relaxed">
         {text}
       </p>
+      
+      <div className="flex flex-col gap-0.5">
+        <p className="text-sm font-semibold text-foreground">
+          — {author.name}
+        </p>
+        <p className="text-xs text-muted-foreground">
+          {author.role}
+        </p>
+      </div>
     </Card>
   )
 }
