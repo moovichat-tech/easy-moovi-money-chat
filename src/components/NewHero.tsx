@@ -36,13 +36,12 @@ const NewHero = () => {
             
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-gray-900">
-              Clareza no caos.
+              Você trabalha o mês inteiro mas nunca sabe pra onde foi o dinheiro
               <br />
-              Controle no impulso.
               <br />
-              Tranquilidade no fim do mês.
+              O <span className="text-primary">Moovi</span> resolve isso:
               <span className="block text-primary mt-2">
-                Tenha um Assessor Financeiro Pessoal 24h no seu WhatsApp.
+                Seu assessor financeiro 24h no WhatsApp que mostra em tempo real pra onde cada centavo está indo
               </span>
             </h1>
             
