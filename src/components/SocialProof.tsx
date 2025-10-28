@@ -1,86 +1,62 @@
-import { Star } from "lucide-react";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-
-interface Testimonial {
-  text: string;
-  name: string;
-  role: string;
-}
+import { TestimonialsSection } from "@/components/ui/testimonials-with-marquee";
 
 const SocialProof = () => {
-  const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.15 });
-
-  const testimonials: Testimonial[] = [
+  const testimonials = [
     {
-      text: "Antes eu vivia perdida com boletos. Agora durmo tranquila sabendo que o Moovi me avisa de tudo!",
-      name: "Ana Luiza",
-      role: "Designer Autônoma"
+      author: {
+        name: "Ana Luiza",
+        role: "Designer Autônoma",
+        avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face"
+      },
+      text: "Antes eu vivia perdida com boletos. Agora durmo tranquila sabendo que o Moovi me avisa de tudo!"
     },
     {
-      text: "Achei que ia ser mais um app que eu não usaria. Mas como é no WhatsApp, ficou automático. Mudou minha vida financeira!",
-      name: "Carlos Eduardo",
-      role: "Dono de E-commerce"
+      author: {
+        name: "Carlos Eduardo",
+        role: "Dono de E-commerce",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+      },
+      text: "Achei que ia ser mais um app que eu não usaria. Mas como é no WhatsApp, ficou automático. Mudou minha vida financeira!"
     },
     {
-      text: "Finalmente consegui pagar minhas dívidas porque enxerguei onde estava vazando dinheiro. Vale MUITO a pena.",
-      name: "Juliana Martins",
-      role: "Mãe e Empreendedora"
+      author: {
+        name: "Juliana Martins",
+        role: "Mãe e Empreendedora",
+        avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face"
+      },
+      text: "Finalmente consegui pagar minhas dívidas porque enxerguei onde estava vazando dinheiro. Vale MUITO a pena."
     },
     {
-      text: "O melhor investimento que fiz em mim. É tipo ter um contador particular, mas sem pagar uma fortuna.",
-      name: "Roberto Alves",
-      role: "Consultor"
+      author: {
+        name: "Roberto Alves",
+        role: "Consultor",
+        avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face"
+      },
+      text: "O melhor investimento que fiz em mim. É tipo ter um contador particular, mas sem pagar uma fortuna."
     },
     {
-      text: "Muito prático! Mando um áudio enquanto estou no trânsito e pronto, registrado. Não tem desculpa pra não usar.",
-      name: "Fernanda Costa",
-      role: "Professora Particular"
+      author: {
+        name: "Fernanda Costa",
+        role: "Professora Particular",
+        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
+      },
+      text: "Muito prático! Mando um áudio enquanto estou no trânsito e pronto, registrado. Não tem desculpa pra não usar."
     },
     {
-      text: "Nunca imaginei que controlar minhas finanças seria TÃO simples. Sério, é só conversar no WhatsApp.",
-      name: "Thiago Souza",
-      role: "Freelancer de TI"
+      author: {
+        name: "Thiago Souza",
+        role: "Freelancer de TI",
+        avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
+      },
+      text: "Nunca imaginei que controlar minhas finanças seria TÃO simples. Sério, é só conversar no WhatsApp."
     }
   ];
 
-  const TestimonialCard = ({ text, name, role }: Testimonial) => (
-    <div className="bg-card rounded-2xl p-6 shadow-lg border border-border card-hover h-full flex flex-col">
-      <p className="text-foreground text-base sm:text-lg leading-relaxed mb-4 flex-grow">
-        "{text}"
-      </p>
-      
-      <div className="flex gap-1 mb-4">
-        {[1, 2, 3, 4, 5].map(i => (
-          <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-        ))}
-      </div>
-      
-      <div>
-        <p className="font-semibold text-foreground">— {name}</p>
-        <p className="text-sm text-muted-foreground">{role}</p>
-      </div>
-    </div>
-  );
-
   return (
-    <section className="py-16 md:py-20 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8" ref={elementRef}>
-        <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-12 fade-in-scroll ${isVisible ? 'visible' : ''}`}>
-          Eles decidiram ter paz. E você?
-        </h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonials.map((testimonial, i) => (
-            <div 
-              key={i}
-              className={`fade-in-scroll fade-in-scroll-delay-${i * 100} ${isVisible ? 'visible' : ''}`}
-            >
-              <TestimonialCard {...testimonial} />
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <TestimonialsSection
+      title="Eles decidiram ter paz. E você?"
+      testimonials={testimonials}
+    />
   );
 };
 
