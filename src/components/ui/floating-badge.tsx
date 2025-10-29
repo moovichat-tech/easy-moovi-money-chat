@@ -11,11 +11,11 @@ interface FloatingBadgeProps {
 
 export const FloatingBadge = ({ icon, text, value, position, delay = 0 }: FloatingBadgeProps) => {
   const positionClasses = {
-    "top-left": "top-4 left-2 md:top-20 md:left-[15%] xl:left-[20%]",
-    "top-right": "top-4 right-2 md:top-20 md:right-[15%] xl:right-[20%]",
-    "middle-left": "top-[35%] left-1 md:top-[45%] md:left-[10%] xl:left-[15%]",
-    "middle-right": "top-[35%] right-1 md:top-[45%] md:right-[10%] xl:right-[15%]",
-    "bottom-right": "bottom-20 right-2 md:bottom-24 md:right-[15%] xl:right-[20%]"
+    "top-left": "top-2 left-2 md:top-16 md:left-[12%] xl:left-[18%]",
+    "top-right": "top-2 right-2 md:top-16 md:right-[12%] xl:right-[18%]",
+    "middle-left": "hidden md:flex md:top-[25%] md:left-[8%] xl:left-[12%]",
+    "middle-right": "hidden md:flex md:top-[25%] md:right-[8%] xl:right-[12%]",
+    "bottom-right": "bottom-16 right-2 md:bottom-20 md:right-[12%] xl:right-[18%]"
   };
 
   return (
@@ -43,6 +43,9 @@ export const FloatingBadge = ({ icon, text, value, position, delay = 0 }: Floati
       }}
       className={cn(
         "absolute flex items-center",
+        "opacity-90 md:opacity-100",
+        "scale-90 md:scale-100",
+        "z-0 md:z-10",
         "gap-2 px-3 py-2 md:gap-3 md:px-5 md:py-4",
         "bg-gradient-to-br from-white via-white to-green-50/30",
         "backdrop-blur-md rounded-2xl md:rounded-3xl",
