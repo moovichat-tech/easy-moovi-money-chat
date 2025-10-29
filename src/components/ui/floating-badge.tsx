@@ -11,7 +11,7 @@ interface FloatingBadgeProps {
 
 export const FloatingBadge = ({ icon, text, value, position, delay = 0 }: FloatingBadgeProps) => {
   const positionClasses = {
-    "top-left": "top-4 left-4 md:top-12 md:left-[8%] xl:left-[15%]",
+    "top-left": "bottom-20 left-4 md:top-12 md:left-[8%] xl:left-[15%]",
     "top-right": "top-4 right-4 md:top-12 md:right-[8%] xl:right-[15%]",
     "middle-left": "hidden lg:flex lg:top-[50%] lg:left-[4%] xl:left-[8%]",
     "middle-right": "hidden lg:flex lg:top-[50%] lg:right-[4%] xl:right-[8%]",
