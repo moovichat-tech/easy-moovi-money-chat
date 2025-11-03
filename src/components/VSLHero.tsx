@@ -11,7 +11,7 @@ const VSLHero = () => {
   } = useScrollAnimation({
     threshold: 0.1
   });
-  return <section className="relative pt-0 pb-4 md:py-8 lg:py-10 bg-gradient-to-br from-green-50 to-white overflow-hidden">
+  return <section className="relative pt-0 pb-4 md:py-8 lg:py-10 md:-mx-8 bg-gradient-to-br from-green-50 to-white overflow-hidden">
       {/* Floating Badges */}
       <FloatingBadge icon="💰" value="R$ 234" text="economizado este mês" position="top-left" delay={0.2} />
       <FloatingBadge icon="🍕" value="R$ 156" text="gasto com comida" position="top-right" delay={0.4} />
@@ -19,7 +19,7 @@ const VSLHero = () => {
       <FloatingBadge icon="🎯" value="78%" text="da meta atingida" position="middle-right" delay={0.8} />
       <FloatingBadge icon="💡" value="R$ 89" text="economia inteligente" position="bottom-right" delay={1.0} />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8" ref={elementRef}>
+      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8" ref={elementRef}>
         <div className="max-w-5xl mx-auto text-center">
           <div className={`space-y-3 fade-in-scroll ${isVisible ? 'visible' : ''}`}>
             
