@@ -11,7 +11,7 @@ const VSLHero = () => {
   } = useScrollAnimation({
     threshold: 0.1
   });
-  return <section className="relative py-4 md:py-8 lg:py-10 bg-gradient-to-br from-green-50 to-white overflow-hidden">
+  return <section className="relative pt-0 pb-4 md:py-8 lg:py-10 bg-gradient-to-br from-green-50 to-white overflow-hidden">
       {/* Floating Badges */}
       <FloatingBadge icon="💰" value="R$ 234" text="economizado este mês" position="top-left" delay={0.2} />
       <FloatingBadge icon="🍕" value="R$ 156" text="gasto com comida" position="top-right" delay={0.4} />
