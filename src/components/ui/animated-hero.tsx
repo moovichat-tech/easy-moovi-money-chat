@@ -1,7 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { scrollToSection } from "@/utils/scroll";
 
 function AnimatedHero() {
   const [titleNumber, setTitleNumber] = useState(0);
@@ -58,14 +56,6 @@ function AnimatedHero() {
             Seu <span className="font-semibold text-primary">assessor financeiro 24h no WhatsApp</span> que mostra <span className="font-semibold text-primary">em tempo real</span> pra onde cada centavo está indo.
           </p>
         </div>
-        
-        <Button 
-          size="xl"
-          className="bg-green-600 hover:bg-green-700 text-white font-bold text-xl px-12 py-8 shadow-2xl hover:shadow-3xl transition-all rounded-2xl"
-          onClick={() => scrollToSection('pricing-section')}
-        >
-          Quero começar agora 💚
-        </Button>
       </div>
     </div>
   );
