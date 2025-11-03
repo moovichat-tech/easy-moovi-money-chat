@@ -1,13 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-
 function AnimatedHero() {
   const [titleNumber, setTitleNumber] = useState(0);
-  const titles = useMemo(
-    () => ["inteligente", "simples", "poderoso", "prático", "eficaz"],
-    []
-  );
-
+  const titles = useMemo(() => ["inteligente", "simples", "poderoso", "prático", "eficaz"], []);
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       if (titleNumber === titles.length - 1) {
@@ -18,48 +13,38 @@ function AnimatedHero() {
     }, 2000);
     return () => clearTimeout(timeoutId);
   }, [titleNumber, titles]);
-
-  return (
-    <div className="w-full">
+  return <div className="w-full">
       <div className="flex gap-8 py-8 md:py-12 items-center justify-center flex-col">
         <div className="flex gap-6 flex-col">
           <h1 className="text-4xl md:text-6xl lg:text-7xl max-w-4xl tracking-tight text-center font-bold leading-tight">
             <span className="text-gray-900">Controle financeiro</span>
             <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
               &nbsp;
-              {titles.map((title, index) => (
-                <motion.span
-                  key={index}
-                  className="absolute font-bold text-primary"
-                  initial={{ opacity: 0, y: "-100" }}
-                  transition={{ type: "spring", stiffness: 50 }}
-                  animate={
-                    titleNumber === index
-                      ? {
-                          y: 0,
-                          opacity: 1,
-                        }
-                      : {
-                          y: titleNumber > index ? -150 : 150,
-                          opacity: 0,
-                        }
-                  }
-                >
+              {titles.map((title, index) => <motion.span key={index} className="absolute font-bold text-primary" initial={{
+              opacity: 0,
+              y: "-100"
+            }} transition={{
+              type: "spring",
+              stiffness: 50
+            }} animate={titleNumber === index ? {
+              y: 0,
+              opacity: 1
+            } : {
+              y: titleNumber > index ? -150 : 150,
+              opacity: 0
+            }}>
                   {title}
-                </motion.span>
-              ))}
+                </motion.span>)}
             </span>
           </h1>
 
-          <p className="text-lg md:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-2xl text-center px-4">
+          <p className="text-lg leading-relaxed tracking-tight text-muted-foreground max-w-2xl text-center px-4 md:text-xl">
             Trabalha o mês inteiro e nunca sabe pra onde foi o dinheiro?
             <br />
             Seu <span className="font-semibold text-primary">assessor financeiro 24h no WhatsApp</span>, mostra <span className="font-semibold text-primary">em tempo real</span> onde cada centavo está indo.
           </p>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 }
-
 export { AnimatedHero };
