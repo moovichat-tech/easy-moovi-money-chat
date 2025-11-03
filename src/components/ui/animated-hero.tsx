@@ -52,8 +52,9 @@ function AnimatedHero() {
           </h1>
 
           <p className="text-lg md:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-2xl text-center px-4">
-            Você trabalha o mês inteiro mas nunca sabe pra onde foi o dinheiro.
-            Seu <span className="font-semibold text-primary">assessor financeiro 24h no WhatsApp</span> que mostra <span className="font-semibold text-primary">em tempo real</span> pra onde cada centavo está indo.
+            Trabalha o mês inteiro e nunca sabe pra onde foi o dinheiro?
+            <br />
+            Seu <span className="font-semibold text-primary">assessor financeiro 24h no WhatsApp</span>, mostra <span className="font-semibold text-primary">em tempo real</span> onde cada centavo está indo.
           </p>
         </div>
       </div>
