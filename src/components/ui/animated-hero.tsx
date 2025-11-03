@@ -14,9 +14,9 @@ function AnimatedHero() {
     return () => clearTimeout(timeoutId);
   }, [titleNumber, titles]);
   return <div className="w-full">
-      <div className="flex gap-8 py-8 md:py-12 items-center justify-center flex-col">
-        <div className="flex gap-6 flex-col">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl max-w-4xl tracking-tight text-center font-bold leading-tight">
+      <div className="flex gap-4 py-4 md:py-6 items-center justify-center flex-col">
+        <div className="flex gap-3 flex-col">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl max-w-4xl tracking-tight text-center font-bold leading-tight">
             <span className="text-gray-900">Controle financeiro</span>
             <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
               &nbsp;
@@ -38,9 +38,9 @@ function AnimatedHero() {
             </span>
           </h1>
 
-          <p className="text-lg leading-relaxed tracking-tight text-muted-foreground max-w-2xl text-center px-4 md:text-xl">
+          <p className="text-base leading-relaxed tracking-tight text-muted-foreground max-w-2xl text-center px-4 md:text-lg">
             <span className="block">Trabalha o mês inteiro e nunca sabe pra onde foi o dinheiro?</span>
-            <span className="block mt-2 text-base">Seu <span className="font-semibold text-primary">assessor financeiro 24h no WhatsApp</span>, mostra <span className="font-semibold text-primary">em tempo real</span> onde cada centavo está indo.</span>
+            <span className="block mt-1 text-sm md:text-base">Seu <span className="font-semibold text-primary">assessor financeiro 24h no WhatsApp</span>, mostra <span className="font-semibold text-primary">em tempo real</span> onde cada centavo está indo.</span>
           </p>
         </div>
       </div>
