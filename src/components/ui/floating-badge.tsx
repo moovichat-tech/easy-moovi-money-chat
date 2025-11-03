@@ -11,11 +11,11 @@ interface FloatingBadgeProps {
 
 export const FloatingBadge = ({ icon, text, value, position, delay = 0 }: FloatingBadgeProps) => {
   const positionClasses = {
-    "top-left": "top-24 left-8 md:top-12 md:left-[8%] xl:left-[15%]",
-    "top-right": "top-4 right-4 md:top-12 md:right-[8%] xl:right-[15%]",
+    "top-left": "top-2 left-2 md:top-12 md:left-[8%] xl:left-[15%]",
+    "top-right": "top-1 right-1 md:top-12 md:right-[8%] xl:right-[15%]",
     "middle-left": "hidden lg:flex lg:top-[50%] lg:left-[4%] xl:left-[8%]",
     "middle-right": "hidden lg:flex lg:top-[50%] lg:right-[4%] xl:right-[8%]",
-    "bottom-right": "bottom-8 right-4 md:bottom-12 md:right-[8%] xl:right-[15%]"
+    "bottom-right": "bottom-2 right-2 md:bottom-12 md:right-[8%] xl:right-[15%]"
   };
 
   return (
