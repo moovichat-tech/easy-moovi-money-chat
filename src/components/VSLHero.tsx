@@ -3,6 +3,7 @@ import mooviLogo from "@/assets/moovi-logo.png";
 import { FloatingBadge } from "@/components/ui/floating-badge";
 import { Button } from "@/components/ui/button";
 import { scrollToSection } from "@/utils/scroll";
+import { AnimatedHero } from "@/components/ui/animated-hero";
 
 const VSLHero = () => {
   const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.1 });
@@ -55,14 +56,17 @@ const VSLHero = () => {
               <img src={mooviLogo} alt="Moovi - Controle Financeiro no WhatsApp" className="h-16 md:h-20 lg:h-24" />
             </div>
             
+            {/* Hero Text + First CTA */}
+            <AnimatedHero />
+            
             {/* VSL Video Container */}
             <div className="relative w-full max-w-4xl mx-auto">
               <div className="video-container rounded-2xl overflow-hidden shadow-2xl">
                 <iframe 
-                  src="https://www.youtube.com/embed/OEKG3nxqB3w?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&showinfo=0&loop=1&playlist=OEKG3nxqB3w"
+                  src="https://www.youtube.com/embed/OEKG3nxqB3w?controls=1&modestbranding=1&rel=0&showinfo=0"
                   title="Moovi VSL - Controle suas finanças direto no WhatsApp"
                   frameBorder="0"
-                  allow="autoplay; encrypted-media"
+                  allow="encrypted-media"
                   allowFullScreen
                   className="absolute top-0 left-0 w-full h-full"
                 ></iframe>

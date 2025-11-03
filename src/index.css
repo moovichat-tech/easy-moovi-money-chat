@@ -183,6 +183,7 @@ All colors MUST be HSL.
   overflow: hidden;
   max-width: 100%;
   background: #000;
+  margin-top: 2rem;
 }
 
 .video-container iframe {
