@@ -3,6 +3,7 @@ import { Users, DollarSign, TrendingUp, Shield } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { openWhatsApp } from "@/utils/scroll";
 import { TextAnimate } from "@/components/ui/text-animate";
+import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 const Authority = () => {
   const {
     elementRef,
@@ -40,12 +41,36 @@ const Authority = () => {
         </h2>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
-          {metrics.map((metric, i) => <div key={i} className={`bg-card rounded-2xl p-8 text-center shadow-lg border border-border card-hover fade-in-scroll fade-in-scroll-delay-${i * 100} ${isVisible ? 'visible' : ''}`}>
-              <metric.icon className="w-12 h-12 text-primary mx-auto mb-4" />
-              <p className="text-4xl sm:text-5xl font-bold text-foreground mb-2">{metric.number}</p>
-              <p className="text-base sm:text-lg font-semibold text-primary mb-2">{metric.label}</p>
-              <p className="text-sm text-muted-foreground">{metric.description}</p>
-            </div>)}
+          {metrics.map((metric, i) => (
+            <CardContainer key={i} className="py-0">
+              <CardBody className={`bg-card rounded-2xl p-8 text-center shadow-lg border border-border w-full h-auto fade-in-scroll fade-in-scroll-delay-${i * 100} ${isVisible ? 'visible' : ''}`}>
+                <CardItem translateZ="50" className="flex items-center justify-center mb-4">
+                  <metric.icon className="w-12 h-12 text-primary" />
+                </CardItem>
+                
+                <CardItem 
+                  translateZ="75" 
+                  className="text-4xl sm:text-5xl font-bold text-foreground mb-2"
+                >
+                  {metric.number}
+                </CardItem>
+                
+                <CardItem 
+                  translateZ="60" 
+                  className="text-base sm:text-lg font-semibold text-primary mb-2"
+                >
+                  {metric.label}
+                </CardItem>
+                
+                <CardItem 
+                  translateZ="40" 
+                  className="text-sm text-muted-foreground"
+                >
+                  {metric.description}
+                </CardItem>
+              </CardBody>
+            </CardContainer>
+          ))}
         </div>
         
         <div className="text-center mt-12">
