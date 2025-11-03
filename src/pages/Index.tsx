@@ -1,4 +1,4 @@
-import NewHero from "@/components/NewHero";
+import VSLHero from "@/components/VSLHero";
 import Transformation from "@/components/Transformation";
 import FeaturesScroll from "@/components/FeaturesScroll";
 import SocialProof from "@/components/SocialProof";
@@ -10,7 +10,7 @@ import Security from "@/components/Security";
 import Footer from "@/components/Footer";
 const Index = () => {
   return <div className="min-h-screen">
-      <NewHero />
+      <VSLHero />
       <Transformation />
       <FeaturesScroll />
       
