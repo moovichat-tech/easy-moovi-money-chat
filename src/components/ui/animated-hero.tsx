@@ -14,8 +14,8 @@ function AnimatedHero() {
     return () => clearTimeout(timeoutId);
   }, [titleNumber, titles]);
   return <div className="w-full">
-      <div className="flex gap-4 py-4 md:py-6 items-center justify-center flex-col">
-        <div className="flex gap-3 flex-col">
+      <div className="flex gap-3 py-3 md:py-5 items-center justify-center flex-col">
+        <div className="flex gap-2 flex-col">
           <h1 className="text-4xl md:text-5xl lg:text-6xl max-w-4xl tracking-tight text-center font-bold leading-tight">
             <span className="text-gray-900">Controle financeiro</span>
             <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
