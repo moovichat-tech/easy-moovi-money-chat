@@ -1,5 +1,6 @@
 import { Smartphone, Zap, MessageCircle, Clock, X, Check } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { TextAnimate } from "@/components/ui/text-animate";
 
 const Differentials = () => {
   const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.15 });
@@ -21,8 +22,10 @@ const Differentials = () => {
   return (
     <section className="py-16 md:py-20 bg-gray-100">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8" ref={elementRef}>
-        <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-4 fade-in-scroll ${isVisible ? 'visible' : ''}`}>
-          Não é só mais um app de finanças
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-4">
+          <TextAnimate animation="slideUp" by="word">
+            Não é só mais um app de finanças
+          </TextAnimate>
         </h2>
         <p className={`text-xl sm:text-2xl text-center text-muted-foreground mb-12 fade-in-scroll fade-in-scroll-delay-100 ${isVisible ? 'visible' : ''}`}>
           É o seu Assessor Pessoal de Bolso

@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Users, DollarSign, TrendingUp, Shield } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { openWhatsApp } from "@/utils/scroll";
+import { TextAnimate } from "@/components/ui/text-animate";
 const Authority = () => {
   const {
     elementRef,
@@ -32,7 +33,11 @@ const Authority = () => {
   }];
   return <section className="py-16 md:py-20 bg-gradient-to-b from-green-50 to-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8" ref={elementRef}>
-        <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-4 fade-in-scroll ${isVisible ? 'visible' : ''}`}>Moovi ajuda milhares de pessoas a organizarem suas vidas financeiras, de maneira simples e inteligente!</h2>
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-4">
+          <TextAnimate animation="slideUp" by="word">
+            Moovi ajuda milhares de pessoas a organizarem suas vidas financeiras, de maneira simples e inteligente!
+          </TextAnimate>
+        </h2>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
           {metrics.map((metric, i) => <div key={i} className={`bg-card rounded-2xl p-8 text-center shadow-lg border border-border card-hover fade-in-scroll fade-in-scroll-delay-${i * 100} ${isVisible ? 'visible' : ''}`}>

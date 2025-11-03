@@ -1,6 +1,7 @@
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { Edit3, Bell, BarChart3, Target, FileBarChart } from "lucide-react";
 import mooviAvatar from "@/assets/moovi-mascot-avatar.png";
+import { TextAnimate } from "@/components/ui/text-animate";
 
 interface Feature {
   icon: any;
@@ -99,7 +100,9 @@ export default function FeaturesScroll() {
         titleComponent={
           <div className="space-y-4">
             <h2 className="text-4xl md:text-6xl font-bold text-foreground">
-              Seu Assessor Financeiro Pessoal
+              <TextAnimate animation="slideUp" by="word">
+                Seu Assessor Financeiro Pessoal
+              </TextAnimate>
             </h2>
             <p className="text-xl md:text-2xl text-muted-foreground">
               Direto no WhatsApp 💚
