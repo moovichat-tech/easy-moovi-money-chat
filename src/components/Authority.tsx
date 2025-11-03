@@ -40,7 +40,7 @@ const Authority = () => {
           </TextAnimate>
         </h2>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 mt-12">
           {metrics.map((metric, i) => (
             <CardContainer key={i} className="py-0">
               <CardBody className={`bg-card rounded-2xl p-8 text-center shadow-lg border border-border w-full h-auto fade-in-scroll fade-in-scroll-delay-${i * 100} ${isVisible ? 'visible' : ''}`}>
