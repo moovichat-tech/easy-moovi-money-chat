@@ -40,7 +40,7 @@ function AnimatedHero() {
 
           <p className="text-lg leading-relaxed tracking-tight text-muted-foreground max-w-2xl text-center px-4 md:text-xl">
             <span className="block">Trabalha o mês inteiro e nunca sabe pra onde foi o dinheiro?</span>
-            <span className="block mt-2">Seu <span className="font-semibold text-primary">assessor financeiro 24h no WhatsApp</span>, mostra <span className="font-semibold text-primary">em tempo real</span> onde cada centavo está indo.</span>
+            <span className="block mt-2 text-base">Seu <span className="font-semibold text-primary">assessor financeiro 24h no WhatsApp</span>, mostra <span className="font-semibold text-primary">em tempo real</span> onde cada centavo está indo.</span>
           </p>
         </div>
       </div>

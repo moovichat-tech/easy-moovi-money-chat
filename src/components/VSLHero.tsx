@@ -46,9 +46,7 @@ const VSLHero = () => {
             </div>
 
             {/* Trust Badge Below CTA */}
-            <p className="text-sm text-gray-600 mt-4">
-              ✅ Teste grátis por 3 dias • 🔒 Seus dados 100% seguros
-            </p>
+            
 
           </div>
         </div>
