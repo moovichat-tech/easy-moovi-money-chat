@@ -41,40 +41,29 @@ const Authority = () => {
         </h2>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 mt-12">
-          {metrics.map((metric, i) => (
-            <CardContainer key={i} className="py-0">
+          {metrics.map((metric, i) => <CardContainer key={i} className="py-0">
               <CardBody className={`bg-card rounded-2xl p-8 text-center shadow-lg border border-border w-full h-auto fade-in-scroll fade-in-scroll-delay-${i * 100} ${isVisible ? 'visible' : ''}`}>
                 <CardItem translateZ="50" className="flex items-center justify-center mb-4">
                   <metric.icon className="w-12 h-12 text-primary" />
                 </CardItem>
                 
-                <CardItem 
-                  translateZ="75" 
-                  className="text-4xl sm:text-5xl font-bold text-foreground mb-2"
-                >
+                <CardItem translateZ="75" className="text-4xl sm:text-5xl font-bold text-foreground mb-2">
                   {metric.number}
                 </CardItem>
                 
-                <CardItem 
-                  translateZ="60" 
-                  className="text-base sm:text-lg font-semibold text-primary mb-2"
-                >
+                <CardItem translateZ="60" className="text-base sm:text-lg font-semibold text-primary mb-2">
                   {metric.label}
                 </CardItem>
                 
-                <CardItem 
-                  translateZ="40" 
-                  className="text-sm text-muted-foreground"
-                >
+                <CardItem translateZ="40" className="text-sm text-muted-foreground">
                   {metric.description}
                 </CardItem>
               </CardBody>
-            </CardContainer>
-          ))}
+            </CardContainer>)}
         </div>
         
         <div className="text-center mt-12">
-          <Button size="xl" className="bg-green-700 hover:bg-green-800 text-white font-bold text-xl px-12 py-8 shadow-2xl hover:shadow-3xl transition-all rounded-2xl" onClick={openWhatsApp}>Quero fazer parte 💚</Button>
+          <Button size="xl" className="bg-green-700 hover:bg-green-800 text-white font-bold text-xl px-12 py-8 shadow-2xl hover:shadow-3xl transition-all rounded-2xl" onClick={openWhatsApp}>Testar 3 dias Grátis💚</Button>
         </div>
       </div>
     </section>;
