@@ -1,26 +1,16 @@
 import { Smartphone, Zap, MessageCircle, Clock, X, Check } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { TextAnimate } from "@/components/ui/text-animate";
-
 const Differentials = () => {
-  const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.15 });
-
-  const withoutMoovi = [
-    "Você tenta lembrar onde gastou",
-    "Esquece contas importantes",
-    "Se sente perdido no final do mês",
-    "Vive com sensação de 'não sei pra onde foi meu dinheiro'"
-  ];
-
-  const withMoovi = [
-    "Clareza total de todas as despesas",
-    "Alertas automáticos de tudo que importa",
-    "Entende seus padrões de gastos",
-    "Decisões financeiras com confiança e tranquilidade"
-  ];
-
-  return (
-    <section className="py-16 md:py-20 bg-gray-100">
+  const {
+    elementRef,
+    isVisible
+  } = useScrollAnimation({
+    threshold: 0.15
+  });
+  const withoutMoovi = ["Você tenta lembrar onde gastou", "Esquece contas importantes", "Se sente perdido no final do mês", "Vive com sensação de 'não sei pra onde foi meu dinheiro'"];
+  const withMoovi = ["Clareza total de todas as despesas", "Alertas automáticos de tudo que importa", "Entende seus padrões de gastos", "Decisões financeiras com confiança e tranquilidade"];
+  return <section className="py-16 md:py-20 bg-gray-100">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8" ref={elementRef}>
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-4">
           <TextAnimate animation="slideUp" by="word">
@@ -33,21 +23,27 @@ const Differentials = () => {
         
         {/* Trust Badges */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {[
-            { icon: Smartphone, text: "Sem instalar nada novo", subtitle: "Funciona direto no WhatsApp" },
-            { icon: Zap, text: "Sem complicação", subtitle: "Simples como uma mensagem" },
-            { icon: MessageCircle, text: "Conversa natural", subtitle: "Como falar com um amigo" },
-            { icon: Clock, text: "Disponível 24h", subtitle: "Seu assessor nunca tira folga" }
-          ].map((badge, i) => (
-            <div 
-              key={i} 
-              className={`bg-card rounded-xl p-6 text-center shadow-lg border border-border card-hover fade-in-scroll fade-in-scroll-delay-${i * 100} ${isVisible ? 'visible' : ''}`}
-            >
+          {[{
+          icon: Smartphone,
+          text: "Sem instalar nada novo",
+          subtitle: "Funciona direto no WhatsApp"
+        }, {
+          icon: Zap,
+          text: "Sem complicação",
+          subtitle: "Simples como uma mensagem"
+        }, {
+          icon: MessageCircle,
+          text: "Conversa natural",
+          subtitle: "Como falar com um amigo"
+        }, {
+          icon: Clock,
+          text: "Disponível 24h",
+          subtitle: "Seu assessor nunca tira folga"
+        }].map((badge, i) => <div key={i} className={`bg-card rounded-xl p-6 text-center shadow-lg border border-border card-hover fade-in-scroll fade-in-scroll-delay-${i * 100} ${isVisible ? 'visible' : ''}`}>
               <badge.icon className="w-12 h-12 text-primary mx-auto mb-3" />
               <p className="font-semibold mb-1">{badge.text}</p>
               <p className="text-sm text-muted-foreground">{badge.subtitle}</p>
-            </div>
-          ))}
+            </div>)}
         </div>
         
         {/* Comparação */}
@@ -63,12 +59,10 @@ const Differentials = () => {
               Sem o Moovi
             </h4>
             <ul className="space-y-4">
-              {withoutMoovi.map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <span className="text-red-500 mt-1 text-xl">✗</span>
+              {withoutMoovi.map((item, i) => <li key={i} className="flex items-start gap-3">
+                  <span className="text-red-500 mt-1 text-xl font-mono">✗</span>
                   <span className="text-gray-700">{item}</span>
-                </li>
-              ))}
+                </li>)}
             </ul>
           </div>
           
@@ -79,18 +73,14 @@ const Differentials = () => {
               Com o Moovi
             </h4>
             <ul className="space-y-4">
-              {withMoovi.map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
+              {withMoovi.map((item, i) => <li key={i} className="flex items-start gap-3">
                   <Check className="text-primary mt-1 shrink-0" />
                   <span className="text-gray-700">{item}</span>
-                </li>
-              ))}
+                </li>)}
             </ul>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Differentials;
