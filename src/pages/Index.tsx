@@ -11,12 +11,12 @@ import Footer from "@/components/Footer";
 const Index = () => {
   return <div className="min-h-screen">
       <VSLHero />
+      <Differentials />
       <Transformation />
       <FeaturesScroll />
       
       <Authority />
       <SocialProof />
-      <Differentials />
       <Pricing />
       
       <Footer />
