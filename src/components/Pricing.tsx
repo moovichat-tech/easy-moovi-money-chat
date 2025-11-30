@@ -7,6 +7,27 @@ export function Pricing() {
 
   const plans = [
     {
+      name: "Plano Anual",
+      monthlyPrice: 24.90,
+      yearlyPrice: 19.90,
+      yearlyTotal: 238.80,
+      savings: 60.00,
+      savingsPercent: 20,
+      period: "por mês",
+      features: [
+        "Tudo do Plano Mensal",
+        "Economize 20% no valor total",
+        "Prioridade no suporte",
+        "Relatórios anuais detalhados",
+        "Sem aumentos de preço por 1 ano",
+      ],
+      description: "Melhor custo-benefício",
+      buttonText: "Assinar Anual",
+      href: "https://buy.stripe.com/28E5kDcN78JL1s77k95c404",
+      isPopular: true,
+      badge: "Economize 20%",
+    },
+    {
       name: "Plano Mensal",
       monthlyPrice: 24.90,
       yearlyPrice: 24.90,
@@ -23,27 +44,6 @@ export function Pricing() {
       buttonText: "Assinar Mensal",
       href: "https://buy.stripe.com/3cI00j7sNe45gn19sh5c403",
       isPopular: false,
-    },
-    {
-      name: "Plano Anual",
-      monthlyPrice: 24.90,
-      yearlyPrice: 19.00,
-      yearlyTotal: 228.00,
-      savings: 70.80,
-      savingsPercent: 24,
-      period: "por mês",
-      features: [
-        "Tudo do Plano Mensal",
-        "Economize 24% no valor total",
-        "Prioridade no suporte",
-        "Relatórios anuais detalhados",
-        "Sem aumentos de preço por 1 ano",
-      ],
-      description: "Melhor custo-benefício",
-      buttonText: "Assinar Anual",
-      href: "https://buy.stripe.com/28E5kDcN78JL1s77k95c404",
-      isPopular: true,
-      badge: "Economize 24%",
     },
   ];
 

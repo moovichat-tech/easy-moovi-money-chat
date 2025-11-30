@@ -36,7 +36,7 @@ export function PricingToggle({
   title = "Escolha seu plano",
   description = "",
 }: PricingToggleProps) {
-  const [isMonthly, setIsMonthly] = useState(true);
+  const [isMonthly, setIsMonthly] = useState(false);
   const isDesktop = useMediaQuery("(min-width: 768px)");
   const switchRef = useRef<HTMLButtonElement>(null);
 
@@ -95,7 +95,7 @@ export function PricingToggle({
           />
         </Label>
         <span className={cn("font-semibold transition-colors", !isMonthly ? "text-foreground" : "text-muted-foreground")}>
-          Anual <span className="text-primary">(Economize 24% 🎉)</span>
+          Anual <span className="text-primary">(Economize 20% 🎉)</span>
         </span>
       </div>
 
