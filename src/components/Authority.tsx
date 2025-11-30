@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Users, DollarSign, TrendingUp, Shield } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { openWhatsApp } from "@/utils/scroll";
+import { scrollToSection } from "@/utils/scroll";
 import { TextAnimate } from "@/components/ui/text-animate";
 import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 const Authority = () => {
@@ -63,7 +63,7 @@ const Authority = () => {
         </div>
         
         <div className="text-center mt-12">
-          <Button size="xl" className="bg-green-700 hover:bg-green-800 text-white font-bold text-xl px-12 py-8 shadow-2xl hover:shadow-3xl transition-all rounded-2xl" onClick={openWhatsApp}>   Quero começar agora 💚</Button>
+          <Button size="xl" className="bg-green-700 hover:bg-green-800 text-white font-bold text-xl px-12 py-8 shadow-2xl hover:shadow-3xl transition-all rounded-2xl" onClick={() => scrollToSection('pricing-section')}>   Quero começar agora 💚</Button>
         </div>
       </div>
     </section>;
