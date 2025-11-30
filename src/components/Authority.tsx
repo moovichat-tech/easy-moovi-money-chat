@@ -63,7 +63,7 @@ const Authority = () => {
         </div>
         
         <div className="text-center mt-12">
-          <Button size="xl" className="bg-green-700 hover:bg-green-800 text-white font-bold text-xl px-12 py-8 shadow-2xl hover:shadow-3xl transition-all rounded-2xl" onClick={openWhatsApp}>Testar 3 dias Grátis💚</Button>
+          <Button size="xl" className="bg-green-700 hover:bg-green-800 text-white font-bold text-xl px-12 py-8 shadow-2xl hover:shadow-3xl transition-all rounded-2xl" onClick={openWhatsApp}>   Quero começar agora 💚</Button>
         </div>
       </div>
     </section>;
