@@ -8,7 +8,7 @@ export function Pricing() {
   const plans = [
     {
       name: "Plano Anual",
-      monthlyPrice: 19.90,
+      monthlyPrice: 24.90,
       yearlyPrice: 19.90,
       yearlyTotal: 238.80,
       savings: 60.00,
