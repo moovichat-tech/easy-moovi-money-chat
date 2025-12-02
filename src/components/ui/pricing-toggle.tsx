@@ -148,7 +148,7 @@ export function PricingToggle({
               )}
               <div className="text-5xl font-bold text-primary mb-2">
                 <NumberFlow
-                  value={isMonthly ? plan.monthlyPrice : plan.yearlyPrice}
+                  value={plan.isPopular ? plan.yearlyPrice : (isMonthly ? plan.monthlyPrice : plan.yearlyPrice)}
                   format={{
                     style: "currency",
                     currency: "BRL",
