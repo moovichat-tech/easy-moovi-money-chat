@@ -2,9 +2,9 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { IPhoneMockup } from "@/components/ui/iphone-mockup";
 import { TextAnimate } from "@/components/ui/text-animate";
+import { FloatingPaths } from "@/components/ui/background-paths";
 import phoneLeft from "@/assets/phone-left.png";
 import phoneRight from "@/assets/phone-right.png";
-
 const TriplePhoneShowcase = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const {
@@ -42,6 +42,12 @@ const TriplePhoneShowcase = () => {
     }
   };
   return <section ref={sectionRef} className="relative py-16 md:py-24 overflow-hidden bg-background">
+      {/* Animated Background Paths */}
+      <div className="absolute inset-0 overflow-hidden opacity-60">
+        <FloatingPaths position={1} />
+        <FloatingPaths position={-1} />
+      </div>
+      
       {/* Subtle Grid Pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(155_65%_35%/0.03)_1px,transparent_1px),linear-gradient(to_bottom,hsl(155_65%_35%/0.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
       
