@@ -41,7 +41,7 @@ const TriplePhoneShowcase = () => {
       }
     }
   };
-  return <section ref={sectionRef} className="relative py-16 md:py-24 overflow-hidden bg-background">
+  return <section ref={sectionRef} className="relative py-10 md:py-24 overflow-hidden bg-background">
       {/* Animated Background Paths */}
       <div className="absolute inset-0 overflow-hidden opacity-60">
         <FloatingPaths position={1} />
@@ -56,8 +56,8 @@ const TriplePhoneShowcase = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Title */}
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-center leading-tight mb-4">
+        <div className="text-center mb-8 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-center leading-tight mb-3 sm:mb-4">
             <TextAnimate animation="blurInUp" by="character" className="text-foreground" once>
               O controle total
             </TextAnimate>
@@ -69,7 +69,7 @@ const TriplePhoneShowcase = () => {
           <TextAnimate 
             animation="blurIn" 
             by="word"
-            className="text-lg max-w-2xl mx-auto text-muted-foreground sm:text-xl"
+            className="text-base sm:text-lg max-w-xs sm:max-w-2xl mx-auto text-muted-foreground px-2 sm:px-0"
             delay={0.6}
             once
           >
@@ -90,7 +90,7 @@ const TriplePhoneShowcase = () => {
           </motion.div>
 
           {/* Center iPhone - Always visible, larger */}
-          <motion.div variants={phoneVariants} className="w-64 sm:w-72 md:w-72 lg:w-80 xl:w-96 z-20">
+          <motion.div variants={phoneVariants} className="w-56 sm:w-72 md:w-72 lg:w-80 xl:w-96 z-20">
             <IPhoneMockup videoEmbed videoEmbedSrc="https://player-vz-c1e2f242-e38.tv.pandavideo.com.br/embed/?v=4e6c28e8-f6eb-4e20-b216-224be1bc17f8" alt="Moovi - Demonstração do app" className="drop-shadow-[0_35px_60px_rgba(22,163,74,0.35)]" />
           </motion.div>
 
