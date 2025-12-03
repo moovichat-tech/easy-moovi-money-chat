@@ -51,8 +51,8 @@ const TriplePhoneShowcase = () => {
       {/* Subtle Grid Pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(155_65%_35%/0.03)_1px,transparent_1px),linear-gradient(to_bottom,hsl(155_65%_35%/0.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
       
-      {/* Green Glow Effect */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] md:w-[700px] h-[500px] md:h-[700px] bg-[radial-gradient(circle,hsl(var(--primary)/0.12),hsl(var(--primary)/0.05)_40%,transparent_70%)] rounded-full blur-3xl pointer-events-none" />
+      {/* Green Glow Effect - Responsive sizing */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] max-w-[500px] md:max-w-[700px] h-[80vw] max-h-[500px] md:max-h-[700px] bg-[radial-gradient(circle,hsl(var(--primary)/0.12),hsl(var(--primary)/0.05)_40%,transparent_70%)] rounded-full blur-3xl pointer-events-none" />
       
       <div className="container mx-auto px-6 sm:px-4 relative z-10">
         {/* Title */}

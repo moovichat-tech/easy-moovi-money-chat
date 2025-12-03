@@ -76,6 +76,7 @@ export function IPhoneMockup({
           WebkitMaskImage: '-webkit-radial-gradient(white, black)',
           WebkitTransform: 'translate3d(0,0,0)',
           transform: 'translate3d(0,0,0)',
+          overflow: 'hidden',
         }}
       >
         {videoEmbed && videoEmbedSrc ? (
