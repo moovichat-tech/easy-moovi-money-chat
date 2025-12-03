@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { ElementType } from "react";
 
-type AnimationType = "slideUp" | "slideDown" | "slideLeft" | "slideRight" | "fadeIn";
+type AnimationType = "slideUp" | "slideDown" | "slideLeft" | "slideRight" | "fadeIn" | "blurIn" | "blurInUp";
 type AnimationBy = "word" | "character";
 
 interface TextAnimateProps {
@@ -11,6 +12,8 @@ interface TextAnimateProps {
   className?: string;
   delay?: number;
   duration?: number;
+  as?: "h1" | "h2" | "h3" | "h4" | "p" | "span";
+  once?: boolean;
 }
 
 const animationVariants = {
@@ -33,6 +36,14 @@ const animationVariants = {
   fadeIn: {
     hidden: { opacity: 0 },
     visible: { opacity: 1 }
+  },
+  blurIn: {
+    hidden: { opacity: 0, filter: "blur(10px)" },
+    visible: { opacity: 1, filter: "blur(0px)" }
+  },
+  blurInUp: {
+    hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+    visible: { opacity: 1, y: 0, filter: "blur(0px)" }
   }
 };
 
@@ -42,7 +53,9 @@ export function TextAnimate({
   by = "word",
   className,
   delay = 0,
-  duration = 0.5
+  duration = 0.5,
+  as = "span",
+  once = true
 }: TextAnimateProps) {
   const variants = animationVariants[animation];
   
@@ -73,13 +86,15 @@ export function TextAnimate({
     }
   };
 
+  const MotionComponent = motion[as] as typeof motion.span;
+
   return (
-    <motion.span
+    <MotionComponent
       className={cn("inline-block", className)}
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ once, amount: 0.3 }}
     >
       {items.map((item, index) => (
         <motion.span
@@ -91,9 +106,9 @@ export function TextAnimate({
             whiteSpace: by === "word" ? "nowrap" : "normal"
           }}
         >
-          {item}
+          {item === " " ? "\u00A0" : item}
         </motion.span>
       ))}
-    </motion.span>
+    </MotionComponent>
   );
 }

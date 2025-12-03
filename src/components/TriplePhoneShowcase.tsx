@@ -1,8 +1,10 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { IPhoneMockup } from "@/components/ui/iphone-mockup";
+import { TextAnimate } from "@/components/ui/text-animate";
 import phoneLeft from "@/assets/phone-left.png";
 import phoneRight from "@/assets/phone-right.png";
+
 const TriplePhoneShowcase = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const {
@@ -48,27 +50,26 @@ const TriplePhoneShowcase = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Title */}
-        <motion.div initial={{
-        opacity: 0,
-        y: 20
-      }} whileInView={{
-        opacity: 1,
-        y: 0
-      }} viewport={{
-        once: true,
-        margin: "-100px"
-      }} transition={{
-        duration: 0.5
-      }} className="text-center mb-12 md:mb-16">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-center leading-tight mb-4">
-            <span className="text-foreground">O controle total</span>
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-center leading-tight mb-4">
+            <TextAnimate animation="blurInUp" by="character" className="text-foreground" once>
+              O controle total
+            </TextAnimate>
             <br className="sm:hidden" />
-            <span className="text-primary"> na palma da mão</span>
+            <TextAnimate animation="blurInUp" by="character" className="text-primary" delay={0.4} once>
+              {" na palma da mão"}
+            </TextAnimate>
           </h2>
-          <p className="text-lg max-w-2xl mx-auto text-muted-foreground sm:text-xl">
+          <TextAnimate 
+            animation="blurIn" 
+            by="word"
+            className="text-lg max-w-2xl mx-auto text-muted-foreground sm:text-xl"
+            delay={0.6}
+            once
+          >
             Veja como é simples usar o Moovi no seu dia a dia
-          </p>
-        </motion.div>
+          </TextAnimate>
+        </div>
 
         {/* 3 iPhones Container */}
         <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{
