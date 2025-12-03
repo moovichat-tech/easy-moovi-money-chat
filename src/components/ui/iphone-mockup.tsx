@@ -23,6 +23,7 @@ export function IPhoneMockup({
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="w-full h-auto drop-shadow-2xl"
+        preserveAspectRatio="xMidYMid meet"
       >
         {/* Phone Body */}
         <rect
@@ -77,14 +78,27 @@ export function IPhoneMockup({
         >
           <div
             className="w-full h-full overflow-hidden rounded-[50px]"
-            style={{ borderRadius: '50px' }}
+            style={{ 
+              borderRadius: '50px',
+              width: '100%',
+              height: '100%',
+              position: 'relative'
+            }}
           >
             {videoEmbed && videoEmbedSrc ? (
-              <div className="w-full h-full relative">
+              <div 
+                className="w-full h-full relative"
+                style={{ width: '100%', height: '100%' }}
+              >
                 <iframe
                   src={videoEmbedSrc}
                   className="absolute inset-0 w-full h-full"
-                  style={{ border: 'none' }}
+                  style={{ 
+                    border: 'none',
+                    width: '100%',
+                    height: '100%',
+                    minHeight: '100%'
+                  }}
                   allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
                   allowFullScreen
                   title="Video player"

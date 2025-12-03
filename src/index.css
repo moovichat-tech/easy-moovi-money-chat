@@ -262,6 +262,16 @@ All colors MUST be HSL.
     background-size: 40px 40px;
   }
   
+  /* Fix para SVG foreignObject em mobile */
+  svg foreignObject {
+    overflow: visible;
+  }
+
+  svg foreignObject > div {
+    width: 100%;
+    height: 100%;
+  }
+  
   /* Remove badge do editor Lovable */
   .lovable-badge,
   .lovable-watermark,

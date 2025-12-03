@@ -81,7 +81,7 @@ const TriplePhoneShowcase = () => {
         <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{
         once: true,
         margin: "-50px"
-      }} className="flex items-center justify-center gap-0 md:gap-0 w-full max-w-xs sm:max-w-none mx-auto">
+      }} className="flex items-center justify-center gap-0 md:gap-0 w-full max-w-sm sm:max-w-none mx-auto">
           {/* Left iPhone - Hidden on mobile (80% of center) */}
           <motion.div variants={phoneVariants} style={{
           y: leftY
@@ -90,7 +90,7 @@ const TriplePhoneShowcase = () => {
           </motion.div>
 
           {/* Center iPhone - Always visible, larger */}
-          <motion.div variants={phoneVariants} className="w-48 sm:w-56 md:w-72 lg:w-80 xl:w-96 z-20 mx-auto">
+          <motion.div variants={phoneVariants} className="w-48 sm:w-56 md:w-72 lg:w-80 xl:w-96 z-20">
             <IPhoneMockup videoEmbed videoEmbedSrc="https://player-vz-c1e2f242-e38.tv.pandavideo.com.br/embed/?v=4e6c28e8-f6eb-4e20-b216-224be1bc17f8" alt="Moovi - Demonstração do app" className="drop-shadow-[0_35px_60px_rgba(22,163,74,0.35)]" />
           </motion.div>
 
