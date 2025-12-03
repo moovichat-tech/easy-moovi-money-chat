@@ -68,23 +68,30 @@ export function IPhoneMockup({
       <div 
         className="absolute overflow-hidden"
         style={{
-          top: '2.04%',
-          left: '4.16%',
-          width: '91.68%',
-          height: '95.92%',
-          borderRadius: '5.9% / 5.9%',
+          // Exact calculations from SVG: screen at x=18, y=18, width=397, height=846 in viewBox 433x882
+          top: '2%',
+          left: '4.2%',
+          right: '4.2%',
+          bottom: '2%',
+          borderRadius: '11.5% / 5.5%',
           WebkitMaskImage: '-webkit-radial-gradient(white, black)',
           WebkitTransform: 'translate3d(0,0,0)',
           transform: 'translate3d(0,0,0)',
           overflow: 'hidden',
+          boxSizing: 'border-box',
         }}
       >
         {videoEmbed && videoEmbedSrc ? (
           <div 
             style={{
-              position: 'relative',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
               width: '100%',
               height: '100%',
+              overflow: 'hidden',
             }}
           >
             <iframe
@@ -96,10 +103,11 @@ export function IPhoneMockup({
                 position: 'absolute',
                 top: 0,
                 left: 0,
+                right: 0,
+                bottom: 0,
                 width: '100%',
                 height: '100%',
-                minWidth: '100%',
-                minHeight: '100%',
+                objectFit: 'cover',
                 transform: 'translate3d(0,0,0)',
                 WebkitTransform: 'translate3d(0,0,0)',
               }}
