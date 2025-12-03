@@ -64,7 +64,7 @@ export function IPhoneMockup({
         <rect x="430" y="240" width="3" height="100" rx="1.5" fill="#2a2a2a" />
       </svg>
 
-      {/* Screen Content - CSS positioned overlay instead of foreignObject */}
+      {/* Screen Content - CSS positioned overlay with Safari iOS fixes */}
       <div 
         className="absolute overflow-hidden"
         style={{
@@ -74,24 +74,48 @@ export function IPhoneMockup({
           height: '95.92%',
           borderRadius: '5.9% / 5.9%',
           WebkitMaskImage: '-webkit-radial-gradient(white, black)',
+          WebkitTransform: 'translate3d(0,0,0)',
+          transform: 'translate3d(0,0,0)',
         }}
       >
         {videoEmbed && videoEmbedSrc ? (
-          <iframe
-            src={videoEmbedSrc}
-            className="absolute inset-0 w-full h-full"
-            style={{ 
-              border: 'none',
+          <div 
+            style={{
+              position: 'relative',
+              width: '100%',
+              height: '100%',
             }}
-            allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
-            allowFullScreen
-            title="Video player"
-          />
+          >
+            <iframe
+              src={videoEmbedSrc}
+              width="100%"
+              height="100%"
+              style={{ 
+                border: 'none',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                minWidth: '100%',
+                minHeight: '100%',
+                transform: 'translate3d(0,0,0)',
+                WebkitTransform: 'translate3d(0,0,0)',
+              }}
+              allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
+              allowFullScreen
+              title="Video player"
+            />
+          </div>
         ) : src ? (
           <img
             src={src}
             alt={alt}
             className="w-full h-full object-cover"
+            style={{
+              transform: 'translate3d(0,0,0)',
+              WebkitTransform: 'translate3d(0,0,0)',
+            }}
           />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-primary/20 to-primary/5" />
