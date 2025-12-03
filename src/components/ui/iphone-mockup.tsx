@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { useState } from "react";
 
 interface IPhoneMockupProps {
   src?: string;
@@ -15,6 +16,8 @@ export function IPhoneMockup({
   alt = "iPhone screen",
   className,
 }: IPhoneMockupProps) {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   return (
     <div className={cn("relative", className)}>
       {/* iPhone Frame SVG - Only the frame, no foreignObject */}
@@ -64,8 +67,7 @@ export function IPhoneMockup({
         <rect x="430" y="240" width="3" height="100" rx="1.5" fill="#2a2a2a" />
       </svg>
 
-      {/* Screen Content - CSS positioned overlay with Safari iOS fixes */}
-      {/* Screen Content - Fixed black background to prevent layout shift */}
+      {/* Screen Content - Fixed aspect ratio container */}
       <div 
         className="absolute overflow-hidden"
         style={{
@@ -76,45 +78,49 @@ export function IPhoneMockup({
           borderRadius: '11.55% / 5.67%',
           backgroundColor: '#000',
           WebkitMaskImage: '-webkit-radial-gradient(white, black)',
-          WebkitTransform: 'translate3d(0,0,0)',
-          transform: 'translate3d(0,0,0)',
           overflow: 'hidden',
-          boxSizing: 'border-box',
-          WebkitBackfaceVisibility: 'hidden',
-          backfaceVisibility: 'hidden',
         }}
       >
         {videoEmbed && videoEmbedSrc ? (
-          <div 
-            style={{
-              position: 'absolute',
-              inset: 0,
-              width: '100%',
-              height: '100%',
-              overflow: 'hidden',
-              backgroundColor: '#000',
-            }}
-          >
-            <iframe
-              src={videoEmbedSrc}
-              style={{ 
-                border: 'none',
+          <>
+            {/* Loading placeholder */}
+            {!isLoaded && (
+              <div 
+                className="absolute inset-0 bg-black flex items-center justify-center z-10"
+              >
+                <div className="w-8 h-8 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+              </div>
+            )}
+            {/* Video container with fixed aspect ratio */}
+            <div 
+              style={{
                 position: 'absolute',
                 inset: 0,
                 width: '100%',
                 height: '100%',
-                minWidth: '100%',
-                minHeight: '100%',
-                display: 'block',
-                transform: 'translate3d(0,0,0) scale(1.02)',
-                WebkitTransform: 'translate3d(0,0,0) scale(1.02)',
-                transformOrigin: 'center center',
+                overflow: 'hidden',
+                backgroundColor: '#000',
               }}
-              allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
-              allowFullScreen
-              title="Video player"
-            />
-          </div>
+            >
+              <iframe
+                src={videoEmbedSrc}
+                onLoad={() => setIsLoaded(true)}
+                style={{ 
+                  border: 'none',
+                  position: 'absolute',
+                  inset: '-2%',
+                  width: '104%',
+                  height: '104%',
+                  display: 'block',
+                  transform: 'translate3d(0,0,0)',
+                  WebkitTransform: 'translate3d(0,0,0)',
+                }}
+                allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
+                allowFullScreen
+                title="Video player"
+              />
+            </div>
+          </>
         ) : src ? (
           <img
             src={src}
