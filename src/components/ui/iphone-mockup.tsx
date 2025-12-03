@@ -68,29 +68,31 @@ export function IPhoneMockup({
       <div 
         className="absolute overflow-hidden"
         style={{
-          // Exact calculations from SVG: screen at x=18, y=18, width=397, height=846 in viewBox 433x882
-          top: '2%',
-          left: '4.2%',
-          right: '4.2%',
-          bottom: '2%',
-          borderRadius: '11.5% / 5.5%',
+          // Percentuais EXATOS baseados no SVG (433x882, screen at x=18, y=18, w=397, h=846)
+          top: '2.04%',
+          left: '4.16%',
+          right: '4.16%',
+          bottom: '2.04%',
+          borderRadius: '11.55% / 5.67%',
           WebkitMaskImage: '-webkit-radial-gradient(white, black)',
           WebkitTransform: 'translate3d(0,0,0)',
           transform: 'translate3d(0,0,0)',
           overflow: 'hidden',
           boxSizing: 'border-box',
+          WebkitBackfaceVisibility: 'hidden',
+          backfaceVisibility: 'hidden',
         }}
       >
         {videoEmbed && videoEmbedSrc ? (
           <div 
             style={{
               position: 'absolute',
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              width: '100%',
-              height: '100%',
+              top: '-1%',
+              left: '-1%',
+              right: '-1%',
+              bottom: '-1%',
+              width: '102%',
+              height: '102%',
               overflow: 'hidden',
             }}
           >
@@ -103,13 +105,12 @@ export function IPhoneMockup({
                 position: 'absolute',
                 top: 0,
                 left: 0,
-                right: 0,
-                bottom: 0,
                 width: '100%',
                 height: '100%',
-                objectFit: 'cover',
-                transform: 'translate3d(0,0,0)',
-                WebkitTransform: 'translate3d(0,0,0)',
+                display: 'block',
+                transform: 'translate3d(0,0,0) scale(1.01)',
+                WebkitTransform: 'translate3d(0,0,0) scale(1.01)',
+                transformOrigin: 'center center',
               }}
               allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
               allowFullScreen
