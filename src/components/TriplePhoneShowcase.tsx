@@ -60,10 +60,12 @@ const TriplePhoneShowcase = () => {
       }} transition={{
         duration: 0.5
       }} className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text mb-4 text-secondary">
-            O controle total na palma da mão
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-center leading-tight mb-4">
+            <span className="text-foreground">O controle total</span>
+            <br className="sm:hidden" />
+            <span className="text-primary"> na palma da mão</span>
           </h2>
-          <p className="text-lg max-w-2xl mx-auto text-[#289342] sm:text-2xl">
+          <p className="text-lg max-w-2xl mx-auto text-muted-foreground sm:text-xl">
             Veja como é simples usar o Moovi no seu dia a dia
           </p>
         </motion.div>
