@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { useState } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface IPhoneMockupProps {
   src?: string;
@@ -17,6 +18,7 @@ export function IPhoneMockup({
   className,
 }: IPhoneMockupProps) {
   const [isLoaded, setIsLoaded] = useState(false);
+  const isMobile = useIsMobile();
 
   return (
     <div className={cn("relative", className)}>
@@ -112,8 +114,8 @@ export function IPhoneMockup({
                   width: '104%',
                   height: '104%',
                   display: 'block',
-                  transform: 'translate3d(0,0,0)',
-                  WebkitTransform: 'translate3d(0,0,0)',
+                  transform: isMobile ? 'translate3d(3%, 0, 0)' : 'translate3d(0,0,0)',
+                  WebkitTransform: isMobile ? 'translate3d(3%, 0, 0)' : 'translate3d(0,0,0)',
                 }}
                 allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
                 allowFullScreen
