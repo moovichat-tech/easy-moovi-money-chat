@@ -17,7 +17,7 @@ export function IPhoneMockup({
 }: IPhoneMockupProps) {
   return (
     <div className={cn("relative", className)}>
-      {/* iPhone Frame SVG */}
+      {/* iPhone Frame SVG - Only the frame, no foreignObject */}
       <svg
         viewBox="0 0 433 882"
         fill="none"
@@ -62,60 +62,41 @@ export function IPhoneMockup({
         <rect x="0" y="240" width="3" height="70" rx="1.5" fill="#2a2a2a" />
         <rect x="0" y="320" width="3" height="70" rx="1.5" fill="#2a2a2a" />
         <rect x="430" y="240" width="3" height="100" rx="1.5" fill="#2a2a2a" />
-        
-        {/* Screen Content Clip */}
-        <clipPath id="screenClip">
-          <rect x="18" y="18" width="397" height="846" rx="50" />
-        </clipPath>
-        
-        {/* Foreign Object for Content */}
-        <foreignObject
-          x="18"
-          y="18"
-          width="397"
-          height="846"
-          clipPath="url(#screenClip)"
-        >
-          <div
-            className="w-full h-full overflow-hidden rounded-[50px]"
-            style={{ 
-              borderRadius: '50px',
-              width: '100%',
-              height: '100%',
-              position: 'relative'
-            }}
-          >
-            {videoEmbed && videoEmbedSrc ? (
-              <div 
-                className="w-full h-full relative"
-                style={{ width: '100%', height: '100%' }}
-              >
-                <iframe
-                  src={videoEmbedSrc}
-                  className="absolute inset-0 w-full h-full"
-                  style={{ 
-                    border: 'none',
-                    width: '100%',
-                    height: '100%',
-                    minHeight: '100%'
-                  }}
-                  allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
-                  allowFullScreen
-                  title="Video player"
-                />
-              </div>
-            ) : src ? (
-              <img
-                src={src}
-                alt={alt}
-                className="w-full h-full object-cover"
-              />
-            ) : (
-              <div className="w-full h-full bg-gradient-to-br from-primary/20 to-primary/5" />
-            )}
-          </div>
-        </foreignObject>
       </svg>
+
+      {/* Screen Content - CSS positioned overlay instead of foreignObject */}
+      <div 
+        className="absolute overflow-hidden"
+        style={{
+          top: '2.04%',
+          left: '4.16%',
+          width: '91.68%',
+          height: '95.92%',
+          borderRadius: '5.9% / 5.9%',
+          WebkitMaskImage: '-webkit-radial-gradient(white, black)',
+        }}
+      >
+        {videoEmbed && videoEmbedSrc ? (
+          <iframe
+            src={videoEmbedSrc}
+            className="absolute inset-0 w-full h-full"
+            style={{ 
+              border: 'none',
+            }}
+            allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
+            allowFullScreen
+            title="Video player"
+          />
+        ) : src ? (
+          <img
+            src={src}
+            alt={alt}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <div className="w-full h-full bg-gradient-to-br from-primary/20 to-primary/5" />
+        )}
+      </div>
     </div>
   );
 }
