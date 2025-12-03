@@ -102,6 +102,8 @@ export function IPhoneMockup({
                 height: '100%',
                 overflow: 'hidden',
                 backgroundColor: '#000',
+                transform: isMobile ? 'translateX(6%)' : 'none',
+                WebkitTransform: isMobile ? 'translateX(6%)' : 'none',
               }}
             >
               <iframe
@@ -114,8 +116,6 @@ export function IPhoneMockup({
                   width: '104%',
                   height: '104%',
                   display: 'block',
-                  transform: isMobile ? 'translate3d(6%, 0, 0)' : 'translate3d(0,0,0)',
-                  WebkitTransform: isMobile ? 'translate3d(6%, 0, 0)' : 'translate3d(0,0,0)',
                 }}
                 allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
                 allowFullScreen
