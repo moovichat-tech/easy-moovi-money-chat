@@ -41,12 +41,15 @@ const TriplePhoneShowcase = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-16 md:py-24 overflow-hidden bg-gradient-to-br from-[#0d3320] via-[#0f4a2e] to-[#0a2818]"
+      className="relative py-16 md:py-24 overflow-hidden bg-background"
     >
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(34,197,94,0.1),transparent_70%)]" />
+      {/* Subtle Grid Pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(155_65%_35%/0.03)_1px,transparent_1px),linear-gradient(to_bottom,hsl(155_65%_35%/0.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
       
-      <div className="container mx-auto px-4">
+      {/* Green Glow Effect */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] md:w-[700px] h-[500px] md:h-[700px] bg-[radial-gradient(circle,hsl(var(--primary)/0.12),hsl(var(--primary)/0.05)_40%,transparent_70%)] rounded-full blur-3xl pointer-events-none" />
+      
+      <div className="container mx-auto px-4 relative z-10">
         {/* Title */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -55,10 +58,10 @@ const TriplePhoneShowcase = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-4">
             O controle total na palma da mão
           </h2>
-          <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
             Veja como é simples usar o Moovi no seu dia a dia
           </p>
         </motion.div>
@@ -71,16 +74,16 @@ const TriplePhoneShowcase = () => {
           viewport={{ once: true, margin: "-50px" }}
           className="flex items-center justify-center gap-0 md:gap-0"
         >
-          {/* Left iPhone - Hidden on mobile */}
+          {/* Left iPhone - Hidden on mobile (80% of center) */}
           <motion.div
             variants={phoneVariants}
             style={{ y: leftY }}
-            className="hidden md:block w-48 lg:w-56 xl:w-64 -mr-6 lg:-mr-8 z-10 transform -rotate-6"
+            className="hidden md:block w-[14.4rem] lg:w-64 xl:w-[19.2rem] -mr-6 lg:-mr-8 z-10 transform -rotate-6"
           >
             <IPhoneMockup
               src={phoneLeft}
               alt="Moovi - Tela de resumo financeiro"
-              className="drop-shadow-[0_25px_50px_rgba(0,0,0,0.5)]"
+              className="drop-shadow-[0_25px_50px_rgba(22,163,74,0.25)] ring-1 ring-primary/10 rounded-[2.5rem]"
             />
           </motion.div>
 
@@ -93,20 +96,20 @@ const TriplePhoneShowcase = () => {
               videoEmbed
               videoEmbedSrc="https://player-vz-c1e2f242-e38.tv.pandavideo.com.br/embed/?v=4e6c28e8-f6eb-4e20-b216-224be1bc17f8"
               alt="Moovi - Demonstração do app"
-              className="drop-shadow-[0_35px_60px_rgba(0,0,0,0.6)]"
+              className="drop-shadow-[0_35px_60px_rgba(22,163,74,0.35)]"
             />
           </motion.div>
 
-          {/* Right iPhone - Hidden on mobile */}
+          {/* Right iPhone - Hidden on mobile (80% of center) */}
           <motion.div
             variants={phoneVariants}
             style={{ y: rightY }}
-            className="hidden md:block w-48 lg:w-56 xl:w-64 -ml-6 lg:-ml-8 z-10 transform rotate-6"
+            className="hidden md:block w-[14.4rem] lg:w-64 xl:w-[19.2rem] -ml-6 lg:-ml-8 z-10 transform rotate-6"
           >
             <IPhoneMockup
               src={phoneRight}
               alt="Moovi - Tela de conversas"
-              className="drop-shadow-[0_25px_50px_rgba(0,0,0,0.5)]"
+              className="drop-shadow-[0_25px_50px_rgba(22,163,74,0.25)] ring-1 ring-primary/10 rounded-[2.5rem]"
             />
           </motion.div>
         </motion.div>
