@@ -54,7 +54,7 @@ const TriplePhoneShowcase = () => {
       {/* Green Glow Effect */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] md:w-[700px] h-[500px] md:h-[700px] bg-[radial-gradient(circle,hsl(var(--primary)/0.12),hsl(var(--primary)/0.05)_40%,transparent_70%)] rounded-full blur-3xl pointer-events-none" />
       
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-6 sm:px-4 relative z-10">
         {/* Title */}
         <div className="text-center mb-8 md:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-center leading-tight mb-3 sm:mb-4">
@@ -81,7 +81,7 @@ const TriplePhoneShowcase = () => {
         <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{
         once: true,
         margin: "-50px"
-      }} className="flex items-center justify-center gap-0 md:gap-0">
+      }} className="flex items-center justify-center gap-0 md:gap-0 w-full max-w-xs sm:max-w-none mx-auto">
           {/* Left iPhone - Hidden on mobile (80% of center) */}
           <motion.div variants={phoneVariants} style={{
           y: leftY
@@ -90,7 +90,7 @@ const TriplePhoneShowcase = () => {
           </motion.div>
 
           {/* Center iPhone - Always visible, larger */}
-          <motion.div variants={phoneVariants} className="w-56 sm:w-72 md:w-72 lg:w-80 xl:w-96 z-20">
+          <motion.div variants={phoneVariants} className="w-48 sm:w-56 md:w-72 lg:w-80 xl:w-96 z-20 mx-auto">
             <IPhoneMockup videoEmbed videoEmbedSrc="https://player-vz-c1e2f242-e38.tv.pandavideo.com.br/embed/?v=4e6c28e8-f6eb-4e20-b216-224be1bc17f8" alt="Moovi - Demonstração do app" className="drop-shadow-[0_35px_60px_rgba(22,163,74,0.35)]" />
           </motion.div>
 
