@@ -65,15 +65,16 @@ export function IPhoneMockup({
       </svg>
 
       {/* Screen Content - CSS positioned overlay with Safari iOS fixes */}
+      {/* Screen Content - Fixed black background to prevent layout shift */}
       <div 
         className="absolute overflow-hidden"
         style={{
-          // Percentuais EXATOS baseados no SVG (433x882, screen at x=18, y=18, w=397, h=846)
           top: '2.04%',
           left: '4.16%',
           right: '4.16%',
           bottom: '2.04%',
           borderRadius: '11.55% / 5.67%',
+          backgroundColor: '#000',
           WebkitMaskImage: '-webkit-radial-gradient(white, black)',
           WebkitTransform: 'translate3d(0,0,0)',
           transform: 'translate3d(0,0,0)',
@@ -87,29 +88,26 @@ export function IPhoneMockup({
           <div 
             style={{
               position: 'absolute',
-              top: '-1%',
-              left: '-1%',
-              right: '-1%',
-              bottom: '-1%',
-              width: '102%',
-              height: '102%',
+              inset: 0,
+              width: '100%',
+              height: '100%',
               overflow: 'hidden',
+              backgroundColor: '#000',
             }}
           >
             <iframe
               src={videoEmbedSrc}
-              width="100%"
-              height="100%"
               style={{ 
                 border: 'none',
                 position: 'absolute',
-                top: 0,
-                left: 0,
+                inset: 0,
                 width: '100%',
                 height: '100%',
+                minWidth: '100%',
+                minHeight: '100%',
                 display: 'block',
-                transform: 'translate3d(0,0,0) scale(1.01)',
-                WebkitTransform: 'translate3d(0,0,0) scale(1.01)',
+                transform: 'translate3d(0,0,0) scale(1.02)',
+                WebkitTransform: 'translate3d(0,0,0) scale(1.02)',
                 transformOrigin: 'center center',
               }}
               allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
