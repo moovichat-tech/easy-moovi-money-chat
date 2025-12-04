@@ -3,10 +3,12 @@ import { useRef } from "react";
 import { IPhoneMockup } from "@/components/ui/iphone-mockup";
 import { TextAnimate } from "@/components/ui/text-animate";
 import { FloatingPaths } from "@/components/ui/background-paths";
+import { useIsMobile } from "@/hooks/use-mobile";
 import phoneLeft from "@/assets/phone-left.png";
 import phoneRight from "@/assets/phone-right.png";
 const TriplePhoneShowcase = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
   const {
     scrollYProgress
   } = useScroll({
@@ -91,7 +93,11 @@ const TriplePhoneShowcase = () => {
 
           {/* Center iPhone - Always visible, larger */}
           <motion.div variants={phoneVariants} className="w-48 sm:w-56 md:w-72 lg:w-80 xl:w-96 z-20">
-            <IPhoneMockup videoEmbed videoEmbedSrc="https://player-vz-c1e2f242-e38.tv.pandavideo.com.br/embed/?v=4e6c28e8-f6eb-4e20-b216-224be1bc17f8" alt="Moovi - Demonstração do app" className="drop-shadow-[0_35px_60px_rgba(22,163,74,0.35)]" />
+            {isMobile ? (
+              <IPhoneMockup src={phoneRight} alt="Moovi - Tela de conversas" className="drop-shadow-[0_35px_60px_rgba(22,163,74,0.35)]" />
+            ) : (
+              <IPhoneMockup videoEmbed videoEmbedSrc="https://player-vz-c1e2f242-e38.tv.pandavideo.com.br/embed/?v=4e6c28e8-f6eb-4e20-b216-224be1bc17f8" alt="Moovi - Demonstração do app" className="drop-shadow-[0_35px_60px_rgba(22,163,74,0.35)]" />
+            )}
           </motion.div>
 
           {/* Right iPhone - Hidden on mobile (80% of center) */}
