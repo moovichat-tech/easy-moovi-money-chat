@@ -96,7 +96,7 @@ export function TextAnimate({
 
   return (
     <MotionComponent
-      className={cn("inline-block", className)}
+      className={cn(as === "span" ? "inline-block" : "block", className)}
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"

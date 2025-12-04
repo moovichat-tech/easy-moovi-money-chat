@@ -100,7 +100,7 @@ export function PricingToggle({
               <h3 className="text-xl font-bold mb-2">{plan.name}</h3>
             </div>
 
-            <div className="mb-6 bg-primary/10 rounded-xl py-6 px-4">
+            <div className="mb-6 py-6 px-4">
               {plan.savings && (
                 <div className="text-sm text-muted-foreground line-through mb-2">
                   R$ {plan.monthlyPrice.toFixed(2).replace(".", ",")}
