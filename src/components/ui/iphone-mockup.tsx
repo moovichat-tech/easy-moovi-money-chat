@@ -1,9 +1,11 @@
 import { cn } from "@/lib/utils";
 import { useState } from "react";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { VideoPlayer } from "./video-player";
 
 interface IPhoneMockupProps {
   src?: string;
+  videoSrc?: string;
+  videoPoster?: string;
   videoEmbed?: boolean;
   videoEmbedSrc?: string;
   alt?: string;
@@ -12,13 +14,14 @@ interface IPhoneMockupProps {
 
 export function IPhoneMockup({
   src,
+  videoSrc,
+  videoPoster,
   videoEmbed,
   videoEmbedSrc,
   alt = "iPhone screen",
   className,
 }: IPhoneMockupProps) {
   const [isLoaded, setIsLoaded] = useState(false);
-  const isMobile = useIsMobile();
 
   return (
     <div className={cn("relative", className)}>
@@ -83,17 +86,26 @@ export function IPhoneMockup({
           overflow: 'hidden',
         }}
       >
-        {videoEmbed && videoEmbedSrc ? (
+        {/* Priority 1: Native Video (videoSrc) */}
+        {videoSrc ? (
+          <VideoPlayer
+            src={videoSrc}
+            poster={videoPoster}
+            autoPlay
+            loop
+            muted
+            playsInline
+            objectFit="cover"
+            onLoadedData={() => setIsLoaded(true)}
+          />
+        ) : videoEmbed && videoEmbedSrc ? (
+          /* Priority 2: Video Embed (iframe) - for backward compatibility */
           <>
-            {/* Loading placeholder */}
             {!isLoaded && (
-              <div 
-                className="absolute inset-0 bg-black flex items-center justify-center z-10"
-              >
+              <div className="absolute inset-0 bg-black flex items-center justify-center z-10">
                 <div className="w-8 h-8 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
               </div>
             )}
-            {/* Video container with fixed aspect ratio */}
             <div 
               style={{
                 position: 'absolute',
@@ -102,8 +114,6 @@ export function IPhoneMockup({
                 height: '100%',
                 overflow: 'hidden',
                 backgroundColor: '#000',
-                transform: isMobile ? 'translateX(6%)' : 'none',
-                WebkitTransform: isMobile ? 'translateX(6%)' : 'none',
               }}
             >
               <iframe
@@ -124,6 +134,7 @@ export function IPhoneMockup({
             </div>
           </>
         ) : src ? (
+          /* Priority 3: Image */
           <img
             src={src}
             alt={alt}
@@ -134,6 +145,7 @@ export function IPhoneMockup({
             }}
           />
         ) : (
+          /* Fallback: Gradient placeholder */
           <div className="w-full h-full bg-gradient-to-br from-primary/20 to-primary/5" />
         )}
       </div>
