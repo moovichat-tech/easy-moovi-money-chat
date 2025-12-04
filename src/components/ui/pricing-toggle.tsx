@@ -1,8 +1,12 @@
 import { buttonVariants } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { Check, Star } from "lucide-react";
+import { useState, useRef } from "react";
+import confetti from "canvas-confetti";
 import NumberFlow from "@number-flow/react";
 
 interface PricingPlan {
@@ -32,7 +36,38 @@ export function PricingToggle({
   title = "Escolha seu plano",
   description = "",
 }: PricingToggleProps) {
+  const [isMonthly, setIsMonthly] = useState(false);
   const isDesktop = useMediaQuery("(min-width: 768px)");
+  const switchRef = useRef<HTMLButtonElement>(null);
+
+  const handleToggle = (checked: boolean) => {
+    setIsMonthly(!checked);
+    if (checked && switchRef.current) {
+      const rect = switchRef.current.getBoundingClientRect();
+      const x = rect.left + rect.width / 2;
+      const y = rect.top + rect.height / 2;
+
+      confetti({
+        particleCount: 50,
+        spread: 60,
+        origin: {
+          x: x / window.innerWidth,
+          y: y / window.innerHeight,
+        },
+        colors: [
+          "hsl(var(--primary))",
+          "hsl(var(--accent))",
+          "hsl(var(--secondary))",
+          "hsl(var(--muted))",
+        ],
+        ticks: 200,
+        gravity: 1.2,
+        decay: 0.94,
+        startVelocity: 30,
+        shapes: ["circle"],
+      });
+    }
+  };
 
   return (
     <div className="container py-20">
@@ -47,6 +82,22 @@ export function PricingToggle({
         )}
       </div>
 
+      <div className="flex justify-center items-center gap-3 mb-10">
+        <span className={cn("font-semibold transition-colors", isMonthly ? "text-foreground" : "text-muted-foreground")}>
+          Mensal
+        </span>
+        <Label>
+          <Switch
+            ref={switchRef as any}
+            checked={!isMonthly}
+            onCheckedChange={handleToggle}
+            className="relative"
+          />
+        </Label>
+        <span className={cn("font-semibold transition-colors", !isMonthly ? "text-foreground" : "text-muted-foreground")}>
+          Anual <span className="text-primary">(Economize 20% 🎉)</span>
+        </span>
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
         {plans.map((plan, index) => (
@@ -90,14 +141,14 @@ export function PricingToggle({
             </div>
 
             <div className="mb-6">
-              {plan.savings && (
+              {!isMonthly && plan.savings && (
                 <div className="text-sm text-muted-foreground line-through mb-1">
                   R$ {plan.monthlyPrice.toFixed(2).replace(".", ",")}
                 </div>
               )}
               <div className="text-5xl font-bold text-primary mb-2">
                 <NumberFlow
-                  value={plan.yearlyPrice}
+                  value={isMonthly ? plan.monthlyPrice : plan.yearlyPrice}
                   format={{
                     style: "currency",
                     currency: "BRL",
@@ -113,12 +164,12 @@ export function PricingToggle({
                 />
               </div>
               <p className="text-sm text-muted-foreground">{plan.period}</p>
-              {plan.yearlyTotal && (
+              {!isMonthly && plan.yearlyTotal && (
                 <p className="text-xs text-primary font-medium mt-2">
                   cobrado anualmente (R$ {plan.yearlyTotal.toFixed(2).replace(".", ",")})
                 </p>
               )}
-              {plan.savings && (
+              {!isMonthly && plan.savings && (
                 <p className="text-xs text-green-600 font-semibold mt-1">
                   💰 Economia de R$ {plan.savings.toFixed(2).replace(".", ",")} no ano
                 </p>
