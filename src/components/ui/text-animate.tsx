@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { ElementType } from "react";
 
-type AnimationType = "slideUp" | "slideDown" | "slideLeft" | "slideRight" | "fadeIn" | "blurIn" | "blurInUp";
-type AnimationBy = "word" | "character";
+type AnimationType = "slideUp" | "slideDown" | "slideLeft" | "slideRight" | "fadeIn" | "blurIn" | "blurInUp" | "scaleUp";
+type AnimationBy = "word" | "character" | "text";
 
 interface TextAnimateProps {
   children: string;
@@ -44,6 +44,10 @@ const animationVariants = {
   blurInUp: {
     hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
     visible: { opacity: 1, y: 0, filter: "blur(0px)" }
+  },
+  scaleUp: {
+    hidden: { scale: 0.8, opacity: 0 },
+    visible: { scale: 1, opacity: 1 }
   }
 };
 
@@ -59,17 +63,19 @@ export function TextAnimate({
 }: TextAnimateProps) {
   const variants = animationVariants[animation];
   
-  // Split text by words or characters
-  const items = by === "word" 
-    ? children.split(" ") 
-    : children.split("");
+  // Split text by words, characters, or keep as full text
+  const items = by === "text" 
+    ? [children]
+    : by === "word" 
+      ? children.split(" ") 
+      : children.split("");
 
   const containerVariants = {
     hidden: { opacity: 1 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: by === "word" ? 0.1 : 0.03,
+        staggerChildren: by === "text" ? 0 : by === "word" ? 0.1 : 0.03,
         delayChildren: delay
       }
     }

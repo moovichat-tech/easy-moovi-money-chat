@@ -3,6 +3,7 @@ import { useMediaQuery } from "@/hooks/use-media-query";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { Check, Star } from "lucide-react";
+import { TextAnimate } from "@/components/ui/text-animate";
 
 
 interface PricingPlan {
@@ -37,13 +38,24 @@ export function PricingToggle({
   return (
     <div className="container py-20">
       <div className="text-center space-y-4 mb-12">
-        <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
+        <TextAnimate 
+          animation="scaleUp" 
+          by="text"
+          as="h2"
+          className="text-4xl font-bold tracking-tight sm:text-5xl text-primary"
+        >
           {title}
-        </h2>
+        </TextAnimate>
         {description && (
-          <p className="text-muted-foreground text-lg whitespace-pre-line">
+          <TextAnimate 
+            animation="slideLeft" 
+            by="character"
+            as="p"
+            className="text-muted-foreground text-lg"
+            delay={0.3}
+          >
             {description}
-          </p>
+          </TextAnimate>
         )}
       </div>
 
