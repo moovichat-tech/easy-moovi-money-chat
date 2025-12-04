@@ -36,7 +36,7 @@ export function PricingToggle({
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
   return (
-    <div className="container py-20">
+    <div className="container pt-8 pb-20">
       <div className="text-center space-y-4 mb-12">
         <TextAnimate 
           animation="scaleUp" 

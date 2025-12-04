@@ -36,15 +36,12 @@ const WhatsAppWidget = () => {
           flex items-center justify-center
           transition-all duration-300
           hover:scale-110
-          animate-[pulse_3s_ease-in-out_infinite]
         "
         aria-label="Falar com o Suporte Moovi no WhatsApp"
       >
         <MessageCircle className="w-7 h-7 md:w-8 md:h-8 text-white" />
       </button>
 
-      {/* Pulse ring animado */}
-      <div className="absolute inset-0 rounded-full bg-[#25D366] animate-[pulse_3s_ease-in-out_infinite] pointer-events-none" style={{ opacity: 0.3 }} />
     </div>
   );
 };
