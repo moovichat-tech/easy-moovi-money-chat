@@ -53,7 +53,11 @@ export function Pricing() {
   return (
     <section id="pricing-section" className="py-20 bg-muted/30">
       <div ref={elementRef}>
-        <PricingToggle plans={plans} title="Escolha seu plano" />
+        <PricingToggle 
+          plans={plans} 
+          title="Conheça nossos planos" 
+          description="Organização financeira e pessoal direto no WhatsApp 24h por dia."
+        />
 
         {/* Trust Badge */}
         <div className={`mt-12 text-center fade-in-scroll fade-in-scroll-delay-400 ${isVisible ? 'visible' : ''}`}>
