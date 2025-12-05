@@ -59,7 +59,7 @@ export function PricingToggle({
         )}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
         {plans.map((plan, index) => (
           <motion.div
             key={index}
@@ -87,10 +87,13 @@ export function PricingToggle({
               "flex flex-col"
             )}
           >
-            {plan.isPopular && plan.badge && (
-              <div className="absolute top-0 right-0 bg-primary py-1.5 px-4 rounded-bl-xl rounded-tr-xl flex items-center gap-1.5">
-                <Star className="text-primary-foreground h-4 w-4 fill-current" />
-                <span className="text-primary-foreground text-sm font-semibold">
+            {plan.badge && (
+              <div className={cn(
+                "absolute top-0 right-0 py-1.5 px-4 rounded-bl-xl rounded-tr-xl flex items-center gap-1.5",
+                plan.isPopular ? "bg-primary" : "bg-green-600"
+              )}>
+                <Star className="text-white h-4 w-4 fill-current" />
+                <span className="text-white text-sm font-semibold">
                   {plan.badge}
                 </span>
               </div>
@@ -112,16 +115,14 @@ export function PricingToggle({
                 </span>
                 <span className="text-lg text-muted-foreground font-medium">/mês</span>
               </div>
-              {plan.isPopular && plan.yearlyTotal && (
-                <p className="text-sm text-muted-foreground mt-2">
-                  12 x R$ {plan.yearlyPrice.toFixed(2).replace(".", ",")}
-                </p>
-              )}
-              {!plan.isPopular && (
-                <p className="text-sm text-muted-foreground mt-2">
-                  Cobrado mensalmente
-                </p>
-              )}
+              <p className="text-sm text-muted-foreground mt-2">
+                {plan.name === "Plano Bianual" 
+                  ? "24 x R$ " + plan.yearlyPrice.toFixed(2).replace(".", ",")
+                  : plan.name === "Plano Anual"
+                    ? "12 x R$ " + plan.yearlyPrice.toFixed(2).replace(".", ",")
+                    : "Cobrado mensalmente"
+                }
+              </p>
               {plan.savings && (
                 <p className="text-xs text-green-600 font-semibold mt-3 bg-green-50 rounded-full py-1 px-3 inline-block">
                   💰 Economia de R$ {plan.savings.toFixed(2).replace(".", ",")} no ano
