@@ -49,7 +49,7 @@ export function Pricing() {
       badge: "Economize 20%",
     },
     {
-      name: "Plano Bianual",
+      name: "Plano 2 anos",
       monthlyPrice: 24.90,
       yearlyPrice: 14.90,
       yearlyTotal: 357.60,
