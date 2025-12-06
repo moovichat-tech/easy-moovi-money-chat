@@ -60,7 +60,8 @@ export function PricingToggle({
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
-        {plans.map((plan, index) => (
+        {/* Mobile: Anual, 2 anos, Mensal | Desktop: ordem original */}
+        {(isDesktop ? plans : [plans[1], plans[2], plans[0]]).map((plan, index) => (
           <motion.div
             key={index}
             initial={{ y: 50, opacity: 0 }}
