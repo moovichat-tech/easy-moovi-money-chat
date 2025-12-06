@@ -6,7 +6,7 @@ const WhatsAppWidget = () => {
   
   const handleClick = () => {
     window.open(
-      'https://wa.me/5511989269937?text=Ol%C3%A1%2C%20queria%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Plano%20Anual%20do%20Moovi',
+      'https://wa.me/message/KM5F3KCURBTMG1',
       '_blank'
     );
   };
