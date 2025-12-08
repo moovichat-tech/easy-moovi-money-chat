@@ -28,7 +28,7 @@ export const StickyMobileCTA = () => {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ type: "spring", stiffness: 260, damping: 20 }}
-          className="fixed bottom-0 left-0 right-0 p-4 bg-white/80 backdrop-blur-lg border-t border-green-100 z-40 md:hidden shadow-[0_-4px_20px_rgba(0,0,0,0.1)]"
+          className="fixed bottom-0 left-0 right-0 p-4  backdrop-blur-lg border-t border-green-100 z-40 md:hidden shadow-[0_-4px_20px_rgba(0,0,0,0.1)]"
         >
           <div className="flex flex-col gap-2">
             {/* Gatilho de urgência/benefício */}
