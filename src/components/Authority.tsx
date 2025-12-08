@@ -17,7 +17,7 @@ const Authority = () => {
     },
     {
       icon: DollarSign,
-      number: "1.344.827",
+      number: "R$1.344.827",
       label: "de reais gerenciados",
       description: "Seu dinheiro merece a mesma atenção que damos aos nossos clientes.",
     },
