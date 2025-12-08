@@ -8,28 +8,28 @@ import ComparisonSection from "@/components/ComparisonSection";
 import { Pricing } from "@/components/Pricing";
 import Security from "@/components/Security";
 import Footer from "@/components/Footer";
-import { FAQ } from "@/components/FAQ"; 
-import { AppShowcase } from "@/components/AppShowcase"; 
-import { StickyMobileCTA } from "@/components/StickyMobileCTA"; 
-import { LiveSocialProof } from "@/components/LiveSocialProof"; 
-import { MobileExitIntent } from "@/components/MobileExitIntent"; 
-
+import { FAQ } from "@/components/FAQ";
+import { AppShowcase } from "@/components/AppShowcase";
+import { StickyMobileCTA } from "@/components/StickyMobileCTA";
+import { LiveSocialProof } from "@/components/LiveSocialProof";
+import { MobileExitIntent } from "@/components/MobileExitIntent";
 
 const Index = () => {
-  return <div className="min-h-screen">
+  return (
+    <div className="min-h-screen">
       <VSLHero />
       <AppShowcase />
-      <Transformation />
+
       <Authority />
       <SocialProof />
       <ComparisonSection />
       <Pricing />
-      <FAQ /> 
+      <FAQ />
       <Footer />
-      
 
       <StickyMobileCTA />
       <MobileExitIntent />
-    </div>;
+    </div>
+  );
 };
 export default Index;
