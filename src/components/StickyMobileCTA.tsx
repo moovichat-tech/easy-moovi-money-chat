@@ -32,14 +32,11 @@ export const StickyMobileCTA = () => {
         >
           <div className="flex flex-col gap-2">
             {/* Gatilho de urgência/benefício */}
-            <p className="text-xs text-center text-green-700 font-bold uppercase tracking-wider">
-              🔥 Oferta Anual: Economize R$ 60,00
-            </p>
-            
-            <Button 
-              size="lg" 
+
+            <Button
+              size="lg"
               className="w-full bg-green-600 hover:bg-green-700 text-white font-bold shadow-lg animate-pulse-slow"
-              onClick={() => scrollToSection('pricing-section')}
+              onClick={() => scrollToSection("pricing-section")}
             >
               QUERO MINHA ECONOMIA
             </Button>
