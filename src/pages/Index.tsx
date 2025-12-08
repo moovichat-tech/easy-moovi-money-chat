@@ -19,7 +19,7 @@ const Index = () => {
     <div className="min-h-screen">
       <VSLHero />
       <AppShowcase />
-
+      <FeaturesScroll />
       <Authority />
       <SocialProof />
       <ComparisonSection />
