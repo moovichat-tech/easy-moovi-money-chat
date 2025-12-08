@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { Check, Star } from "lucide-react";
 import { TextAnimate } from "@/components/ui/text-animate";
 
-
 interface PricingPlan {
   name: string;
   monthlyPrice: number;
@@ -28,18 +27,14 @@ interface PricingToggleProps {
   description?: string;
 }
 
-export function PricingToggle({
-  plans,
-  title = "Escolha seu plano",
-  description = "",
-}: PricingToggleProps) {
+export function PricingToggle({ plans, title = "Escolha seu plano", description = "" }: PricingToggleProps) {
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
   return (
     <div className="container pt-8 pb-20">
       <div className="text-center space-y-4 mb-12">
-        <TextAnimate 
-          animation="scaleUp" 
+        <TextAnimate
+          animation="scaleUp"
           by="text"
           as="h2"
           className="text-4xl font-bold tracking-tight sm:text-5xl text-primary"
@@ -47,8 +42,8 @@ export function PricingToggle({
           {title}
         </TextAnimate>
         {description && (
-          <TextAnimate 
-            animation="slideLeft" 
+          <TextAnimate
+            animation="slideLeft"
             by="character"
             as="p"
             className="text-muted-foreground text-lg"
@@ -61,7 +56,7 @@ export function PricingToggle({
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
         {/* Mobile: Anual, 2 anos, Mensal | Desktop: ordem original */}
-        {(isDesktop ? plans : [plans[1], plans[2], plans[0]]).map((plan, index) => (
+        {(isDesktop ? plans : [plans[0], plans[1], plans[2]]).map((plan, index) => (
           <motion.div
             key={index}
             initial={{ y: 50, opacity: 0 }}
@@ -85,18 +80,18 @@ export function PricingToggle({
             className={cn(
               `rounded-2xl border-2 p-8 bg-card text-center relative`,
               plan.isPopular ? "border-primary shadow-2xl" : "border-border shadow-lg",
-              "flex flex-col"
+              "flex flex-col",
             )}
           >
             {plan.badge && (
-              <div className={cn(
-                "absolute top-0 right-0 py-1.5 px-4 rounded-bl-xl rounded-tr-xl flex items-center gap-1.5",
-                plan.isPopular ? "bg-primary" : "bg-green-600"
-              )}>
+              <div
+                className={cn(
+                  "absolute top-0 right-0 py-1.5 px-4 rounded-bl-xl rounded-tr-xl flex items-center gap-1.5",
+                  plan.isPopular ? "bg-primary" : "bg-green-600",
+                )}
+              >
                 <Star className="text-white h-4 w-4 fill-current" />
-                <span className="text-white text-sm font-semibold">
-                  {plan.badge}
-                </span>
+                <span className="text-white text-sm font-semibold">{plan.badge}</span>
               </div>
             )}
 
@@ -117,11 +112,9 @@ export function PricingToggle({
                 <span className="text-lg text-muted-foreground font-medium">/mês</span>
               </div>
               <p className="text-sm text-muted-foreground mt-2">
-                {plan.name === "Plano Bianual" 
+                {plan.name === "Plano Bianual"
                   ? "24 x R$ " + plan.yearlyPrice.toFixed(2).replace(".", ",")
-                  : plan.name === "Plano Anual"
-                    
-                }
+                  : plan.name === "Plano Anual"}
               </p>
               {plan.savings && (
                 <p className="text-xs text-green-600 font-semibold mt-3 bg-green-50 rounded-full py-1 px-3 inline-block">
@@ -150,7 +143,7 @@ export function PricingToggle({
                 }),
                 "w-full font-semibold text-base mt-auto",
                 "group relative gap-2 overflow-hidden",
-                "transform-gpu ring-offset-current transition-all duration-300 ease-out hover:ring-2 hover:ring-primary hover:ring-offset-1"
+                "transform-gpu ring-offset-current transition-all duration-300 ease-out hover:ring-2 hover:ring-primary hover:ring-offset-1",
               )}
             >
               {plan.buttonText}
