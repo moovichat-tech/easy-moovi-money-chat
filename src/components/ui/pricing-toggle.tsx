@@ -120,8 +120,7 @@ export function PricingToggle({
                 {plan.name === "Plano Bianual" 
                   ? "24 x R$ " + plan.yearlyPrice.toFixed(2).replace(".", ",")
                   : plan.name === "Plano Anual"
-                    ? "12 x R$ " + plan.yearlyPrice.toFixed(2).replace(".", ",")
-                    : "Cobrado mensalmente"
+                    
                 }
               </p>
               {plan.savings && (
