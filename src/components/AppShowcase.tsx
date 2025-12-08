@@ -1,6 +1,8 @@
 import { Iphone } from "@/components/ui/iphone";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { TextAnimate } from "@/components/ui/text-animate";
+import phoneLeft from "@/assets/phone-left.png";
+import phoneRight from "@/assets/phone-right.png";
 
 export function AppShowcase() {
   const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.1 });
@@ -36,7 +38,7 @@ export function AppShowcase() {
               // AJUSTE DE COR: Removi a opacidade e adicionei brightness-90 e contrast-110
               // Isso escurece um pouco e deixa as cores mais vivas (menos lavadas)
               className="size-full shadow-2xl rounded-[32px] brightness-95 contrast-105"
-              src="src/assets/phone-right.png"
+              src={phoneRight}
             />
           </div>
 
@@ -53,7 +55,7 @@ export function AppShowcase() {
             <Iphone
               // MESMO AJUSTE DE COR AQUI
               className="size-full shadow-2xl rounded-[32px] brightness-95 contrast-105"
-              src="src/assets/phone-left.png"
+              src={phoneLeft}
             />
           </div>
 
