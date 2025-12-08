@@ -118,7 +118,7 @@ export function PricingToggle({ plans, title = "Escolha seu plano", description 
               </p>
               {plan.savings && (
                 <p className="text-xs text-green-600 font-semibold mt-3 bg-green-50 rounded-full py-1 px-3 inline-block">
-                  💰 {plan.name === "Plano Bianual" ? "Economia de 3 meses" : "Economia de 10 meses"}
+                  💰 {plan.name === "Plano Bianual" ? "Economia de 10 meses" : "Economia de 3 meses"}
                 </p>
               )}
             </div>
