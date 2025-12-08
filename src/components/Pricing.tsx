@@ -8,9 +8,9 @@ export function Pricing() {
   const plans = [
     {
       name: "Plano Mensal",
-      monthlyPrice: 24.90,
-      yearlyPrice: 24.90,
-      yearlyTotal: 298.80,
+      monthlyPrice: 24.9,
+      yearlyPrice: 24.9,
+      yearlyTotal: 298.8,
       period: "por mês",
       features: [
         "Registro de compromissos e afazeres",
@@ -28,10 +28,10 @@ export function Pricing() {
     },
     {
       name: "Plano Anual",
-      monthlyPrice: 24.90,
-      yearlyPrice: 19.90,
-      yearlyTotal: 238.80,
-      savings: 60.00,
+      monthlyPrice: 24.9,
+      yearlyPrice: 19.0,
+      yearlyTotal: 238.8,
+      savings: 60.0,
       savingsPercent: 20,
       period: "por mês",
       features: [
@@ -50,10 +50,10 @@ export function Pricing() {
     },
     {
       name: "Plano 2 anos",
-      monthlyPrice: 24.90,
-      yearlyPrice: 14.90,
-      yearlyTotal: 357.60,
-      savings: 240.00,
+      monthlyPrice: 24.9,
+      yearlyPrice: 14.9,
+      yearlyTotal: 357.6,
+      savings: 240.0,
       savingsPercent: 40,
       period: "por mês",
       features: [
@@ -75,9 +75,9 @@ export function Pricing() {
   return (
     <section id="pricing-section" className="py-20 bg-muted/30">
       <div ref={elementRef}>
-        <PricingToggle 
-          plans={plans} 
-          title="Conheça nossos planos" 
+        <PricingToggle
+          plans={plans}
+          title="Conheça nossos planos"
           description="Organização financeira e pessoal direto no WhatsApp 24h por dia."
         />
       </div>
