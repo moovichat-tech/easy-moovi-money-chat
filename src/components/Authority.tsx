@@ -17,13 +17,13 @@ const Authority = () => {
     },
     {
       icon: DollarSign,
-      number: "1.345.400",
+      number: "1.344.827",
       label: "de reais gerenciados",
       description: "Seu dinheiro merece a mesma atenção que damos aos nossos clientes.",
     },
     {
       icon: TrendingUp,
-      number: "25%",
+      number: "27,3%",
       label: "média de economia",
       description: "Quando você sabe onde está gastando, consegue economizar muito mais.",
     },
