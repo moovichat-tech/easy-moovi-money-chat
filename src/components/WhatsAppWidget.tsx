@@ -27,7 +27,7 @@ const WhatsAppWidget = () => {
       className={cn(
         "fixed right-6 z-50 group transition-all duration-500 ease-in-out drop-shadow-lg",
         // Mantém a lógica de subir para não cobrir a oferta
-        isOffset ? "bottom-24 md:bottom-6" : "bottom-6",
+        isOffset ? "bottom-22 md:bottom-6" : "bottom-6",
       )}
     >
       {/* Tooltip (mantido, mas simplificado) */}
