@@ -10,28 +10,23 @@
     />
     <meta name="author" content="MOOVI" />
 
-    <!-- Favicon with cache busting -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicons/moovi-favicon.png?v=2" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicons/moovi-favicon.png?v=2" />
     <link rel="shortcut icon" href="/favicons/moovi-favicon.png?v=2" />
     <link rel="apple-touch-icon" sizes="180x180" href="/favicons/moovi-favicon.png?v=2" />
 
-    <!-- Meta Pixel Code -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1508120273749046');
-    fbq('track', 'PageView');
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1508120273749046');
+      fbq('track', 'PageView');
     </script>
-    <!-- End Meta Pixel Code -->
-
-    <!-- Critical CSS to remove Lovable badge -->
     <style>
       .lovable-badge, .lovable-watermark, #lovable-badge, #lovable-root, #lovable-floating-button,
       .lovable-floating-button, [id*="lovable"], [class*="lovable"], .button-lovable, .edit-with-lovable {
@@ -42,7 +37,6 @@
       }
     </style>
 
-    <!-- Script to dynamically remove Lovable elements -->
     <script>
       (function() {
         const hideLovable = () => {
@@ -82,12 +76,37 @@
   </head>
 
   <body>
-    <!-- Meta Pixel noscript fallback -->
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1508120273749046&ev=PageView&noscript=1"
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://www.facebook.com/tr?id=1508120273749046&ev=PageView&noscript=1"
     /></noscript>
-    
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+
+    <script
+      async
+      src="https://cdn.promotekit.com/promotekit.js"
+      data-promotekit="560dec5e-0938-422d-bee3-2e6c985c5a21"
+    ></script>
+    <script>
+      // Função segura para React que roda periodicamente para garantir que
+      // os links sejam atualizados mesmo após animações ou navegação entre páginas.
+      setInterval(function() {
+        var referralId = window.promotekit_referral;
+        if (referralId) {
+          document.querySelectorAll('a[href^="https://buy.stripe.com/"]').forEach(function(link) {
+            var oldUrl = link.getAttribute("href");
+            if (!oldUrl.includes("client_reference_id")) {
+              var separator = oldUrl.includes("?") ? "&" : "?";
+              link.setAttribute("href", oldUrl + separator + "client_reference_id=" + referralId);
+            }
+          });
+        }
+      }, 2000); // Verifica a cada 2 segundos
+    </script>
   </body>
 </html>
