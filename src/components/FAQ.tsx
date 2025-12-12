@@ -19,10 +19,6 @@ export function FAQ() {
       answer: "Além de economizar R$ 60,00 imediatamente (o equivalente a 3 meses grátis), você ganha acesso exclusivo à nossa Inteligência Artificial Avançada, relatórios de evolução patrimonial e suporte prioritário. É o kit completo para quem quer enriquecer de verdade."
     },
     {
-      question: "Tenho alguma garantia se não gostar?",
-      answer: "Sim! Oferecemos uma Garantia Blindada de 7 dias. Você assina, testa tudo, usa a IA, organiza suas contas. Se achar que não valeu a pena, nós devolvemos 100% do seu dinheiro. O risco é todo nosso."
-    },
-    {
       question: "Preciso baixar algum aplicativo?",
       answer: "Não! Essa é a mágica. O Moovi funciona direto no seu WhatsApp, o app que você já usa todo dia. Nada de apps pesados ocupando memória do seu celular."
     },
