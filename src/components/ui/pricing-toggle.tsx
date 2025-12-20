@@ -2,7 +2,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { Check, Star } from "lucide-react";
+import { Check, Star, X } from "lucide-react"; // Importei o X aqui
 import { TextAnimate } from "@/components/ui/text-animate";
 
 interface PricingPlan {
@@ -13,7 +13,8 @@ interface PricingPlan {
   savings?: number;
   savingsPercent?: number;
   period: string;
-  features: string[];
+  // MUDANÇA IMPORTANTE: Features agora é uma lista de objetos
+  features: { text: string; included: boolean }[];
   description: string;
   buttonText: string;
   href: string;
@@ -55,7 +56,6 @@ export function PricingToggle({ plans, title = "Escolha seu plano", description 
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
-        {/* Mobile: Anual, 2 anos, Mensal | Desktop: ordem original */}
         {(isDesktop ? plans : [plans[0], plans[1], plans[2]]).map((plan, index) => (
           <motion.div
             key={index}
@@ -122,8 +122,19 @@ export function PricingToggle({ plans, title = "Escolha seu plano", description 
             <ul className="mb-8 space-y-3 text-left">
               {plan.features.map((feature, idx) => (
                 <li key={idx} className="flex items-start gap-2">
-                  <Check className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span className="text-foreground">{feature}</span>
+                  {/* LÓGICA DE ÍCONES: */}
+                  {feature.included ? (
+                    // Se incluso: Check Verde
+                    <Check className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                  ) : (
+                    // Se não incluso: X Vermelho
+                    <X className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />
+                  )}
+
+                  {/* Estilo do Texto: Se não incluso, fica cinza claro (muted) */}
+                  <span className={cn("text-foreground", !feature.included && "text-muted-foreground/60")}>
+                    {feature.text}
+                  </span>
                 </li>
               ))}
             </ul>
