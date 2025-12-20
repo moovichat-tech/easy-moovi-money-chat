@@ -23,8 +23,8 @@ export function Pricing() {
         { text: "Exportação via Excel ou PDF", included: true },
         // Itens Excluídos no Mensal
         { text: "Suporte VIP prioritário", included: false },
-        { text: "Bônus exclusivos para assinantes", included: false },
         { text: "Preço congelado por 1 ano", included: false },
+        { text: "Bônus exclusivos para assinantes", included: false },
         { text: "Preço congelado por 2 anos", included: false },
         { text: "Acesso antecipado a novidades", included: false },
       ],
@@ -53,9 +53,9 @@ export function Pricing() {
         { text: "Exportação via Excel ou PDF", included: true },
         // Itens Inclusos no Anual
         { text: "Suporte VIP prioritário", included: true },
-        { text: "Bônus exclusivos para assinantes", included: true },
         { text: "Preço congelado por 1 ano", included: true },
         // Itens Excluídos no Anual
+        { text: "Bônus exclusivos para assinantes", included: false },
         { text: "Preço congelado por 2 anos", included: false },
         { text: "Acesso antecipado a novidades", included: false },
       ],
@@ -85,8 +85,8 @@ export function Pricing() {
         { text: "Exportação via Excel ou PDF", included: true },
         // Tudo Incluso no Bianual
         { text: "Suporte VIP prioritário", included: true },
-        { text: "Bônus exclusivos para assinantes", included: true },
         { text: "Preço congelado por 1 ano", included: true },
+        { text: "Bônus exclusivos para assinantes", included: true },
         { text: "Preço congelado por 2 anos", included: true },
         { text: "Acesso antecipado a novidades", included: true },
       ],
