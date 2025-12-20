@@ -90,8 +90,8 @@ export function Pricing() {
       <div ref={elementRef}>
         <PricingToggle
           plans={plans}
-          title="Conheça nossos planos"
-          description="Organização financeira e pessoal direto no WhatsApp 24h por dia."
+          title="Escolha seu plano e comece agora"
+          description="Controle financeiro direto no WhatsApp, 24h por dia."
         />
       </div>
     </section>
