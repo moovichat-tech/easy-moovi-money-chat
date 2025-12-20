@@ -23,7 +23,6 @@ const Index = () => {
       <FAQ />
       <Footer />
 
-      <StickyMobileCTA />
       <MobileExitIntent />
     </div>
   );
