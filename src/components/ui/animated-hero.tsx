@@ -18,7 +18,7 @@ function AnimatedHero() {
           <p className="text-base leading-relaxed tracking-tight text-muted-foreground font-bold max-w-2xl text-center px-4 md:text-lg mt-4">
             {/* VERSÃO MOBILE */}
             <span className="md:hidden">
-              Organize suas finanças automaticamente no WhatsApp. Assista ao vídeo e veja como funciona.
+              Assista o vídeo e veja como pessoas estão organizando suas finanças automaticamente
             </span>
 
             {/* VERSÃO DESKTOP */}
