@@ -12,26 +12,26 @@ const Authority = () => {
     {
       icon: Users,
       number: "+1.243",
-      label: "usuários organizados",
-      description: "Pessoas como você que decidiram ter controle total sobre suas finanças.",
+      label: "pessoas usando o Moovi todos os dias",
+      description: "Gente real que saiu do descontrole financeiro para o controle total.",
     },
     {
       icon: DollarSign,
       number: "R$1.344.827",
-      label: "de reais gerenciados",
-      description: "Seu dinheiro merece a mesma atenção que damos aos nossos clientes.",
+      label: "já organizados pelo Moovi",
+      description: "Dinheiro real acompanhado, categorizado e controlado!",
     },
     {
       icon: TrendingUp,
       number: "27,3%",
-      label: "média de economia",
-      description: "Quando você sabe onde está gastando, consegue economizar muito mais.",
+      label: "de economia em média",
+      description: "Quem enxerga os gastos, naturalmente passa a gastar melhor.",
     },
     {
       icon: Shield,
       number: "100%",
       label: "seguro e criptografado",
-      description: "Seus dados financeiros protegidos com a mesma tecnologia dos bancos.",
+      description: "Seus dados protegidos com o mesmo padrão usado por bancos.",
     },
   ];
   return (
