@@ -5,12 +5,10 @@ function AnimatedHero() {
         <div className="flex gap-2 flex-col items-center">
           {/* Header com Quebras de Linha Forçadas */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl max-w-5xl tracking-tight text-center font-bold leading-tight text-gray-900">
-            <span className="block">Controle sua vida financeira</span>
+            <span className="block text-green-600">Controle sua vida financeira</span>
             {/* Adicionei 'text-green-600' abaixo caso queira destacar o WhatsApp, 
                 se não quiser, basta remover essa classe */}
-            <span className="block" text-green-600>
-              direto no WhatsApp,
-            </span>
+            <span className="block">direto no WhatsApp,</span>
             <span className="block">sem planilhas e</span>
             <span className="block">sem esforço</span>
           </h1>
