@@ -5,8 +5,6 @@ import { scrollToSection } from "@/utils/scroll";
 import { Check } from "lucide-react";
 
 // --- SOLUÇÃO TEMPORÁRIA DE IMAGENS ---
-// Estamos usando a sua logo existente para não quebrar o código agora.
-// Depois você salva seus prints na pasta assets com os nomes corretos e troca aqui.
 import placeholderImage from "@/assets/moovi-logo.png";
 
 const featureImage1 = placeholderImage;
@@ -23,14 +21,18 @@ const features = [
     description: (
       <>
         <p className="mb-4">
-          O Moovi organiza suas finanças direto no WhatsApp. É só enviar mensagens como “gastei 100 no mercado” ou
-          “recebi 4 mil de salário” e o Moovi entende, registra e classifica tudo automaticamente.
+          <strong className="text-foreground font-bold">O Moovi organiza suas finanças direto no WhatsApp.</strong> É só
+          enviar mensagens como <em>“gastei 100 no mercado”</em> ou <em>“recebi 4 mil de salário”</em> e o Moovi
+          entende, registra e classifica tudo automaticamente.
         </p>
         <p className="mb-4">
-          Você acompanha seus gastos e receitas com relatórios inteligentes, gráficos claros e lembretes diários, tudo
-          sem planilhas e sem complicação.
+          <strong className="text-foreground font-bold">Você acompanha seus gastos e receitas</strong> com relatórios
+          inteligentes, gráficos claros e lembretes diários, tudo sem planilhas e sem complicação.
         </p>
-        <p>Simples, rápido e 100% no WhatsApp, para você ter mais controle do seu dinheiro no dia a dia.</p>
+        <p>
+          <strong className="text-foreground font-bold">Simples, rápido e 100% no WhatsApp</strong>, para você ter mais
+          controle do seu dinheiro no dia a dia.
+        </p>
       </>
     ),
     image: featureImage1,
@@ -41,21 +43,36 @@ const features = [
     description: (
       <>
         <p className="mb-4">
-          É só enviar uma mensagem no WhatsApp que o Moovi entende tudo! "Gastei 5 reais no café” ou “Ganhei 120 de hora
-          extra”.
+          <strong className="text-foreground font-bold">
+            É só enviar uma mensagem no WhatsApp que o Moovi entende tudo!
+          </strong>{" "}
+          "Gastei 5 reais no café” ou “Ganhei 120 de hora extra”.
         </p>
-        <p className="mb-4 font-semibold">Ele te entende de todas as formas!</p>
-        <ul className="space-y-2">
-          <li className="flex items-start gap-2">
-            <Check className="w-5 h-5 text-green-600 mt-0.5 shrink-0" /> Texto, áudio ou foto! Você escolhe como quer
-            conversar
+        <p className="mb-4 font-semibold text-foreground">Ele te entende de todas as formas!</p>
+        <ul className="space-y-3">
+          <li className="flex items-start gap-3">
+            <div className="mt-1 bg-green-100 dark:bg-green-900/30 p-1 rounded-full">
+              <Check className="w-4 h-4 text-green-600" />
+            </div>
+            <span>
+              <strong className="text-foreground">Texto, áudio ou foto!</strong> Você escolhe como quer conversar.
+            </span>
           </li>
-          <li className="flex items-start gap-2">
-            <Check className="w-5 h-5 text-green-600 mt-0.5 shrink-0" /> Classificação automática para facilitar o
-            controle
+          <li className="flex items-start gap-3">
+            <div className="mt-1 bg-green-100 dark:bg-green-900/30 p-1 rounded-full">
+              <Check className="w-4 h-4 text-green-600" />
+            </div>
+            <span>
+              <strong className="text-foreground">Classificação automática</strong> para facilitar o controle.
+            </span>
           </li>
-          <li className="flex items-start gap-2">
-            <Check className="w-5 h-5 text-green-600 mt-0.5 shrink-0" /> Rápido, simples e sem complicação no dia a dia
+          <li className="flex items-start gap-3">
+            <div className="mt-1 bg-green-100 dark:bg-green-900/30 p-1 rounded-full">
+              <Check className="w-4 h-4 text-green-600" />
+            </div>
+            <span>
+              <strong className="text-foreground">Rápido, simples</strong> e sem complicação no dia a dia.
+            </span>
           </li>
         </ul>
       </>
@@ -67,21 +84,38 @@ const features = [
     title: "Painel Profissional",
     description: (
       <>
-        <p className="mb-4 font-semibold text-lg">Visão clara de todo o seu dinheiro!</p>
+        <p className="mb-4 text-lg">
+          <strong className="text-foreground font-bold block mb-1">Visão clara de todo o seu dinheiro!</strong>
+        </p>
         <p className="mb-4">
-          Tudo o que você registra no WhatsApp vira um painel simples e fácil de entender, com a visão completa do seu
+          Tudo o que você registra no WhatsApp vira um{" "}
+          <strong className="text-foreground">painel simples e fácil de entender</strong>, com a visão completa do seu
           dinheiro em um só lugar.
         </p>
-        <ul className="space-y-2">
-          <li className="flex items-start gap-2">
-            <Check className="w-5 h-5 text-green-600 mt-0.5 shrink-0" /> Gráficos automáticos de entradas e saídas
+        <ul className="space-y-3">
+          <li className="flex items-start gap-3">
+            <div className="mt-1 bg-green-100 dark:bg-green-900/30 p-1 rounded-full">
+              <Check className="w-4 h-4 text-green-600" />
+            </div>
+            <span>
+              Gráficos automáticos de <strong className="text-foreground">entradas e saídas</strong>.
+            </span>
           </li>
-          <li className="flex items-start gap-2">
-            <Check className="w-5 h-5 text-green-600 mt-0.5 shrink-0" /> Organização inteligente dos seus gastos
+          <li className="flex items-start gap-3">
+            <div className="mt-1 bg-green-100 dark:bg-green-900/30 p-1 rounded-full">
+              <Check className="w-4 h-4 text-green-600" />
+            </div>
+            <span>
+              <strong className="text-foreground">Organização inteligente</strong> dos seus gastos.
+            </span>
           </li>
-          <li className="flex items-start gap-2">
-            <Check className="w-5 h-5 text-green-600 mt-0.5 shrink-0" /> Acompanhamento prático para decisões do dia a
-            dia
+          <li className="flex items-start gap-3">
+            <div className="mt-1 bg-green-100 dark:bg-green-900/30 p-1 rounded-full">
+              <Check className="w-4 h-4 text-green-600" />
+            </div>
+            <span>
+              Acompanhamento prático para <strong className="text-foreground">decisões do dia a dia</strong>.
+            </span>
           </li>
         </ul>
       </>
@@ -93,16 +127,25 @@ const features = [
     title: "Lembretes Personalizados",
     description: (
       <>
-        <p className="mb-4 font-semibold text-lg">Organize seus compromissos direto no WhatsApp</p>
-        <p className="mb-4">
-          Basta enviar mensagens como “médico amanhã às 16h” ou “pagar cartão dia 20”. O Moovi registra tudo e cria
-          lembretes personalizados automaticamente.
+        <p className="mb-4 text-lg">
+          <strong className="text-foreground font-bold block mb-1">
+            Organize seus compromissos direto no WhatsApp.
+          </strong>
         </p>
         <p className="mb-4">
-          Receba avisos no momento certo, resumos do dia e uma visão clara dos seus compromissos! Sem anotações manuais
-          e sem esquecer nada.
+          Basta enviar mensagens como <em>“médico amanhã às 16h”</em> ou <em>“pagar cartão dia 20”</em>.{" "}
+          <strong className="text-foreground">
+            O Moovi registra tudo e cria lembretes personalizados automaticamente.
+          </strong>
         </p>
-        <p>Simples, rápido e sempre no WhatsApp! Para manter sua rotina sob controle todos os dias.</p>
+        <p className="mb-4">
+          Receba avisos no momento certo, resumos do dia e uma visão clara dos seus compromissos!{" "}
+          <strong className="text-foreground">Sem anotações manuais e sem esquecer nada.</strong>
+        </p>
+        <p>
+          <strong className="text-foreground">Simples, rápido e sempre no WhatsApp!</strong> Para manter sua rotina sob
+          controle todos os dias.
+        </p>
       </>
     ),
     image: featureImage4,
@@ -113,25 +156,41 @@ const features = [
     description: (
       <>
         <p className="mb-4">
-          O Moovi já vem com categorias prontas, como mercado, aluguel e lazer! Mas você pode criar outras do seu jeito,
-          quantas você quiser e personalizar como preferir!
+          <strong className="text-foreground font-bold">O Moovi já vem com categorias prontas</strong>, como mercado,
+          aluguel e lazer! Mas você pode criar outras do seu jeito, quantas você quiser e personalizar como preferir!
         </p>
-        <p className="mb-4 italic text-muted-foreground">
+        <p className="mb-4 italic text-foreground/80 border-l-4 border-green-500 pl-3">
           “Academia”, “viagens” ou “cartão de crédito”... você escolhe e você decide!
         </p>
         <p className="mb-4">
-          Sempre que você registra um gasto, o Moovi classifica tudo automaticamente e mostra quanto você está gastando
-          em cada categoria.
+          Sempre que você registra um gasto, o{" "}
+          <strong className="text-foreground">Moovi classifica tudo automaticamente</strong> e mostra quanto você está
+          gastando em cada categoria.
         </p>
-        <ul className="space-y-2">
-          <li className="flex items-start gap-2">
-            <Check className="w-5 h-5 text-green-600 mt-0.5 shrink-0" /> Crie quantas categorias quiser
+        <ul className="space-y-3">
+          <li className="flex items-start gap-3">
+            <div className="mt-1 bg-green-100 dark:bg-green-900/30 p-1 rounded-full">
+              <Check className="w-4 h-4 text-green-600" />
+            </div>
+            <span>
+              Crie <strong className="text-foreground">quantas categorias quiser</strong>.
+            </span>
           </li>
-          <li className="flex items-start gap-2">
-            <Check className="w-5 h-5 text-green-600 mt-0.5 shrink-0" /> Classificação automática dos gastos
+          <li className="flex items-start gap-3">
+            <div className="mt-1 bg-green-100 dark:bg-green-900/30 p-1 rounded-full">
+              <Check className="w-4 h-4 text-green-600" />
+            </div>
+            <span>
+              <strong className="text-foreground">Classificação automática</strong> dos gastos.
+            </span>
           </li>
-          <li className="flex items-start gap-2">
-            <Check className="w-5 h-5 text-green-600 mt-0.5 shrink-0" /> Relatórios por categoria direto no WhatsApp
+          <li className="flex items-start gap-3">
+            <div className="mt-1 bg-green-100 dark:bg-green-900/30 p-1 rounded-full">
+              <Check className="w-4 h-4 text-green-600" />
+            </div>
+            <span>
+              Relatórios por categoria <strong className="text-foreground">direto no WhatsApp</strong>.
+            </span>
           </li>
         </ul>
       </>
@@ -143,24 +202,45 @@ const features = [
     title: "Limites Inteligentes",
     description: (
       <>
-        <p className="mb-4 font-semibold text-lg">Defina limites e evite gastar mais do que deveria</p>
-        <p className="mb-4">
-          Escolha um valor máximo para categorias como alimentação, lazer ou cartão de crédito. Quando seus gastos se
-          aproximarem do limite, o Moovi te avisa automaticamente.
+        <p className="mb-4 text-lg">
+          <strong className="text-foreground font-bold block mb-1">
+            Defina limites e evite gastar mais do que deveria.
+          </strong>
         </p>
         <p className="mb-4">
-          Assim, você sabe quando desacelerar antes de estourar o orçamento! Sem precisar fazer conta ou acompanhar
-          planilhas.
+          Escolha um valor máximo para categorias como alimentação, lazer ou cartão de crédito.{" "}
+          <strong className="text-foreground">
+            Quando seus gastos se aproximarem do limite, o Moovi te avisa automaticamente.
+          </strong>
         </p>
-        <ul className="space-y-2">
-          <li className="flex items-start gap-2">
-            <Check className="w-5 h-5 text-green-600 mt-0.5 shrink-0" /> Defina limites por categoria
+        <p className="mb-4">
+          Assim, você sabe quando desacelerar antes de estourar o orçamento!{" "}
+          <strong className="text-foreground">Sem precisar fazer conta ou acompanhar planilhas.</strong>
+        </p>
+        <ul className="space-y-3">
+          <li className="flex items-start gap-3">
+            <div className="mt-1 bg-green-100 dark:bg-green-900/30 p-1 rounded-full">
+              <Check className="w-4 h-4 text-green-600" />
+            </div>
+            <span>
+              Defina <strong className="text-foreground">limites por categoria</strong>.
+            </span>
           </li>
-          <li className="flex items-start gap-2">
-            <Check className="w-5 h-5 text-green-600 mt-0.5 shrink-0" /> Alertas automáticos no WhatsApp
+          <li className="flex items-start gap-3">
+            <div className="mt-1 bg-green-100 dark:bg-green-900/30 p-1 rounded-full">
+              <Check className="w-4 h-4 text-green-600" />
+            </div>
+            <span>
+              <strong className="text-foreground">Alertas automáticos</strong> no WhatsApp.
+            </span>
           </li>
-          <li className="flex items-start gap-2">
-            <Check className="w-5 h-5 text-green-600 mt-0.5 shrink-0" /> Mais controle para gastar melhor no dia a dia
+          <li className="flex items-start gap-3">
+            <div className="mt-1 bg-green-100 dark:bg-green-900/30 p-1 rounded-full">
+              <Check className="w-4 h-4 text-green-600" />
+            </div>
+            <span>
+              Mais controle para <strong className="text-foreground">gastar melhor</strong> no dia a dia.
+            </span>
           </li>
         </ul>
       </>
@@ -172,24 +252,44 @@ const features = [
     title: "Gestão de Contas e Cartões",
     description: (
       <>
-        <p className="mb-4 font-semibold text-lg">Controle todas as suas contas e cartões em um só lugar</p>
+        <p className="mb-4 text-lg">
+          <strong className="text-foreground font-bold block mb-1">
+            Controle todas as suas contas e cartões em um só lugar.
+          </strong>
+        </p>
         <p className="mb-4">
-          Tenha mais de uma conta bancária ou mais de um cartão? Sem problema. O Moovi permite acompanhar tudo junto:
-          conta corrente, poupança e vários cartões de crédito.
+          Tenha mais de uma conta bancária ou mais de um cartão? Sem problema.{" "}
+          <strong className="text-foreground">O Moovi permite acompanhar tudo junto:</strong> conta corrente, poupança e
+          vários cartões de crédito.
         </p>
         <p className="mb-4">
           Registre gastos normalmente no WhatsApp e o Moovi identifica de onde saiu o dinheiro e em qual cartão foi
           feito o gasto.
         </p>
-        <ul className="space-y-2">
-          <li className="flex items-start gap-2">
-            <Check className="w-5 h-5 text-green-600 mt-0.5 shrink-0" /> Gerencie várias contas bancárias
+        <ul className="space-y-3">
+          <li className="flex items-start gap-3">
+            <div className="mt-1 bg-green-100 dark:bg-green-900/30 p-1 rounded-full">
+              <Check className="w-4 h-4 text-green-600" />
+            </div>
+            <span>
+              Gerencie <strong className="text-foreground">várias contas bancárias</strong>.
+            </span>
           </li>
-          <li className="flex items-start gap-2">
-            <Check className="w-5 h-5 text-green-600 mt-0.5 shrink-0" /> Controle mais de um cartão de crédito
+          <li className="flex items-start gap-3">
+            <div className="mt-1 bg-green-100 dark:bg-green-900/30 p-1 rounded-full">
+              <Check className="w-4 h-4 text-green-600" />
+            </div>
+            <span>
+              Controle <strong className="text-foreground">mais de um cartão de crédito</strong>.
+            </span>
           </li>
-          <li className="flex items-start gap-2">
-            <Check className="w-5 h-5 text-green-600 mt-0.5 shrink-0" /> Tudo organizado de forma simples e automática
+          <li className="flex items-start gap-3">
+            <div className="mt-1 bg-green-100 dark:bg-green-900/30 p-1 rounded-full">
+              <Check className="w-4 h-4 text-green-600" />
+            </div>
+            <span>
+              Tudo organizado de forma <strong className="text-foreground">simples e automática</strong>.
+            </span>
           </li>
         </ul>
       </>
@@ -199,13 +299,10 @@ const features = [
   },
 ];
 
-// MANTIVE O NOME "ContainerScroll" AQUI EMBAIXO PARA O CÓDIGO FUNCIONAR
-// Mesmo que a lógica agora seja de uma "Escada" (Staircase)
 export const ContainerScroll = ({ titleComponent, children }: any) => {
   return (
     <section className="py-20 overflow-hidden bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Usamos o título que vem de fora ou o padrão */}
         <div className="text-center mb-20 max-w-3xl mx-auto">
           {titleComponent || (
             <>
@@ -250,7 +347,7 @@ export const ContainerScroll = ({ titleComponent, children }: any) => {
                         className="bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-6 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all text-lg"
                         onClick={() => scrollToSection("pricing-section")}
                       >
-                        Quero usar o Moovi💚
+                        Quero o Plano Anual 💚
                       </Button>
                     </div>
                   )}
@@ -260,7 +357,6 @@ export const ContainerScroll = ({ titleComponent, children }: any) => {
                 <div className="flex-1 w-full order-1 md:order-2">
                   <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-zinc-900 group">
                     <div className="absolute inset-0 bg-gradient-to-tr from-green-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
                     <img
                       src={feature.image}
                       alt={`Funcionalidade: ${feature.title}`}
