@@ -3,9 +3,14 @@ function AnimatedHero() {
     <div className="w-full">
       <div className="flex gap-3 py-3 md:py-5 items-center justify-center flex-col">
         <div className="flex gap-2 flex-col items-center">
-          {/* Header - Texto fixo e completo */}
+          {/* Header com Quebras de Linha Forçadas */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl max-w-5xl tracking-tight text-center font-bold leading-tight text-gray-900">
-            Controle sua vida financeira direto no WhatsApp, sem planilhas e sem esforço
+            <span className="block">Controle sua vida financeira</span>
+            {/* Adicionei 'text-green-600' abaixo caso queira destacar o WhatsApp, 
+                se não quiser, basta remover essa classe */}
+            <span className="block">direto no WhatsApp,</span>
+            <span className="block">sem planilhas e</span>
+            <span className="block">sem esforço</span>
           </h1>
 
           {/* SubHeader */}
