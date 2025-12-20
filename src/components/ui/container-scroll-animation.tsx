@@ -4,17 +4,18 @@ import { Button } from "@/components/ui/button";
 import { scrollToSection } from "@/utils/scroll";
 import { Check } from "lucide-react";
 
-// --- DADOS DAS FUNCIONALIDADES ---
-// Aqui estão os textos exatos que você enviou.
-// Nota: Você precisará substituir os caminhos das imagens (featureImage1, etc.) pelas imagens reais do seu projeto.
+// --- SOLUÇÃO TEMPORÁRIA ---
+// Estamos usando a sua logo existente para todas as imagens por enquanto.
+// Assim que você tiver os prints reais, salve na pasta 'src/assets' e mude aqui.
+import placeholderImage from "@/assets/moovi-logo.png";
 
-import featureImage1 from "@/assets/feature-financeiro.png"; // Substitua pelo caminho real
-import featureImage2 from "@/assets/feature-registre.png"; // Substitua pelo caminho real
-import featureImage3 from "@/assets/feature-painel.png"; // Substitua pelo caminho real
-import featureImage4 from "@/assets/feature-lembretes.png"; // Substitua pelo caminho real
-import featureImage5 from "@/assets/feature-categorias.png"; // Substitua pelo caminho real
-import featureImage6 from "@/assets/feature-limites.png"; // Substitua pelo caminho real
-import featureImage7 from "@/assets/feature-contas.png"; // Substitua pelo caminho real
+const featureImage1 = placeholderImage;
+const featureImage2 = placeholderImage;
+const featureImage3 = placeholderImage;
+const featureImage4 = placeholderImage;
+const featureImage5 = placeholderImage;
+const featureImage6 = placeholderImage;
+const featureImage7 = placeholderImage;
 
 const features = [
   {
