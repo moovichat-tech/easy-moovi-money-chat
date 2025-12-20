@@ -111,12 +111,6 @@ export function PricingToggle({ plans, title = "Escolha seu plano", description 
                 </span>
                 <span className="text-lg text-muted-foreground font-medium">/mês</span>
               </div>
-
-              {plan.savings && (
-                <p className="text-xs text-green-600 font-semibold mt-3 bg-green-50 rounded-full py-1 px-3 inline-block">
-                  💰 {plan.name === "Plano Anual" ? "Economia de 3 meses" : "Economia de 10 meses"}
-                </p>
-              )}
             </div>
 
             <ul className="mb-8 space-y-3 text-left">
