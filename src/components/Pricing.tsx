@@ -21,7 +21,6 @@ export function Pricing() {
         { text: "Painel de acompanhamento", included: true },
         { text: "Relatórios completos", included: true },
         { text: "Exportação via Excel ou PDF", included: true },
-        { text: "Suporte via WhatsApp", included: true },
         // Itens Excluídos no Mensal
         { text: "Suporte VIP prioritário", included: false },
         { text: "Bônus exclusivos para assinantes", included: false },
@@ -52,7 +51,6 @@ export function Pricing() {
         { text: "Painel de acompanhamento", included: true },
         { text: "Relatórios completos", included: true },
         { text: "Exportação via Excel ou PDF", included: true },
-        { text: "Suporte via WhatsApp", included: true },
         // Itens Inclusos no Anual
         { text: "Suporte VIP prioritário", included: true },
         { text: "Bônus exclusivos para assinantes", included: true },
@@ -85,7 +83,6 @@ export function Pricing() {
         { text: "Painel de acompanhamento", included: true },
         { text: "Relatórios completos", included: true },
         { text: "Exportação via Excel ou PDF", included: true },
-        { text: "Suporte via WhatsApp", included: true },
         // Tudo Incluso no Bianual
         { text: "Suporte VIP prioritário", included: true },
         { text: "Bônus exclusivos para assinantes", included: true },
