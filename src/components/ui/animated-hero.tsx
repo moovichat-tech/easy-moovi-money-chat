@@ -65,13 +65,6 @@ function AnimatedHero() {
             Assista ao vídeo para entender por que cada vez mais pessoas usam o Moovi para ter controle total do
             dinheiro no dia a dia.
           </p>
-
-          {/* 3. Novo Botão adicionado */}
-          <div className="mt-6">
-            <button className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
-              Quero usar o Moovi 💚
-            </button>
-          </div>
         </div>
       </div>
     </div>
