@@ -15,7 +15,7 @@ const Authority = () => {
     {
       icon: Users,
       number: "+1.243",
-      label: "pessoas usando o Moovi todos os dias",
+      label: "pessoas usando o Moovi",
       description: "Gente real que saiu do descontrole financeiro para o controle total.",
     },
     {
