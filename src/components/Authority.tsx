@@ -15,7 +15,7 @@ const Authority = () => {
     {
       icon: Users,
       number: "+1.243",
-      label: "pessoas usando o Moovi",
+      label: "pessoas usando o Moovi todos os dias",
       description: "Gente real que saiu do descontrole financeiro para o controle total.",
     },
     {
@@ -41,30 +41,30 @@ const Authority = () => {
   const MetricCard = ({ metric, index }) => (
     <CardContainer key={index} className="w-full h-full py-2">
       <CardBody
-        // AJUSTE 1: Mudei 'items-center' para 'items-start'.
-        // AJUSTE 2: Mudei 'text-center' para 'text-left'.
-        // Isso joga ícones e textos para a esquerda, criando um alinhamento perfeito.
-        className={`bg-card rounded-2xl p-6 md:p-8 text-left shadow-lg border border-border w-full h-full flex flex-col justify-between items-start min-h-[320px] fade-in-scroll fade-in-scroll-delay-${index * 100} ${isVisible ? "visible" : ""}`}
+        // AJUSTE 1: Removi 'justify-between' e adicionei 'gap-4'.
+        // Isso faz com que os itens se empilhem naturalmente no topo, sem forçar espaço no meio.
+        className={`bg-card rounded-2xl p-6 md:p-8 text-left shadow-lg border border-border w-full h-full flex flex-col items-start min-h-[320px] fade-in-scroll fade-in-scroll-delay-${index * 100} ${isVisible ? "visible" : ""}`}
       >
-        <div className="w-full">
-          {/* Ícone alinhado à esquerda (removi o mx-auto e justify-center) */}
-          <CardItem translateZ="50" className="flex items-center justify-start mb-4">
+        {/* Agora TODO o conteúdo está dentro desta div única para ficarem juntos */}
+        <div className="w-full flex flex-col h-full">
+          <CardItem translateZ="50" className="flex items-center justify-start mb-6">
             <metric.icon className="w-10 h-10 md:w-12 md:h-12 text-primary" />
           </CardItem>
 
-          {/* Texto alinhado à esquerda naturalmente (removi o w-full text-center) */}
           <CardItem translateZ="75" className="text-3xl md:text-5xl font-bold text-foreground mb-2">
             {metric.number}
           </CardItem>
 
-          <CardItem translateZ="60" className="text-sm md:text-lg font-semibold text-primary mb-2">
+          {/* AJUSTE 2: Reduzi a margem inferior (mb-2 para mb-1) para aproximar da descrição */}
+          <CardItem translateZ="60" className="text-sm md:text-lg font-semibold text-primary mb-1 leading-tight">
             {metric.label}
           </CardItem>
-        </div>
 
-        <CardItem translateZ="40" className="text-xs md:text-sm text-muted-foreground mt-2 w-full text-left">
-          {metric.description}
-        </CardItem>
+          {/* AJUSTE 3: A descrição agora está aqui dentro, logo abaixo da label */}
+          <CardItem translateZ="40" className="text-xs md:text-sm text-muted-foreground w-full text-left">
+            {metric.description}
+          </CardItem>
+        </div>
       </CardBody>
     </CardContainer>
   );
