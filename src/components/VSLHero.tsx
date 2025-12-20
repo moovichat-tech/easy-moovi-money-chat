@@ -11,13 +11,7 @@ const VSLHero = () => {
   });
 
   return (
-    <section
-      // 1. CORREÇÃO DA BARRA BRANCA:
-      // Mudei o background. Antes ia para 'to-white' (branco), agora vai para 'to-green-50'.
-      // Isso mantem o tom esverdeado até o fim, eliminando a sensação de corte.
-      // Também aumentei o 'pb-4' para 'pb-8' para o botão não ficar colado na borda.
-      className="relative pt-0 pb-8 md:py-8 lg:py-10 md:-mx-8 bg-gradient-to-b from-green-50 via-green-50 to-green-100/20 overflow-hidden"
-    >
+    <section className="relative pt-0 pb-8 md:py-8 lg:py-10 md:-mx-8 bg-gradient-to-b from-green-50 via-green-50 to-green-100/20 overflow-hidden">
       {/* Floating Badges (Mantidos igual) */}
       <FloatingBadge icon="💰" value="R$ 234" text="economizado este mês" position="top-left" delay={0.2} />
       <FloatingBadge icon="🍕" value="R$ 156" text="gasto com comida" position="top-right" delay={0.4} />
@@ -28,13 +22,15 @@ const VSLHero = () => {
       <div className="w-full mx-auto px-4 sm:px-6 lg:px-8" ref={elementRef}>
         <div className="max-w-5xl mx-auto text-center">
           <div className={`space-y-3 fade-in-scroll ${isVisible ? "visible" : ""}`}>
-            {/* 2. CORREÇÃO DA LOGO:
-               - Mudei de 'h-12' para 'h-20' (Mobile).
-               - Mudei de 'md:h-14' para 'md:h-24' (Tablet/PC).
-               Agora ela terá destaque total.
+            {/* AJUSTES DA LOGO AQUI: 
+                1. Margem: Mudei de 'mb-6' para 'mb-1 md:mb-6'. 
+                   No celular (mb-1) ela fica bem pertinho do texto. No PC (mb-6) mantém o respiro.
+                
+                2. Tamanho: Mudei de 'h-20' para 'h-24'.
+                   Agora ela fica bem maior no celular (96px).
             */}
-            <div className="flex justify-center mb-6">
-              <img src={mooviLogo} alt="Moovi - Controle Financeiro no WhatsApp" className="h-20 md:h-24" />
+            <div className="flex justify-center mb-1 md:mb-6">
+              <img src={mooviLogo} alt="Moovi - Controle Financeiro no WhatsApp" className="h-24 md:h-28" />
             </div>
 
             {/* Hero Text */}
