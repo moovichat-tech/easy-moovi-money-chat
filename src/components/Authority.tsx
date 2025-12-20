@@ -4,7 +4,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { scrollToSection } from "@/utils/scroll";
 import { TextAnimate } from "@/components/ui/text-animate";
 import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
-import { motion } from "framer-motion"; // Importando framer-motion para o carrossel
+import { motion } from "framer-motion";
 
 const Authority = () => {
   const { elementRef, isVisible } = useScrollAnimation({
@@ -38,29 +38,30 @@ const Authority = () => {
     },
   ];
 
-  // Componente do Card isolado para reusar no mobile e desktop sem repetir código
+  // Componente do Card isolado
   const MetricCard = ({ metric, index }) => (
     <CardContainer key={index} className="w-full h-full py-2">
       <CardBody
-        // AJUSTE 1: Adicionei 'h-full', 'flex', 'flex-col' e 'justify-between'.
-        // Isso força todos os cards a esticarem para a mesma altura e distribui o conteúdo igualmente.
         className={`bg-card rounded-2xl p-6 md:p-8 text-center shadow-lg border border-border w-full h-full flex flex-col justify-between items-center min-h-[320px] fade-in-scroll fade-in-scroll-delay-${index * 100} ${isVisible ? "visible" : ""}`}
       >
-        <div>
+        <div className="w-full flex flex-col items-center">
           <CardItem translateZ="50" className="flex items-center justify-center mb-4 mx-auto">
             <metric.icon className="w-10 h-10 md:w-12 md:h-12 text-primary" />
           </CardItem>
 
-          <CardItem translateZ="75" className="text-3xl md:text-5xl font-bold text-foreground mb-2">
+          {/* AJUSTE AQUI: Adicionei 'w-full text-center' para forçar a centralização do número */}
+          <CardItem translateZ="75" className="w-full text-center text-3xl md:text-5xl font-bold text-foreground mb-2">
             {metric.number}
           </CardItem>
 
-          <CardItem translateZ="60" className="text-sm md:text-lg font-semibold text-primary mb-2">
+          {/* Adicionei 'w-full text-center' aqui também para garantir que o título fique alinhado */}
+          <CardItem translateZ="60" className="w-full text-center text-sm md:text-lg font-semibold text-primary mb-2">
             {metric.label}
           </CardItem>
         </div>
 
-        <CardItem translateZ="40" className="text-xs md:text-sm text-muted-foreground mt-2">
+        {/* Adicionei 'w-full text-center' aqui também para a descrição */}
+        <CardItem translateZ="40" className="w-full text-center text-xs md:text-sm text-muted-foreground mt-2">
           {metric.description}
         </CardItem>
       </CardBody>
@@ -76,7 +77,7 @@ const Authority = () => {
           </TextAnimate>
         </h2>
 
-        {/* --- VERSÃO DESKTOP (GRID PARADO) --- */}
+        {/* --- VERSÃO DESKTOP --- */}
         <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6 mt-12 items-stretch">
           {metrics.map((metric, i) => (
             <div key={i} className="h-full">
@@ -85,27 +86,23 @@ const Authority = () => {
           ))}
         </div>
 
-        {/* --- VERSÃO MOBILE (CARROSSEL INFINITO) --- */}
-        {/* AJUSTE 2: Criamos um container flex que usa Framer Motion para deslizar para a esquerda */}
+        {/* --- VERSÃO MOBILE (CARROSSEL) --- */}
         <div className="md:hidden mt-8 relative w-full">
           <div className="flex overflow-hidden mask-linear-gradient">
             <motion.div
               className="flex gap-4 px-4"
               animate={{
-                x: ["0%", "-100%"], // Move do início ao fim
+                x: ["0%", "-100%"],
               }}
               transition={{
-                repeat: Infinity, // Repete para sempre
-                ease: "linear", // Movimento constante sem acelerar/frear
-                duration: 25, // Velocidade (aumente para ficar mais lento)
+                repeat: Infinity,
+                ease: "linear",
+                duration: 25,
               }}
-              style={{ width: "max-content" }} // Garante que cabe tudo numa linha
+              style={{ width: "max-content" }}
             >
-              {/* Renderizamos a lista DUAS vezes para criar o efeito de loop infinito perfeito */}
               {[...metrics, ...metrics].map((metric, i) => (
                 <div key={i} className="w-[280px]">
-                  {" "}
-                  {/* Largura fixa para o card no carrossel */}
                   <MetricCard metric={metric} index={i} />
                 </div>
               ))}
