@@ -7,7 +7,6 @@ import { Pricing } from "@/components/Pricing";
 import Footer from "@/components/Footer";
 import { FAQ } from "@/components/FAQ";
 import { AppShowcase } from "@/components/AppShowcase";
-import { StickyMobileCTA } from "@/components/StickyMobileCTA";
 import { MobileExitIntent } from "@/components/MobileExitIntent";
 
 const Index = () => {
