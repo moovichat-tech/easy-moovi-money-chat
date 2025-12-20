@@ -100,11 +100,6 @@ export function PricingToggle({ plans, title = "Escolha seu plano", description 
             </div>
 
             <div className="mb-6 py-6 px-4">
-              {plan.savings && (
-                <div className="text-sm text-muted-foreground line-through mb-2">
-                  R$ {plan.monthlyPrice.toFixed(2).replace(".", ",")}
-                </div>
-              )}
               <div className="flex items-baseline justify-center gap-1">
                 <span className="text-4xl sm:text-5xl font-bold text-primary">
                   R$ {plan.yearlyPrice.toFixed(2).replace(".", ",")}
