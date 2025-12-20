@@ -4,9 +4,9 @@ import { Button } from "@/components/ui/button";
 import { scrollToSection } from "@/utils/scroll";
 import { Check } from "lucide-react";
 
-// --- SOLUÇÃO TEMPORÁRIA ---
-// Estamos usando a sua logo existente para todas as imagens por enquanto.
-// Assim que você tiver os prints reais, salve na pasta 'src/assets' e mude aqui.
+// --- SOLUÇÃO TEMPORÁRIA DE IMAGENS ---
+// Estamos usando a sua logo existente para não quebrar o código agora.
+// Depois você salva seus prints na pasta assets com os nomes corretos e troca aqui.
 import placeholderImage from "@/assets/moovi-logo.png";
 
 const featureImage1 = placeholderImage;
@@ -199,23 +199,29 @@ const features = [
   },
 ];
 
-export const FeaturesStaircase = () => {
+// MANTIVE O NOME "ContainerScroll" AQUI EMBAIXO PARA O CÓDIGO FUNCIONAR
+// Mesmo que a lógica agora seja de uma "Escada" (Staircase)
+export const ContainerScroll = ({ titleComponent, children }: any) => {
   return (
     <section className="py-20 overflow-hidden bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Título da Seção (Opcional, se quiser um cabeçalho geral) */}
+        {/* Usamos o título que vem de fora ou o padrão */}
         <div className="text-center mb-20 max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
-            Tudo o que você precisa, direto no <span className="text-green-600">WhatsApp</span>
-          </h2>
-          <p className="text-lg text-muted-foreground">
-            Conheça todas as funcionalidades que vão transformar sua vida financeira.
-          </p>
+          {titleComponent || (
+            <>
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
+                Tudo o que você precisa, direto no <span className="text-green-600">WhatsApp</span>
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Conheça todas as funcionalidades que vão transformar sua vida financeira.
+              </p>
+            </>
+          )}
         </div>
 
         <div className="flex flex-col gap-24 md:gap-32">
           {features.map((feature, index) => {
-            const isEven = index % 2 === 0; // Verifica se é par (0, 2, 4...) -> Imagem à Direita
+            const isEven = index % 2 === 0;
 
             return (
               <motion.div
@@ -225,16 +231,12 @@ export const FeaturesStaircase = () => {
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className={`flex flex-col md:flex-row items-center gap-8 md:gap-16 ${
-                  // Se for par (Item 1, 3...), row normal (Texto Esq | Img Dir).
-                  // Se for ímpar (Item 2, 4...), row-reverse (Img Esq | Texto Dir).
-                  // No mobile (flex-col), mudamos a ordem para sempre ficar Imagem em Cima.
                   isEven ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
                 {/* --- BLOCO DE TEXTO --- */}
                 <div className="flex-1 space-y-6 text-left order-2 md:order-1">
                   <div className="relative">
-                    {/* Linha decorativa acima do título */}
                     <div className="w-20 h-2 bg-green-500 rounded-full mb-6"></div>
                     <h3 className="text-3xl md:text-4xl font-bold text-foreground leading-tight">{feature.title}</h3>
                   </div>
@@ -257,7 +259,6 @@ export const FeaturesStaircase = () => {
                 {/* --- BLOCO DE IMAGEM --- */}
                 <div className="flex-1 w-full order-1 md:order-2">
                   <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-zinc-900 group">
-                    {/* Efeito de brilho ao passar o mouse */}
                     <div className="absolute inset-0 bg-gradient-to-tr from-green-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                     <img
