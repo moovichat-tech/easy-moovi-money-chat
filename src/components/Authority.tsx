@@ -38,30 +38,31 @@ const Authority = () => {
     },
   ];
 
-  // Componente do Card isolado
   const MetricCard = ({ metric, index }) => (
     <CardContainer key={index} className="w-full h-full py-2">
       <CardBody
-        className={`bg-card rounded-2xl p-6 md:p-8 text-center shadow-lg border border-border w-full h-full flex flex-col justify-between items-center min-h-[320px] fade-in-scroll fade-in-scroll-delay-${index * 100} ${isVisible ? "visible" : ""}`}
+        // AJUSTE 1: Mudei 'items-center' para 'items-start'.
+        // AJUSTE 2: Mudei 'text-center' para 'text-left'.
+        // Isso joga ícones e textos para a esquerda, criando um alinhamento perfeito.
+        className={`bg-card rounded-2xl p-6 md:p-8 text-left shadow-lg border border-border w-full h-full flex flex-col justify-between items-start min-h-[320px] fade-in-scroll fade-in-scroll-delay-${index * 100} ${isVisible ? "visible" : ""}`}
       >
-        <div className="w-full flex flex-col items-center">
-          <CardItem translateZ="50" className="flex items-center justify-center mb-4 mx-auto">
+        <div className="w-full">
+          {/* Ícone alinhado à esquerda (removi o mx-auto e justify-center) */}
+          <CardItem translateZ="50" className="flex items-center justify-start mb-4">
             <metric.icon className="w-10 h-10 md:w-12 md:h-12 text-primary" />
           </CardItem>
 
-          {/* AJUSTE AQUI: Adicionei 'w-full text-center' para forçar a centralização do número */}
-          <CardItem translateZ="75" className="w-full text-center text-3xl md:text-5xl font-bold text-foreground mb-2">
+          {/* Texto alinhado à esquerda naturalmente (removi o w-full text-center) */}
+          <CardItem translateZ="75" className="text-3xl md:text-5xl font-bold text-foreground mb-2">
             {metric.number}
           </CardItem>
 
-          {/* Adicionei 'w-full text-center' aqui também para garantir que o título fique alinhado */}
-          <CardItem translateZ="60" className="w-full text-center text-sm md:text-lg font-semibold text-primary mb-2">
+          <CardItem translateZ="60" className="text-sm md:text-lg font-semibold text-primary mb-2">
             {metric.label}
           </CardItem>
         </div>
 
-        {/* Adicionei 'w-full text-center' aqui também para a descrição */}
-        <CardItem translateZ="40" className="w-full text-center text-xs md:text-sm text-muted-foreground mt-2">
+        <CardItem translateZ="40" className="text-xs md:text-sm text-muted-foreground mt-2 w-full text-left">
           {metric.description}
         </CardItem>
       </CardBody>
@@ -86,7 +87,7 @@ const Authority = () => {
           ))}
         </div>
 
-        {/* --- VERSÃO MOBILE (CARROSSEL) --- */}
+        {/* --- VERSÃO MOBILE --- */}
         <div className="md:hidden mt-8 relative w-full">
           <div className="flex overflow-hidden mask-linear-gradient">
             <motion.div
