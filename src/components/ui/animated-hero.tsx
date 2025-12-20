@@ -8,7 +8,9 @@ function AnimatedHero() {
             <span className="block">Controle sua vida financeira</span>
             {/* Adicionei 'text-green-600' abaixo caso queira destacar o WhatsApp, 
                 se não quiser, basta remover essa classe */}
-            <span className="block">direto no WhatsApp,</span>
+            <span className="block" text-green-600>
+              direto no WhatsApp,
+            </span>
             <span className="block">sem planilhas e</span>
             <span className="block">sem esforço</span>
           </h1>
