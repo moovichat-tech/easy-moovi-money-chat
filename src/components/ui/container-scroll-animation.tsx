@@ -250,7 +250,7 @@ export const ContainerScroll = ({ titleComponent, children }: any) => {
                         className="bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-6 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all text-lg"
                         onClick={() => scrollToSection("pricing-section")}
                       >
-                        Quero o Plano Anual 💚
+                        Quero usar o Moovi💚
                       </Button>
                     </div>
                   )}
