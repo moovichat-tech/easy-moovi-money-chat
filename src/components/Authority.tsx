@@ -115,7 +115,7 @@ const Authority = () => {
             className="bg-green-700 hover:bg-green-800 text-white font-bold text-xl px-12 py-8 shadow-2xl hover:shadow-3xl transition-all rounded-2xl"
             onClick={() => scrollToSection("pricing-section")}
           >
-            Quero começar agora 💚
+            Quero usar o Moovi💚
           </Button>
         </div>
       </div>
