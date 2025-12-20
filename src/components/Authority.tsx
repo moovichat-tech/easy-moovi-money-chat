@@ -41,13 +41,13 @@ const Authority = () => {
   const MetricCard = ({ metric, index }) => (
     <CardContainer key={index} className="w-full h-full py-2">
       <CardBody
-        // AJUSTE 1: Removi 'justify-between' e adicionei 'gap-4'.
-        // Isso faz com que os itens se empilhem naturalmente no topo, sem forçar espaço no meio.
-        className={`bg-card rounded-2xl p-6 md:p-8 text-left shadow-lg border border-border w-full h-full flex flex-col items-start min-h-[320px] fade-in-scroll fade-in-scroll-delay-${index * 100} ${isVisible ? "visible" : ""}`}
+        // AJUSTE 1: Reduzi o padding interno (p-6 md:p-8 -> p-5).
+        // AJUSTE 2: Reduzi a altura mínima (min-h-[320px] -> min-h-[260px]) para tirar o espaço vazio embaixo.
+        className={`bg-card rounded-2xl p-5 text-left shadow-lg border border-border w-full h-full flex flex-col items-start min-h-[260px] fade-in-scroll fade-in-scroll-delay-${index * 100} ${isVisible ? "visible" : ""}`}
       >
-        {/* Agora TODO o conteúdo está dentro desta div única para ficarem juntos */}
         <div className="w-full flex flex-col h-full">
-          <CardItem translateZ="50" className="flex items-center justify-start mb-6">
+          {/* AJUSTE 3: Reduzi a margem do ícone (mb-6 -> mb-4) */}
+          <CardItem translateZ="50" className="flex items-center justify-start mb-4">
             <metric.icon className="w-10 h-10 md:w-12 md:h-12 text-primary" />
           </CardItem>
 
@@ -55,12 +55,10 @@ const Authority = () => {
             {metric.number}
           </CardItem>
 
-          {/* AJUSTE 2: Reduzi a margem inferior (mb-2 para mb-1) para aproximar da descrição */}
           <CardItem translateZ="60" className="text-sm md:text-lg font-semibold text-primary mb-1 leading-tight">
             {metric.label}
           </CardItem>
 
-          {/* AJUSTE 3: A descrição agora está aqui dentro, logo abaixo da label */}
           <CardItem translateZ="40" className="text-xs md:text-sm text-muted-foreground w-full text-left">
             {metric.description}
           </CardItem>
