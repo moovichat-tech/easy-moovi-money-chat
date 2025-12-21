@@ -4,19 +4,14 @@ import { Button } from "@/components/ui/button";
 import { scrollToSection } from "@/utils/scroll";
 import { Check } from "lucide-react";
 
-// Componente de vídeo Panda
-const VideoEmbed = ({ videoId, aspectRatio = "56.25%" }: { videoId: string; aspectRatio?: string }) => (
-  <div 
-    className="relative w-full rounded-2xl overflow-hidden bg-black/5"
-    style={{ paddingTop: aspectRatio }}
-  >
-    <iframe
-      src={`https://player-vz-c1e2f242-e38.tv.pandavideo.com.br/embed/?v=${videoId}`}
-      className="absolute top-0 left-0 w-full h-full border-none"
-      allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
-      allowFullScreen
-    />
-  </div>
+// Componente de imagem
+const ImageDisplay = ({ imagePath, alt }: { imagePath: string; alt: string }) => (
+  <img
+    src={imagePath}
+    alt={alt}
+    className="w-full h-auto rounded-2xl object-cover"
+    loading="lazy"
+  />
 );
 
 const features = [
@@ -39,8 +34,7 @@ const features = [
         </p>
       </>
     ),
-    videoId: "ce200b41-a64b-4b84-9ab5-00c68d4ee379",
-    aspectRatio: "56.25%",
+    imagePath: "/features/Financeiro.png",
     hasButton: true,
   },
   {
@@ -82,8 +76,7 @@ const features = [
         </ul>
       </>
     ),
-    videoId: "0ba8451c-67f5-484d-b034-0e2a687c1411",
-    aspectRatio: "56.25%",
+    imagePath: "/features/Registre_Tudo_no_whatsapp.png",
     hasButton: false,
   },
   {
@@ -126,8 +119,7 @@ const features = [
         </ul>
       </>
     ),
-    videoId: "7d8906f5-8c91-4334-9e22-e3c57234dc16",
-    aspectRatio: "56.25%",
+    imagePath: "/features/Painel_Profissional.png",
     hasButton: true,
   },
   {
@@ -155,8 +147,7 @@ const features = [
         </p>
       </>
     ),
-    videoId: "b476b2e2-bfc8-4d6a-be62-545da49415f1",
-    aspectRatio: "56.25%",
+    imagePath: "/features/Lembretes_Personalizados.png",
     hasButton: false,
   },
   {
@@ -203,8 +194,7 @@ const features = [
         </ul>
       </>
     ),
-    videoId: "80951287-a7d1-430e-a220-067611889e53",
-    aspectRatio: "56.25%",
+    imagePath: "/features/Categorias_Personalizadas.png",
     hasButton: true,
   },
   {
@@ -254,8 +244,7 @@ const features = [
         </ul>
       </>
     ),
-    videoId: "ddaeecf7-fdf3-4c9c-91ea-fb8f701babe4",
-    aspectRatio: "70.45%",
+    imagePath: "/features/Limites_Inteligentes.png",
     hasButton: false,
   },
   {
@@ -304,8 +293,7 @@ const features = [
         </ul>
       </>
     ),
-    videoId: "61f71433-6cfd-420e-ac28-e5eedce0f69c",
-    aspectRatio: "54.22%",
+    imagePath: "/features/Gestao_de_Contas_e_Cartoes.png",
     hasButton: true,
   },
 ];
@@ -364,11 +352,11 @@ export const ContainerScroll = ({ titleComponent, children }: any) => {
                   )}
                 </div>
 
-                {/* --- BLOCO DE VÍDEO --- */}
+                {/* --- BLOCO DE IMAGEM --- */}
                 <div className="flex-1 w-full order-1 md:order-2">
                   <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-zinc-900 group">
                     <div className="absolute inset-0 bg-gradient-to-tr from-green-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
-                    <VideoEmbed videoId={feature.videoId} aspectRatio={feature.aspectRatio} />
+                    <ImageDisplay imagePath={feature.imagePath} alt={feature.title} />
                   </div>
                 </div>
               </motion.div>
