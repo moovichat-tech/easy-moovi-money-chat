@@ -39,8 +39,8 @@ const features = [
         </p>
       </>
     ),
-    videoId: "61f71433-6cfd-420e-ac28-e5eedce0f69c",
-    aspectRatio: "54.22%",
+    videoId: "ce200b41-a64b-4b84-9ab5-00c68d4ee379",
+    aspectRatio: "56.25%",
     hasButton: true,
   },
   {
