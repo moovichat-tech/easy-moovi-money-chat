@@ -47,7 +47,7 @@ export function MobileExitIntent() {
   const handleClaimOffer = () => {
     window.open(
       "https://wa.me/5511989269937?text=Oi,%20estava%20saindo%20do%20site%20mas%20quero%20o%20Guia%20Gratuito%20'3%20Passos%20para%20Sair%20do%20Vermelho'",
-      "_blank"
+      "_blank",
     );
     setIsOpen(false);
   };
@@ -62,18 +62,13 @@ export function MobileExitIntent() {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent className="sm:max-w-md w-[90%] rounded-2xl border-2 border-red-100 bg-white p-0 overflow-hidden gap-0">
-        
         {/* Cabeçalho Visual de Alerta */}
         <div className="bg-red-50 p-6 text-center border-b border-red-100">
           <div className="mx-auto bg-white p-3 rounded-full w-16 h-16 flex items-center justify-center shadow-sm mb-3">
             <span className="text-3xl">🎁</span>
           </div>
-          <DialogTitle className="text-xl font-bold text-red-600 mb-2">
-            Espere! Não vá ainda...
-          </DialogTitle>
-          <DialogDescription className="text-gray-600 font-medium">
-            Você ia embora de mãos vazias?
-          </DialogDescription>
+          <DialogTitle className="text-xl font-bold text-red-600 mb-2">Espere! Não vá ainda...</DialogTitle>
+          <DialogDescription className="text-gray-600 font-medium">Você ia embora de mãos vazias?</DialogDescription>
         </div>
 
         {/* Corpo da Oferta */}
@@ -83,21 +78,22 @@ export function MobileExitIntent() {
               <FileText className="w-6 h-6 text-green-700" />
             </div>
             <div>
-              <h4 className="font-bold text-gray-900 text-sm">Guia Exclusivo Grátis</h4>
+              <h4 className="font-bold text-gray-900 text-sm">Moovi Mensal</h4>
               <p className="text-xs text-gray-500 mt-1 leading-relaxed">
-                Baixe o e-book <span className="font-bold text-gray-700">"3 Passos para Sair do Vermelho"</span>. É nosso presente para você não desistir dos seus sonhos.
+                Teste o Moovi <span className="font-bold text-gray-700">"1 mês economizando"</span>. É o suficiente para
+                começar a controlar suas finanças.
               </p>
             </div>
           </div>
 
-          <Button 
+          <Button
             className="w-full bg-green-600 hover:bg-green-700 text-white font-bold h-12 text-base shadow-lg animate-pulse"
             onClick={handleClaimOffer}
           >
-            BAIXAR GUIA NO WHATSAPP
+            Quero controlar minhas finanças!
           </Button>
 
-          <button 
+          <button
             onClick={handleClose}
             className="w-full text-center text-xs text-gray-400 hover:text-gray-600 underline py-2"
           >
@@ -106,13 +102,12 @@ export function MobileExitIntent() {
         </div>
 
         {/* Botão X Absoluto */}
-        <button 
+        <button
           onClick={handleClose}
           className="absolute right-4 top-4 text-gray-400 hover:text-gray-600 bg-white/50 p-1 rounded-full"
         >
           <X className="w-5 h-5" />
         </button>
-
       </DialogContent>
     </Dialog>
   );
