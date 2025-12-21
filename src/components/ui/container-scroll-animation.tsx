@@ -9,7 +9,7 @@ const ImageDisplay = ({ imagePath, alt }: { imagePath: string; alt: string }) =>
   <img
     src={imagePath}
     alt={alt}
-    className="w-full h-auto rounded-2xl object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+    className="w-full h-auto rounded-2xl object-cover"
     loading="lazy"
   />
 );
@@ -346,7 +346,7 @@ export const ContainerScroll = ({ titleComponent, children }: any) => {
                         className="bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-6 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all text-lg"
                         onClick={() => scrollToSection("pricing-section")}
                       >
-                        Quero usar o Moovi 💚
+                        Quero o Plano Anual 💚
                       </Button>
                     </div>
                   )}
