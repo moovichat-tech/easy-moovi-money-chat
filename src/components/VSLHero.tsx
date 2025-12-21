@@ -41,9 +41,7 @@ const VSLHero = () => {
               <div
                 className="rounded-2xl overflow-hidden shadow-2xl border-4 border-white/50"
                 style={{ position: "relative", paddingTop: "56.25%" }}
-              >
-              <iframe id="panda-cd97fae3-bdca-436d-88f6-f1ce66937f6c" src="https://player-vz-c1e2f242-e38.tv.pandavideo.com.br/embed/?v=cd97fae3-bdca-436d-88f6-f1ce66937f6c" style="border:none;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" allowfullscreen=true width="720" height="360" fetchpriority="high"></iframe>       
-              </div>
+              ></div>
             </div>
 
             {/* CTA Button */}
