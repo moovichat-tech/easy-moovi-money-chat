@@ -28,7 +28,7 @@ const Authority = () => {
       icon: TrendingUp,
       number: "27,3%",
       label: "de economia em média",
-      description: "Quem enxerga os gastos, naturalmente passa a gastar melhor.",
+      description: "Quem enxerga os gastos, naturalmente passa a gastar menos.",
     },
     {
       icon: Shield,
