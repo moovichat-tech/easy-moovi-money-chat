@@ -41,12 +41,9 @@ const Authority = () => {
   const MetricCard = ({ metric, index }) => (
     <CardContainer key={index} className="w-full h-full py-2">
       <CardBody
-        // AJUSTE 1: Reduzi o padding interno (p-6 md:p-8 -> p-5).
-        // AJUSTE 2: Reduzi a altura mínima (min-h-[320px] -> min-h-[260px]) para tirar o espaço vazio embaixo.
         className={`bg-card rounded-2xl p-5 text-left shadow-lg border border-border w-full h-full flex flex-col items-start min-h-[260px] fade-in-scroll fade-in-scroll-delay-${index * 100} ${isVisible ? "visible" : ""}`}
       >
         <div className="w-full flex flex-col h-full">
-          {/* AJUSTE 3: Reduzi a margem do ícone (mb-6 -> mb-4) */}
           <CardItem translateZ="50" className="flex items-center justify-start mb-4">
             <metric.icon className="w-10 h-10 md:w-12 md:h-12 text-primary" />
           </CardItem>
@@ -90,8 +87,12 @@ const Authority = () => {
           <div className="flex overflow-hidden mask-linear-gradient">
             <motion.div
               className="flex gap-4 px-4"
+              // CORREÇÃO AQUI:
+              // Mudamos de "-100%" para "-50%".
+              // Como duplicamos a lista, -50% significa rolar exatamente o tamanho da lista original.
+              // Isso faz o loop ser matematicamente perfeito.
               animate={{
-                x: ["0%", "-100%"],
+                x: ["0%", "-50%"],
               }}
               transition={{
                 repeat: Infinity,
