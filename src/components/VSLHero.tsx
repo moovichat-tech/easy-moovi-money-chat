@@ -41,7 +41,18 @@ const VSLHero = () => {
               <div
                 className="rounded-2xl overflow-hidden shadow-2xl border-4 border-white/50"
                 style={{ position: "relative", paddingTop: "56.25%" }}
-              ></div>
+              >
+                <iframe
+                  id="panda-0164d7a0-0642-45f8-a976-6d4793a415b4"
+                  src="https://player-vz-c1e2f242-e38.tv.pandavideo.com.br/embed/?v=0164d7a0-0642-45f8-a976-6d4793a415b4"
+                  style={{ border: "none", position: "absolute", top: 0, left: 0 }}
+                  allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
+                  allowFullScreen
+                  width="100%"
+                  height="100%"
+                  title="Moovi VSL"
+                />
+              </div>
             </div>
 
             {/* CTA Button */}
