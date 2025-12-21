@@ -27,9 +27,7 @@ function AnimatedHero() {
 
             {/* VERSÃO DESKTOP */}
             <span className="hidden md:block">
-              O Moovi organiza sua vida financeira automaticamente direto no WhatsApp, sem planilhas e sem esforço.
-              Assista ao vídeo para entender por que cada vez mais pessoas usam o Moovi para ter controle total do
-              dinheiro no dia a dia.
+              Assista o vídeo, e descubra como pessoas estão organizando suas finanças automaticamente.
             </span>
           </p>
         </div>
