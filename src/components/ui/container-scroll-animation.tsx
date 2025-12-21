@@ -4,16 +4,20 @@ import { Button } from "@/components/ui/button";
 import { scrollToSection } from "@/utils/scroll";
 import { Check } from "lucide-react";
 
-// --- SOLUÇÃO TEMPORÁRIA DE IMAGENS ---
-import placeholderImage from "@/assets/moovi-logo.png";
-
-const featureImage1 = placeholderImage;
-const featureImage2 = placeholderImage;
-const featureImage3 = placeholderImage;
-const featureImage4 = placeholderImage;
-const featureImage5 = placeholderImage;
-const featureImage6 = placeholderImage;
-const featureImage7 = placeholderImage;
+// Componente de vídeo Panda
+const VideoEmbed = ({ videoId, aspectRatio = "56.25%" }: { videoId: string; aspectRatio?: string }) => (
+  <div 
+    className="relative w-full rounded-2xl overflow-hidden bg-black/5"
+    style={{ paddingTop: aspectRatio }}
+  >
+    <iframe
+      src={`https://player-vz-c1e2f242-e38.tv.pandavideo.com.br/embed/?v=${videoId}`}
+      className="absolute top-0 left-0 w-full h-full border-none"
+      allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
+      allowFullScreen
+    />
+  </div>
+);
 
 const features = [
   {
@@ -22,7 +26,7 @@ const features = [
       <>
         <p className="mb-4">
           <strong className="text-foreground font-bold">O Moovi organiza suas finanças direto no WhatsApp.</strong> É só
-          enviar mensagens como <em>“gastei 100 no mercado”</em> ou <em>“recebi 4 mil de salário”</em> e o Moovi
+          enviar mensagens como <em>"gastei 100 no mercado"</em> ou <em>"recebi 4 mil de salário"</em> e o Moovi
           entende, registra e classifica tudo automaticamente.
         </p>
         <p className="mb-4">
@@ -35,7 +39,8 @@ const features = [
         </p>
       </>
     ),
-    image: featureImage1,
+    videoId: "61f71433-6cfd-420e-ac28-e5eedce0f69c",
+    aspectRatio: "54.22%",
     hasButton: true,
   },
   {
@@ -46,7 +51,7 @@ const features = [
           <strong className="text-foreground font-bold">
             É só enviar uma mensagem no WhatsApp que o Moovi entende tudo!
           </strong>{" "}
-          "Gastei 5 reais no café” ou “Ganhei 120 de hora extra”.
+          "Gastei 5 reais no café" ou "Ganhei 120 de hora extra".
         </p>
         <p className="mb-4 font-semibold text-foreground">Ele te entende de todas as formas!</p>
         <ul className="space-y-3">
@@ -77,7 +82,8 @@ const features = [
         </ul>
       </>
     ),
-    image: featureImage2,
+    videoId: "0ba8451c-67f5-484d-b034-0e2a687c1411",
+    aspectRatio: "56.25%",
     hasButton: false,
   },
   {
@@ -120,7 +126,8 @@ const features = [
         </ul>
       </>
     ),
-    image: featureImage3,
+    videoId: "7d8906f5-8c91-4334-9e22-e3c57234dc16",
+    aspectRatio: "56.25%",
     hasButton: true,
   },
   {
@@ -133,7 +140,7 @@ const features = [
           </strong>
         </p>
         <p className="mb-4">
-          Basta enviar mensagens como <em>“médico amanhã às 16h”</em> ou <em>“pagar cartão dia 20”</em>.{" "}
+          Basta enviar mensagens como <em>"médico amanhã às 16h"</em> ou <em>"pagar cartão dia 20"</em>.{" "}
           <strong className="text-foreground">
             O Moovi registra tudo e cria lembretes personalizados automaticamente.
           </strong>
@@ -148,7 +155,8 @@ const features = [
         </p>
       </>
     ),
-    image: featureImage4,
+    videoId: "b476b2e2-bfc8-4d6a-be62-545da49415f1",
+    aspectRatio: "56.25%",
     hasButton: false,
   },
   {
@@ -160,7 +168,7 @@ const features = [
           aluguel e lazer! Mas você pode criar outras do seu jeito, quantas você quiser e personalizar como preferir!
         </p>
         <p className="mb-4 italic text-foreground/80 border-l-4 border-green-500 pl-3">
-          “Academia”, “viagens” ou “cartão de crédito”... você escolhe e você decide!
+          "Academia", "viagens" ou "cartão de crédito"... você escolhe e você decide!
         </p>
         <p className="mb-4">
           Sempre que você registra um gasto, o{" "}
@@ -195,7 +203,8 @@ const features = [
         </ul>
       </>
     ),
-    image: featureImage5,
+    videoId: "80951287-a7d1-430e-a220-067611889e53",
+    aspectRatio: "56.25%",
     hasButton: true,
   },
   {
@@ -245,7 +254,8 @@ const features = [
         </ul>
       </>
     ),
-    image: featureImage6,
+    videoId: "ddaeecf7-fdf3-4c9c-91ea-fb8f701babe4",
+    aspectRatio: "70.45%",
     hasButton: false,
   },
   {
@@ -294,7 +304,8 @@ const features = [
         </ul>
       </>
     ),
-    image: featureImage7,
+    videoId: "61f71433-6cfd-420e-ac28-e5eedce0f69c",
+    aspectRatio: "54.22%",
     hasButton: true,
   },
 ];
@@ -353,15 +364,11 @@ export const ContainerScroll = ({ titleComponent, children }: any) => {
                   )}
                 </div>
 
-                {/* --- BLOCO DE IMAGEM --- */}
+                {/* --- BLOCO DE VÍDEO --- */}
                 <div className="flex-1 w-full order-1 md:order-2">
                   <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-zinc-900 group">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-green-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <img
-                      src={feature.image}
-                      alt={`Funcionalidade: ${feature.title}`}
-                      className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
-                    />
+                    <div className="absolute inset-0 bg-gradient-to-tr from-green-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
+                    <VideoEmbed videoId={feature.videoId} aspectRatio={feature.aspectRatio} />
                   </div>
                 </div>
               </motion.div>
