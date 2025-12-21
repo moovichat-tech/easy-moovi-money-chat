@@ -64,8 +64,34 @@ const Benefits = () => {
           </p>
         </div>
 
-        {/* Benefits grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        {/* Benefits - Mobile: horizontal scroll, Desktop: grid */}
+        <div className="md:hidden mb-12 -mx-4 px-4">
+          <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
+            {benefits.map((benefit, index) => {
+              const Icon = benefit.icon;
+              return (
+                <Card 
+                  key={index}
+                  className="flex-shrink-0 w-[280px] border-0 shadow-md snap-start"
+                  style={{ backgroundColor: 'hsl(42, 100%, 95%)' }}
+                >
+                  <CardContent className="p-5 space-y-3">
+                    <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
+                      <Icon className="w-5 h-5 text-white" />
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-900">{benefit.title}</h3>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {benefit.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Benefits grid - Desktop only */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {benefits.map((benefit, index) => {
             const Icon = benefit.icon;
             const delay = 200 + (index * 100);
