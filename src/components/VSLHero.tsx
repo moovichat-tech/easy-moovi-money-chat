@@ -51,7 +51,6 @@ const VSLHero = () => {
                   width="100%"
                   height="100%"
                   title="Moovi VSL"
-                  transform: "scale(1.01)"
                 />
               </div>
             </div>
