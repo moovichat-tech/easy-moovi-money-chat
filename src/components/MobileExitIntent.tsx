@@ -45,7 +45,7 @@ export function MobileExitIntent() {
   }, [isMobile]);
 
   const handleClaimOffer = () => {
-    window.open("https://wa.me/5511989269937?");
+    window.open("https://buy.stripe.com/00weVe7JR4i58Tg3TDgMw0f");
     setIsOpen(false);
   };
 
