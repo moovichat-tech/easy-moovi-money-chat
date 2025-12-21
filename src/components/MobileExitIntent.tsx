@@ -45,9 +45,7 @@ export function MobileExitIntent() {
   }, [isMobile]);
 
   const handleClaimOffer = () => {
-    window.open(
-      "https://wa.me/5511989269937?"_blank",
-    );
+    window.open("https://wa.me/5511989269937?");
     setIsOpen(false);
   };
 
