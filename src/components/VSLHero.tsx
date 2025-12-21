@@ -43,8 +43,8 @@ const VSLHero = () => {
                 style={{ position: "relative", paddingTop: "56.25%" }}
               >
                 <iframe
-                  id="panda-0164d7a0-0642-45f8-a976-6d4793a415b4"
-                  src="https://player-vz-c1e2f242-e38.tv.pandavideo.com.br/embed/?v=0164d7a0-0642-45f8-a976-6d4793a415b4"
+                  id="panda-cd97fae3-bdca-436d-88f6-f1ce66937f6c"
+                  src="https://player-vz-c1e2f242-e38.tv.pandavideo.com.br/embed/?v=cd97fae3-bdca-436d-88f6-f1ce66937f6c"
                   style={{ border: "none", position: "absolute", top: 0, left: 0 }}
                   allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
                   allowFullScreen
