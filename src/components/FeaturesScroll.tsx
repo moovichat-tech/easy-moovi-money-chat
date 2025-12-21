@@ -1,96 +1,72 @@
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
-import { Edit3, Bell, BarChart3, Target, FileBarChart } from "lucide-react";
-import mooviAvatar from "@/assets/moovi-mascot-avatar.png";
+import { Tags, CreditCard, Bell, Target, LayoutDashboard, MessageCircle } from "lucide-react";
 import { TextAnimate } from "@/components/ui/text-animate";
 
 interface Feature {
   icon: any;
   title: string;
   description: string;
-  conversation: Array<{ type: 'user' | 'bot'; text: string }>;
+  videoId: string;
+  aspectRatio: string;
 }
 
 export default function FeaturesScroll() {
   const features: Feature[] = [
     {
-      icon: Edit3,
-      title: "Registre suas despesas",
-      description: "Por texto, áudio ou até foto do cupom fiscal.",
-      conversation: [
-        { type: 'user', text: 'Gastei 45 reais no almoço' },
-        { type: 'bot', text: 'Registrado! Almoço — R$ 45,00. Categoria: Alimentação.' }
-      ]
+      icon: Tags,
+      title: "Categorias Personalizadas",
+      description: "Organize suas despesas do seu jeito com categorias que fazem sentido pra você.",
+      videoId: "80951287-a7d1-430e-a220-067611889e53",
+      aspectRatio: "56.25%"
+    },
+    {
+      icon: CreditCard,
+      title: "Gestão de Contas e Cartões",
+      description: "Controle todas as suas contas e cartões em um só lugar.",
+      videoId: "61f71433-6cfd-420e-ac28-e5eedce0f69c",
+      aspectRatio: "54.22%"
     },
     {
       icon: Bell,
-      title: "Receba alertas inteligentes",
-      description: "Nunca mais esqueça uma conta importante.",
-      conversation: [
-        { type: 'bot', text: 'Oi! Seu boleto de internet vence amanhã. Já separou o valor?' }
-      ]
-    },
-    {
-      icon: BarChart3,
-      title: "Entenda suas finanças",
-      description: "Relatórios claros e insights práticos.",
-      conversation: [
-        { type: 'user', text: 'Gastei demais esse mês?' },
-        { type: 'bot', text: 'Você gastou 30% a mais com delivery. Quer uma dica pra equilibrar?' }
-      ]
+      title: "Lembretes Personalizados",
+      description: "Nunca mais esqueça uma conta importante com alertas inteligentes.",
+      videoId: "b476b2e2-bfc8-4d6a-be62-545da49415f1",
+      aspectRatio: "56.25%"
     },
     {
       icon: Target,
-      title: "Categorização automática inteligente",
-      description: "O Moovi aprende com você e categoriza tudo sozinho. Você só precisa registrar — o resto é com ele.",
-      conversation: [
-        { type: 'user', text: 'Paguei R$ 120 no mercado' },
-        { type: 'bot', text: '✓ Registrado em Supermercado. Total do mês: R$ 680.' }
-      ]
+      title: "Limites Inteligentes",
+      description: "Defina limites de gastos e receba alertas antes de estourar o orçamento.",
+      videoId: "ddaeecf7-fdf3-4c9c-91ea-fb8f701babe4",
+      aspectRatio: "70.45%"
     },
     {
-      icon: FileBarChart,
-      title: "Relatórios Automáticos",
-      description: "Receba relatórios completos sem fazer nada. O Moovi organiza tudo automaticamente e te mostra onde você pode melhorar.",
-      conversation: [
-        { type: 'bot', text: 'Como estão minhas finanças?' },
-        { type: 'bot', text: 'Preparei seu relatório do mês! Você economizou 15% 🎉' }
-      ]
+      icon: LayoutDashboard,
+      title: "Painel Profissional",
+      description: "Visualize suas finanças com gráficos e relatórios completos.",
+      videoId: "7d8906f5-8c91-4334-9e22-e3c57234dc16",
+      aspectRatio: "56.25%"
+    },
+    {
+      icon: MessageCircle,
+      title: "Registre tudo no WhatsApp",
+      description: "Por texto, áudio ou até foto do cupom fiscal. Simples assim.",
+      videoId: "0ba8451c-67f5-484d-b034-0e2a687c1411",
+      aspectRatio: "56.25%"
     }
   ];
 
-  const WhatsAppConversation = ({ messages }: { messages: any[] }) => (
-    <div className="bg-white dark:bg-zinc-800 rounded-xl shadow-md p-4">
-      <div className="bg-gray-50 dark:bg-zinc-900 p-4 rounded-lg space-y-3">
-        {messages.map((msg, i) => (
-          <div 
-            key={i}
-            className={`
-              flex items-end gap-2
-              ${msg.type === 'user' ? 'ml-auto flex-row-reverse' : 'mr-auto'}
-            `}
-          >
-            {msg.type === 'bot' && (
-              <img 
-                src={mooviAvatar} 
-                alt="Moovi" 
-                className="w-6 h-6 rounded-full flex-shrink-0"
-              />
-            )}
-            
-            <div
-              className={`
-                rounded-lg p-3 max-w-[85%] text-sm
-                ${msg.type === 'user' 
-                  ? 'bg-green-100 dark:bg-green-900/30 text-right' 
-                  : 'bg-white dark:bg-zinc-800 shadow-sm'
-                }
-              `}
-            >
-              <p className="text-gray-800 dark:text-gray-200">{msg.text}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+  const VideoEmbed = ({ videoId, aspectRatio }: { videoId: string; aspectRatio: string }) => (
+    <div 
+      className="relative w-full rounded-lg overflow-hidden bg-black/5"
+      style={{ paddingTop: aspectRatio }}
+    >
+      <iframe
+        src={`https://player-vz-c1e2f242-e38.tv.pandavideo.com.br/embed/?v=${videoId}`}
+        className="absolute top-0 left-0 w-full h-full border-none"
+        allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
+        allowFullScreen
+      />
     </div>
   );
 
@@ -123,7 +99,7 @@ export default function FeaturesScroll() {
                   <p className="text-sm text-muted-foreground">{feature.description}</p>
                 </div>
                 
-                <WhatsAppConversation messages={feature.conversation} />
+                <VideoEmbed videoId={feature.videoId} aspectRatio={feature.aspectRatio} />
               </div>
             ))}
           </div>
