@@ -46,8 +46,7 @@ export function MobileExitIntent() {
 
   const handleClaimOffer = () => {
     window.open(
-      "https://wa.me/5511989269937?text=Oi,%20estava%20saindo%20do%20site%20mas%20quero%20o%20Guia%20Gratuito%20'3%20Passos%20para%20Sair%20do%20Vermelho'",
-      "_blank",
+      "https://wa.me/5511989269937?"_blank",
     );
     setIsOpen(false);
   };
