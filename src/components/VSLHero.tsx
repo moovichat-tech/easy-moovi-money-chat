@@ -45,7 +45,7 @@ const VSLHero = () => {
                 <iframe
                   id="panda-48616b66-1753-4a6f-b6c5-4e35de714666"
                   src="https://player-vz-c1e2f242-e38.tv.pandavideo.com.br/embed/?v=48616b66-1753-4a6f-b6c5-4e35de714666"
-                  style={{ border: "none", position: "absolute", top: 0, left: 0 }}
+                  style={{ border: "none", position: "absolute", top: -4, left: -4, right: -4, bottom: -4 }}
                   allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
                   allowFullScreen
                   width="100%"
