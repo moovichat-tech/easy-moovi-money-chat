@@ -9,7 +9,7 @@ const ImageDisplay = ({ imagePath, alt }: { imagePath: string; alt: string }) =>
   <img
     src={imagePath}
     alt={alt}
-    className="w-full h-auto rounded-2xl object-cover"
+    className="w-full h-auto rounded-2xl object-cover transition-transform duration-500 ease-out group-hover:scale-105"
     loading="lazy"
   />
 );
