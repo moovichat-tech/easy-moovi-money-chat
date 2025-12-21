@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Check, Star } from "lucide-react";
+import { Check, Star, ChevronLeft, ChevronRight } from "lucide-react";
 
 // --- INTERFACES ---
 interface Testimonial {
@@ -106,6 +107,16 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => (
 );
 
 const InstagramTestimonials = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % testimonialsData.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + testimonialsData.length) % testimonialsData.length);
+  };
+
   return (
     <section className="py-16 md:py-24 bg-gradient-to-b from-background to-primary/5 overflow-hidden">
       <div className="container mx-auto px-4">
@@ -141,31 +152,51 @@ const InstagramTestimonials = () => {
           ))}
         </div>
 
-        {/* --- VERSÃO MOBILE (CARROSSEL INFINITO) --- */}
-        <div className="md:hidden mt-8 relative w-full">
-          {/* Container com máscara para suavizar as bordas */}
-          <div className="flex overflow-hidden mask-linear-gradient w-full">
+        {/* --- VERSÃO MOBILE (CARROSSEL MANUAL) --- */}
+        <div className="md:hidden mt-8 relative">
+          {/* Container do carrossel */}
+          <div className="overflow-hidden">
             <motion.div
-              className="flex gap-4 px-4"
-              animate={{
-                x: ["0%", "-100%"], // Move da direita para a esquerda
-              }}
-              transition={{
-                repeat: Infinity, // Repete para sempre
-                ease: "linear", // Movimento constante (sem frear no final)
-                duration: 35, // Velocidade (aumente o número para ficar mais lento)
-              }}
-              style={{ width: "max-content" }}
+              className="flex"
+              animate={{ x: `-${currentIndex * 100}%` }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
             >
-              {/* Duplicamos a lista para criar o loop perfeito */}
-              {[...testimonialsData, ...testimonialsData].map((testimonial, i) => (
-                <div key={i} className="w-[300px] flex-shrink-0">
-                  {" "}
-                  {/* Largura fixa para mobile */}
+              {testimonialsData.map((testimonial, i) => (
+                <div key={i} className="w-full flex-shrink-0 px-4">
                   <TestimonialCard testimonial={testimonial} />
                 </div>
               ))}
             </motion.div>
+          </div>
+
+          {/* Botões de navegação */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-background/80 backdrop-blur-sm border border-border rounded-full p-2 shadow-lg hover:bg-background transition-colors"
+            aria-label="Anterior"
+          >
+            <ChevronLeft className="w-5 h-5 text-foreground" />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-background/80 backdrop-blur-sm border border-border rounded-full p-2 shadow-lg hover:bg-background transition-colors"
+            aria-label="Próximo"
+          >
+            <ChevronRight className="w-5 h-5 text-foreground" />
+          </button>
+
+          {/* Indicadores */}
+          <div className="flex justify-center gap-2 mt-6">
+            {testimonialsData.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentIndex(i)}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  i === currentIndex ? "bg-primary w-6" : "bg-muted-foreground/30"
+                }`}
+                aria-label={`Ir para depoimento ${i + 1}`}
+              />
+            ))}
           </div>
         </div>
 
