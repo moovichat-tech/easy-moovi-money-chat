@@ -14,13 +14,15 @@ function AnimatedHero() {
           {/* AJUSTE AQUI: Adicionei 'mb-0' para garantir zero margem inferior. */}
           <p className="text-base leading-relaxed tracking-tight text-muted-foreground font-bold max-w-2xl text-center px-4 md:text-lg mt-4 mb-0">
             <span className="md:hidden">
-              Sem apps complexos ou planilhas chatas. Envie um áudio ou texto e a Moovi organiza tudo para você
-              automaticamente.
+              <span>Sem apps complexos ou planilhas chatas. </span>
+              <span className="text-green-600 font-bold">Envie um áudio ou texto e a Moovi </span>
+              <span>organiza tudo para você automaticamente. </span>
             </span>
 
             <span className="hidden md:block text-center px-4 md:text-lg mt-4 mb-0">
-              Sem apps complexos ou planilhas chatas. Envie um áudio ou texto e a Moovi organiza tudo para você
-              automaticamente.
+              Sem apps complexos ou planilhas chatas.{" "}
+              <span className="text-green-600 font-bold">Envie um áudio ou texto e a Moovi </span> organiza tudo para
+              você automaticamente.
             </span>
           </p>
         </div>
