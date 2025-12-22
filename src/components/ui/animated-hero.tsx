@@ -26,9 +26,7 @@ function AnimatedHero() {
             </span>
 
             {/* VERSÃO DESKTOP */}
-            <span className="hidden md:block">
-              Assista o vídeo, e descubra como pessoas estão organizando suas finanças automaticamente.
-            </span>
+            <span className="hidden md:block"></span>
           </p>
         </div>
       </div>
