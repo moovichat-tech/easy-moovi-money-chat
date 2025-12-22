@@ -17,7 +17,6 @@ export function Pricing() {
         { text: "Gestão de categorias ilimitadas", included: true },
         { text: "Lembretes de compromissos", included: true },
         { text: "Painel de acompanhamento", included: true },
-        { text: "Relatórios completos", included: true },
         { text: "Exportação via Excel ou PDF", included: true },
         // Itens Excluídos no Mensal
         { text: "Suporte VIP prioritário", included: false },
@@ -45,7 +44,6 @@ export function Pricing() {
         { text: "Gestão de categorias ilimitadas", included: true },
         { text: "Lembretes de compromissos", included: true },
         { text: "Painel de acompanhamento", included: true },
-        { text: "Relatórios completos", included: true },
         { text: "Exportação via Excel ou PDF", included: true },
         // Itens Inclusos no Anual
         { text: "Suporte VIP prioritário", included: true },
@@ -75,7 +73,6 @@ export function Pricing() {
         { text: "Gestão de categorias ilimitadas", included: true },
         { text: "Lembretes de compromissos", included: true },
         { text: "Painel de acompanhamento", included: true },
-        { text: "Relatórios completos", included: true },
         { text: "Exportação via Excel ou PDF", included: true },
         // Tudo Incluso no Bianual
         { text: "Suporte VIP prioritário", included: true },
