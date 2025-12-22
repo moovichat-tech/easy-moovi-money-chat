@@ -19,26 +19,16 @@ export interface IphoneProps extends HTMLAttributes<HTMLDivElement> {
   src?: string;
   videoSrc?: string;
   embedSrc?: string;
-  children?: ReactNode; // ADICIONADO: Permite receber conteúdo filho
+  children?: ReactNode;
 }
 
-export function Iphone({
-  src,
-  videoSrc,
-  embedSrc,
-  children, // ADICIONADO
-  className,
-  style,
-  ...props
-}: IphoneProps) {
+export function Iphone({ src, videoSrc, embedSrc, children, className, style, ...props }: IphoneProps) {
   const hasVideo = !!videoSrc;
   const hasEmbed = !!embedSrc;
-  const hasChildren = !!children; // ADICIONADO
+  const hasChildren = !!children;
 
-  // ADICIONADO: Atualizei para considerar children como mídia também
   const hasMedia = hasVideo || hasEmbed || !!src || hasChildren;
 
-  // Estilo comum para os containers de mídia
   const mediaContainerStyle: React.CSSProperties = {
     left: `calc(${LEFT_PCT}% - 2px)`,
     top: `calc(${TOP_PCT}% - 2px)`,
@@ -58,7 +48,7 @@ export function Iphone({
     >
       {/* --- CAMADA DE VÍDEO LOCAL --- */}
       {hasVideo && !hasEmbed && !hasChildren && (
-        <div className="pointer-events-none absolute z-0 overflow-hidden " style={mediaContainerStyle}>
+        <div className="pointer-events-none absolute z-10 overflow-hidden " style={mediaContainerStyle}>
           <video
             className="block size-full object-cover"
             src={videoSrc}
@@ -71,24 +61,24 @@ export function Iphone({
         </div>
       )}
 
-      {/* --- CAMADA DE EMBED (PANDA VIDEO via prop) --- */}
+      {/* --- CAMADA DE EMBED (PANDA VIDEO) --- */}
       {hasEmbed && !hasChildren && (
-        <div className="pointer-events-auto absolute z-10 overflow-hidden " style={mediaContainerStyle}>
+        <div className="pointer-events-auto absolute z-10 overflow-hidden" style={mediaContainerStyle}>
           <iframe
             id="panda-player"
             src={embedSrc}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover relative z-50"
             style={{ border: "none" }}
-            allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
+            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; presentation; fullscreen"
             allowFullScreen
+            playsInline
             // @ts-ignore
             fetchpriority="high"
           />
         </div>
       )}
 
-      {/* --- CAMADA DE CHILDREN (CUSTOMIZADO) --- */}
-      {/* ADICIONADO: Este bloco renderiza o que passamos dentro da tag <Iphone> */}
+      {/* --- CAMADA DE CHILDREN --- */}
       {hasChildren && (
         <div className="pointer-events-auto absolute z-10 overflow-hidden " style={mediaContainerStyle}>
           {children}
@@ -110,6 +100,22 @@ export function Iphone({
         className="absolute inset-0 size-full pointer-events-none z-20"
         style={{ transform: "translateZ(0)" }}
       >
+        {/* CORREÇÃO 1: Defs movido para o TOPO para o Safari Mobile ler a máscara corretamente antes de usar */}
+        <defs>
+          <mask id="screenPunch" maskUnits="userSpaceOnUse">
+            <rect x="0" y="0" width={PHONE_WIDTH} height={PHONE_HEIGHT} fill="white" />
+            <rect
+              x={SCREEN_X}
+              y={SCREEN_Y}
+              width={SCREEN_WIDTH}
+              height={SCREEN_HEIGHT}
+              rx={SCREEN_RADIUS}
+              ry={SCREEN_RADIUS}
+              fill="black"
+            />
+          </mask>
+        </defs>
+
         <g mask={hasMedia ? "url(#screenPunch)" : undefined}>
           <path
             d="M2 73C2 32.6832 34.6832 0 75 0H357C397.317 0 430 32.6832 430 73V809C430 849.317 397.317 882 357 882H75C34.6832 882 2 849.317 2 809V73Z"
@@ -143,11 +149,22 @@ export function Iphone({
           className="fill-[#1a1a1a]"
         />
 
-        <path
-          d={`M${SCREEN_X} 75C${SCREEN_X} 44.2101 46.2101 ${SCREEN_Y} 77 ${SCREEN_Y}H355C385.79 ${SCREEN_Y} 410.75 44.2101 410.75 75V807C410.75 837.79 385.79 862.75 355 862.75H77C46.2101 862.75 ${SCREEN_X} 837.79 ${SCREEN_X} 807V75Z`}
-          className="fill-[#1a1a1a] stroke-[#333] stroke-[0.5]"
-          mask={hasMedia ? "url(#screenPunch)" : undefined}
-        />
+        {/* CORREÇÃO 2: Se tiver mídia, NÃO renderizamos o fundo da tela. Não confiamos apenas na máscara. */}
+        {!hasMedia && (
+          <path
+            d={`M${SCREEN_X} 75C${SCREEN_X} 44.2101 46.2101 ${SCREEN_Y} 77 ${SCREEN_Y}H355C385.79 ${SCREEN_Y} 410.75 44.2101 410.75 75V807C410.75 837.79 385.79 862.75 355 862.75H77C46.2101 862.75 ${SCREEN_X} 837.79 ${SCREEN_X} 807V75Z`}
+            className="fill-[#1a1a1a] stroke-[#333] stroke-[0.5]"
+          />
+        )}
+
+        {/* Mantemos apenas a borda se tiver media, opcional, para acabamento */}
+        {hasMedia && (
+          <path
+            d={`M${SCREEN_X} 75C${SCREEN_X} 44.2101 46.2101 ${SCREEN_Y} 77 ${SCREEN_Y}H355C385.79 ${SCREEN_Y} 410.75 44.2101 410.75 75V807C410.75 837.79 385.79 862.75 355 862.75H77C46.2101 862.75 ${SCREEN_X} 837.79 ${SCREEN_X} 807V75Z`}
+            className="fill-transparent stroke-[#333] stroke-[0.5]"
+            style={{ pointerEvents: "none" }}
+          />
+        )}
 
         <path
           d="M154 48.5C154 38.2827 162.283 30 172.5 30H259.5C269.717 30 278 38.2827 278 48.5C278 58.7173 269.717 67 259.5 67H172.5C162.283 67 154 58.7173 154 48.5Z"
@@ -161,21 +178,6 @@ export function Iphone({
           d="M254 48.5C254 45.4624 256.462 43 259.5 43C262.538 43 265 45.4624 265 48.5C265 51.5376 262.538 54 259.5 54C256.462 54 254 51.5376 254 48.5Z"
           className="fill-[#222]"
         />
-
-        <defs>
-          <mask id="screenPunch" maskUnits="userSpaceOnUse">
-            <rect x="0" y="0" width={PHONE_WIDTH} height={PHONE_HEIGHT} fill="white" />
-            <rect
-              x={SCREEN_X}
-              y={SCREEN_Y}
-              width={SCREEN_WIDTH}
-              height={SCREEN_HEIGHT}
-              rx={SCREEN_RADIUS}
-              ry={SCREEN_RADIUS}
-              fill="black"
-            />
-          </mask>
-        </defs>
       </svg>
     </div>
   );
