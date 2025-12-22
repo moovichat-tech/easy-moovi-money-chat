@@ -12,11 +12,10 @@ const VSLHero = () => {
 
   return (
     <section
-      // AJUSTE 1: Reduzi o padding superior do celular para 'pt-2' (antes era pt-8).
-      // Isso sobe todo o conteúdo, puxando o vídeo para cima.
+      // AJUSTE 1: Padding top mínimo (pt-2) para subir tudo o máximo possível
       className="relative min-h-[100dvh] flex flex-col bg-gradient-to-b from-green-50 via-green-50 to-green-100/20 overflow-x-hidden px-4 md:px-8 pt-2 pb-0 md:pt-0"
     >
-      {/* Floating Badges (Mantidos) */}
+      {/* Floating Badges */}
       <FloatingBadge icon="💰" value="R$ 234" text="economizado este mês" position="top-left" delay={0.2} />
       <FloatingBadge icon="🍕" value="R$ 156" text="gasto com comida" position="top-right" delay={0.4} />
       <FloatingBadge icon="✅" value="15" text="transações categorizadas" position="middle-left" delay={0.6} />
@@ -26,23 +25,20 @@ const VSLHero = () => {
       <div className="w-full max-w-5xl mx-auto flex-grow flex flex-col" ref={elementRef}>
         <div className={`flex-grow flex flex-col text-center fade-in-scroll ${isVisible ? "visible" : ""}`}>
           {/* --- BLOCO SUPERIOR --- */}
-          {/* 'pt-4': Espaço pequeno no topo mobile. */}
-          <div className="shrink-0 pt-4 md:pt-12">
-            <div className="flex justify-center mb-2 md:mb-6">
-              {/* AJUSTE 2: Logo reduzida no mobile para 'h-16' (64px). 
-                    No desktop mantive 'md:h-28'. */}
-              <img src={mooviLogo} alt="Moovi - Controle Financeiro no WhatsApp" className="h-16 md:h-28" />
+          <div className="shrink-0 pt-2 md:pt-12">
+            <div className="flex justify-center mb-1 md:mb-6">
+              {/* AJUSTE 2: Logo reduzida para 'h-14' (56px) no mobile para economizar espaço */}
+              <img src={mooviLogo} alt="Moovi - Controle Financeiro no WhatsApp" className="h-14 md:h-28" />
             </div>
 
-            {/* Hero Text */}
             <AnimatedHero />
           </div>
 
-          {/* --- BLOCO DO MEIO (Vídeo) --- */}
-          {/* Reduzi o padding vertical aqui (py-2) para o vídeo não ficar "espremido" 
-                e poder ocupar mais espaço central. */}
+          {/* --- BLOCO DO MEIO (Vídeo + Frase) --- */}
+          {/* 'justify-center' alinha o vídeo e a frase no centro exato do espaço disponível */}
           <div className="flex-grow flex flex-col justify-center py-2 md:py-8">
-            <div className="relative w-full max-w-3xl mx-auto">
+            {/* Container do Vídeo */}
+            <div className="relative w-full max-w-3xl mx-auto mb-4">
               <div
                 className="rounded-2xl overflow-hidden shadow-2xl border-4 border-white/50"
                 style={{ position: "relative", paddingTop: "56.25%" }}
@@ -59,11 +55,16 @@ const VSLHero = () => {
                 />
               </div>
             </div>
+
+            {/* AJUSTE 3: Texto Emocional abaixo do vídeo */}
+            <div className="px-2">
+              <p className="text-sm md:text-lg font-medium text-muted-foreground/90 italic leading-tight">
+                "Recupere sua paz e o controle total do seu dinheiro, sem abrir mão do seu tempo."
+              </p>
+            </div>
           </div>
 
           {/* --- BLOCO INFERIOR (Botão) --- */}
-          {/* 'mt-auto': Empurra para o fundo.
-                'pb-6': Um respiro leve do fundo da tela (safe area). */}
           <div className="shrink-0 mt-auto pb-6 md:pb-12">
             <Button
               size="xl"
