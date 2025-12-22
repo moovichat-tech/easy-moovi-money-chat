@@ -58,7 +58,7 @@ export function Iphone({
     >
       {/* --- CAMADA DE VÍDEO LOCAL --- */}
       {hasVideo && !hasEmbed && !hasChildren && (
-        <div className="pointer-events-none absolute z-0 overflow-hidden bg-black" style={mediaContainerStyle}>
+        <div className="pointer-events-none absolute z-0 overflow-hidden " style={mediaContainerStyle}>
           <video
             className="block size-full object-cover"
             src={videoSrc}
@@ -73,7 +73,7 @@ export function Iphone({
 
       {/* --- CAMADA DE EMBED (PANDA VIDEO via prop) --- */}
       {hasEmbed && !hasChildren && (
-        <div className="pointer-events-auto absolute z-10 overflow-hidden bg-black" style={mediaContainerStyle}>
+        <div className="pointer-events-auto absolute z-10 overflow-hidden " style={mediaContainerStyle}>
           <iframe
             id="panda-player"
             src={embedSrc}
@@ -90,14 +90,14 @@ export function Iphone({
       {/* --- CAMADA DE CHILDREN (CUSTOMIZADO) --- */}
       {/* ADICIONADO: Este bloco renderiza o que passamos dentro da tag <Iphone> */}
       {hasChildren && (
-        <div className="pointer-events-auto absolute z-10 overflow-hidden bg-black" style={mediaContainerStyle}>
+        <div className="pointer-events-auto absolute z-10 overflow-hidden " style={mediaContainerStyle}>
           {children}
         </div>
       )}
 
       {/* --- CAMADA DE IMAGEM --- */}
       {!hasVideo && !hasEmbed && !hasChildren && src && (
-        <div className="pointer-events-none absolute z-0 overflow-hidden bg-black" style={mediaContainerStyle}>
+        <div className="pointer-events-none absolute z-0 overflow-hidden " style={mediaContainerStyle}>
           <img src={src} alt="" className="block size-full object-cover object-top" />
         </div>
       )}

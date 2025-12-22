@@ -41,7 +41,7 @@ export function AppShowcase() {
           <div className="w-full max-w-[320px] md:w-1/3 z-10 md:scale-110 transition-transform duration-500">
             {/* SOLUÇÃO: Passar o iframe diretamente como filho para garantir renderização */}
             <Iphone className="size-full shadow-[0_35px_60px_-15px_rgba(0,0,0,0.4)] rounded-[40px]">
-              <div className="absolute inset-0 w-full h-full bg-black rounded-[38px] overflow-hidden">
+              <div className="absolute inset-0 w-full h-full rounded-[38px] overflow-hidden">
                 <iframe
                   src={PANDA_VIDEO_URL}
                   style={{ border: "none", width: "100%", height: "100%" }}
