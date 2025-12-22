@@ -4,7 +4,7 @@ function AnimatedHero() {
       <div className="flex gap-3 py-3 md:py-5 items-center justify-center flex-col">
         <div className="flex gap-2 flex-col items-center">
           {/* Header Ajustado */}
-          <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl max-w-7xl tracking-tighter text-center font-bold leading-tight text-gray-900">
+          <h1 className="text-2xl sm:text-3xl md:text-7xl lg:text-6xl max-w-5xl tracking-tighter text-center font-bold leading-tight text-gray-900">
             {/* TRUQUE AQUI: 
                1. Adicionei 'whitespace-nowrap md:whitespace-normal'. 
                   Isso força a frase a não quebrar de jeito nenhum no celular.
