@@ -11,7 +11,11 @@ const VSLHero = () => {
   });
 
   return (
-    <section className="relative pt-0 pb-8 md:py-8 lg:py-10 md:-mx-8 bg-gradient-to-b from-green-50 via-green-50 to-green-100/20 overflow-hidden">
+    <section
+      // AJUSTE 1: 'min-h-[100dvh]' garante que ocupe 100% da altura real do celular.
+      // 'flex flex-col' habilita o layout flexível vertical.
+      className="relative min-h-[100dvh] flex flex-col justify-center pt-4 pb-4 md:py-8 lg:py-10 md:-mx-8 bg-gradient-to-b from-green-50 via-green-50 to-green-100/20 overflow-x-hidden"
+    >
       {/* Floating Badges (Mantidos igual) */}
       <FloatingBadge icon="💰" value="R$ 234" text="economizado este mês" position="top-left" delay={0.2} />
       <FloatingBadge icon="🍕" value="R$ 156" text="gasto com comida" position="top-right" delay={0.4} />
@@ -19,25 +23,26 @@ const VSLHero = () => {
       <FloatingBadge icon="🎯" value="78%" text="da meta atingida" position="middle-right" delay={0.8} />
       <FloatingBadge icon="💡" value="R$ 89" text="economia inteligente" position="bottom-right" delay={1.0} />
 
-      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8" ref={elementRef}>
-        <div className="max-w-5xl mx-auto text-center">
-          <div className={`space-y-3 fade-in-scroll ${isVisible ? "visible" : ""}`}>
-            {/* AJUSTES DA LOGO AQUI: 
-                1. Margem: Mudei de 'mb-6' para 'mb-1 md:mb-6'. 
-                   No celular (mb-1) ela fica bem pertinho do texto. No PC (mb-6) mantém o respiro.
-                
-                2. Tamanho: Mudei de 'h-20' para 'h-24'.
-                   Agora ela fica bem maior no celular (96px).
-            */}
-            <div className="flex justify-center mb-1 md:mb-6">
-              <img src={mooviLogo} alt="Moovi - Controle Financeiro no WhatsApp" className="h-24 md:h-28" />
+      {/* Container Principal */}
+      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex-grow flex flex-col justify-center" ref={elementRef}>
+        <div className="max-w-5xl mx-auto text-center w-full h-full flex flex-col">
+          <div
+            className={`space-y-2 md:space-y-3 fade-in-scroll flex-grow flex flex-col ${isVisible ? "visible" : ""}`}
+          >
+            {/* Logo */}
+            <div className="flex justify-center mb-2 md:mb-6 shrink-0">
+              <img src={mooviLogo} alt="Moovi - Controle Financeiro no WhatsApp" className="h-20 md:h-28" />
             </div>
 
             {/* Hero Text */}
-            <AnimatedHero />
+            <div className="shrink-0">
+              <AnimatedHero />
+            </div>
 
-            {/* VSL Video Container */}
-            <div className="relative w-full max-w-3xl mx-auto mt-6">
+            {/* VSL Video Container 
+                'my-auto' ajuda a centralizar o vídeo verticalmente se sobrar espaço
+            */}
+            <div className="relative w-full max-w-3xl mx-auto mt-4 md:mt-6 my-auto">
               <div
                 className="rounded-2xl overflow-hidden shadow-2xl border-4 border-white/50"
                 style={{ position: "relative", paddingTop: "56.25%" }}
@@ -55,11 +60,14 @@ const VSLHero = () => {
               </div>
             </div>
 
-            {/* CTA Button */}
-            <div className="pt-8 pb-4">
+            {/* CTA Button 
+                AJUSTE 2: 'mt-auto' empurra o botão para o fundo do container pai.
+                Se a tela for alta, ele vai lá pra baixo. Se for pequena, ele fica logo após o vídeo.
+            */}
+            <div className="pt-6 pb-2 mt-auto">
               <Button
                 size="xl"
-                className="bg-green-600 hover:bg-green-700 text-white font-bold text-xl px-12 py-8 shadow-2xl hover:shadow-3xl transition-all rounded-full hover:scale-105 w-full md:w-auto"
+                className="bg-green-600 hover:bg-green-700 text-white font-bold text-xl px-8 py-6 md:px-12 md:py-8 shadow-2xl hover:shadow-3xl transition-all rounded-full hover:scale-105 w-full md:w-auto"
                 onClick={() => scrollToSection("pricing-section")}
               >
                 Quero usar o Moovi 💚
