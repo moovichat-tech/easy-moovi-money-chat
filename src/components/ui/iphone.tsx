@@ -73,20 +73,29 @@ export function Iphone({
 
       {/* --- CAMADA DE EMBED (PANDA VIDEO via prop) --- */}
       {hasEmbed && !hasChildren && (
-        <div className="pointer-events-auto absolute z-10 overflow-hidden bg-black" style={mediaContainerStyle}>
+        <div 
+          className="pointer-events-auto absolute z-10 overflow-hidden bg-black" 
+          style={{
+            ...mediaContainerStyle,
+            position: 'absolute',
+          }}
+        >
           <iframe
             id="panda-player"
             src={embedSrc}
-            className="absolute inset-0"
             style={{ 
               border: "none",
+              position: "absolute",
+              top: 0,
+              left: 0,
               width: "100%",
               height: "100%",
             }}
             width="100%"
             height="100%"
-            allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
+            allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen"
             allowFullScreen
+            loading="lazy"
           />
         </div>
       )}

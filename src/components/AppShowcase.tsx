@@ -7,9 +7,9 @@ import phoneRight from "@/assets/phone-right.png";
 export function AppShowcase() {
   const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.1 });
 
-  // URL do seu vídeo no Panda
+  // URL do seu vídeo no Panda com parâmetros para autoplay em mobile
   const PANDA_VIDEO_URL =
-    "https://player-vz-c1e2f242-e38.tv.pandavideo.com.br/embed/?v=4e6c28e8-f6eb-4e20-b216-224be1bc17f8";
+    "https://player-vz-c1e2f242-e38.tv.pandavideo.com.br/embed/?v=4e6c28e8-f6eb-4e20-b216-224be1bc17f8&autoplay=true&muted=true&mutedIndicatorIcon=true&mutedIndicatorClickRestart=true";
 
   return (
     <section className="py-20 bg-white overflow-hidden">
