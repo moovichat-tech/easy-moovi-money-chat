@@ -7,13 +7,10 @@ import phoneRight from "@/assets/phone-right.png";
 export function AppShowcase() {
   const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.1 });
 
-  // CORREÇÃO AQUI: Adicionei parametros essenciais para mobile
-  // &muted=true -> Obrigatório para autoplay no celular
-  // &autoplay=true -> Para começar sozinho
-  // &playsinline=true -> Para não abrir tela cheia no iPhone
-  // &controls=false -> Para parecer um app real e não um player de vídeo
+  // URL OTIMIZADA PARA MOBILE
+  // Adicionei parâmetros extras para forçar comportamento mobile amigável
   const PANDA_VIDEO_URL =
-    "https://player-vz-c1e2f242-e38.tv.pandavideo.com.br/embed/?v=4e6c28e8-f6eb-4e20-b216-224be1bc17f8&autoplay=true&muted=true&playsinline=true&controls=false";
+    "https://player-vz-c1e2f242-e38.tv.pandavideo.com.br/embed/?v=4e6c28e8-f6eb-4e20-b216-224be1bc17f8&autoplay=true&muted=true&playsinline=true&controls=false&loop=true";
 
   return (
     <section className="py-20 bg-white overflow-hidden">
@@ -35,20 +32,28 @@ export function AppShowcase() {
           fade-in-scroll fade-in-scroll-delay-200 ${isVisible ? "visible" : ""}
         `}
         >
-          {/* 1. iPhone Esquerdo (Imagem) */}
+          {/* 1. iPhone Esquerdo (Imagem) - Escondido no Mobile */}
           <div className="hidden md:block w-full max-w-[300px] md:w-1/3 md:translate-y-12 transition-all duration-500">
             <Iphone className="size-full shadow-2xl rounded-[32px] brightness-95 contrast-105" src={phoneRight} />
           </div>
 
-          {/* 2. iPhone Central (VÍDEO) */}
+          {/* 2. iPhone Central (VÍDEO) - Visível Sempre */}
           <div className="w-full max-w-[320px] md:w-1/3 z-10 md:scale-110 transition-transform duration-500">
-            <Iphone
-              className="size-full shadow-[0_35px_60px_-15px_rgba(0,0,0,0.4)] rounded-[40px]"
-              embedSrc={PANDA_VIDEO_URL}
-            />
+            {/* SOLUÇÃO: Passar o iframe diretamente como filho para garantir renderização */}
+            <Iphone className="size-full shadow-[0_35px_60px_-15px_rgba(0,0,0,0.4)] rounded-[40px]">
+              <div className="absolute inset-0 w-full h-full bg-black rounded-[38px] overflow-hidden">
+                <iframe
+                  src={PANDA_VIDEO_URL}
+                  style={{ border: "none", width: "100%", height: "100%" }}
+                  allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
+                  allowFullScreen
+                  title="Moovi Demo Mobile"
+                />
+              </div>
+            </Iphone>
           </div>
 
-          {/* 3. iPhone Direito (Imagem) */}
+          {/* 3. iPhone Direito (Imagem) - Escondido no Mobile */}
           <div className="hidden md:block w-full max-w-[300px] md:w-1/3 md:translate-y-12 transition-all duration-500">
             <Iphone className="size-full shadow-2xl rounded-[32px] brightness-95 contrast-105" src={phoneLeft} />
           </div>
