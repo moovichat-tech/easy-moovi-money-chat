@@ -74,18 +74,8 @@ export function Iphone({
       {/* --- CAMADA DE EMBED (PANDA VIDEO via prop) --- */}
       {hasEmbed && !hasChildren && (
         <div className="pointer-events-auto absolute z-10 overflow-hidden " style={mediaContainerStyle}>
-          <iframe
-            id="panda-player"
-            src="https://player-vz-c1e2f242-e38.tv.pandavideo.com.br/embed/?v=4e6c28e8-f6eb-4e20-b216-224be1bc17f8&autoplay=true&muted=true&playsinline=true&controls=false&loop=true"
-            className="relative w-full h-full z-50" // Forçamos z-50 para garantir clique
-            style={{ border: "none" }}
-            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; presentation; fullscreen"
-            allowFullScreen
-            playsInline={true} // Essencial para iOS
-            webkit-playsinline="true" // Fallback para versões antigas do iOS
-            sandbox="allow-scripts allow-same-origin allow-presentation allow-popups" // Permissões explícitas de execução
-            title="Moovi Demo Mobile"
-          />
+          <iframe id="panda-4e6c28e8-f6eb-4e20-b216-224be1bc17f8" src="https://player-vz-c1e2f242-e38.tv.pandavideo.com.br/embed/?v=4e6c28e8-f6eb-4e20-b216-224be1bc17f8" style="border:none;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" allowfullscreen=true width="720" height="360" fetchpriority="high"></iframe>
+          
         </div>
       )}
 
