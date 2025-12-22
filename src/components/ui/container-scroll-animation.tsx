@@ -16,8 +16,8 @@ const features = [
       <>
         <p className="mb-4">
           <strong className="text-foreground font-bold">O Moovi organiza suas finanças direto no WhatsApp.</strong> É só
-          enviar mensagens como <em>"gastei 100 no mercado"</em> ou <em>"recebi 4 mil de salário"</em> e o Moovi
-          entende, registra e classifica tudo automaticamente.
+          enviar mensagens como <em>"gastei 100 no mercado"</em> e o Moovi entende, registra e classifica tudo
+          automaticamente.
         </p>
         <p className="mb-4">
           <strong className="text-foreground font-bold">Você acompanha seus gastos e receitas</strong> com relatórios
@@ -30,7 +30,7 @@ const features = [
       </>
     ),
     imagePath: "/features/Registre_Tudo_no_whatsapp.png",
-    hasButton: false,
+    hasButton: true,
   },
   {
     title: "Painel Profissional",
@@ -47,7 +47,7 @@ const features = [
         <ul className="space-y-3">
           <li className="flex items-start gap-3">
             <div className="mt-1 bg-green-100 dark:bg-green-900/30 p-1 rounded-full">
-              <Check className="w-4 h-4 text-green-600" />
+              <Check className="w-4 h-4 text-green-700" />
             </div>
             <span>
               Gráficos automáticos de <strong className="text-foreground">entradas e saídas</strong>.
@@ -55,7 +55,7 @@ const features = [
           </li>
           <li className="flex items-start gap-3">
             <div className="mt-1 bg-green-100 dark:bg-green-900/30 p-1 rounded-full">
-              <Check className="w-4 h-4 text-green-600" />
+              <Check className="w-4 h-4 text-green-700" />
             </div>
             <span>
               <strong className="text-foreground">Organização inteligente</strong> dos seus gastos.
@@ -63,7 +63,7 @@ const features = [
           </li>
           <li className="flex items-start gap-3">
             <div className="mt-1 bg-green-100 dark:bg-green-900/30 p-1 rounded-full">
-              <Check className="w-4 h-4 text-green-600" />
+              <Check className="w-4 h-4 text-green-700" />
             </div>
             <span>
               Acompanhamento prático para <strong className="text-foreground">decisões do dia a dia</strong>.
@@ -73,7 +73,7 @@ const features = [
       </>
     ),
     imagePath: "/features/Painel_Profissional.png",
-    hasButton: true,
+    hasButton: false,
   },
   {
     title: "Lembretes Personalizados",
@@ -85,7 +85,7 @@ const features = [
           </strong>
         </p>
         <p className="mb-4">
-          Basta enviar mensagens como <em>"médico amanhã às 16h"</em> ou <em>"pagar cartão dia 20"</em>.{" "}
+          Basta enviar mensagens como <em>"médico amanhã às 16h"</em>.{" "}
           <strong className="text-foreground">
             O Moovi registra tudo e cria lembretes personalizados automaticamente.
           </strong>
@@ -101,7 +101,7 @@ const features = [
       </>
     ),
     imagePath: "/features/Lembretes_Personalizados.png",
-    hasButton: false,
+    hasButton: true,
   },
   {
     title: "Categorias Personalizadas",
@@ -111,9 +111,7 @@ const features = [
           <strong className="text-foreground font-bold">O Moovi já vem com categorias prontas</strong>, como mercado,
           aluguel e lazer! Mas você pode criar outras do seu jeito, quantas você quiser e personalizar como preferir!
         </p>
-        <p className="mb-4 italic text-foreground/80 border-l-4 border-green-500 pl-3">
-          "Academia", "viagens" ou "cartão de crédito"... você escolhe e você decide!
-        </p>
+
         <p className="mb-4">
           Sempre que você registra um gasto, o{" "}
           <strong className="text-foreground">Moovi classifica tudo automaticamente</strong> e mostra quanto você está
@@ -122,7 +120,7 @@ const features = [
         <ul className="space-y-3">
           <li className="flex items-start gap-3">
             <div className="mt-1 bg-green-100 dark:bg-green-900/30 p-1 rounded-full">
-              <Check className="w-4 h-4 text-green-600" />
+              <Check className="w-4 h-4 text-green-700" />
             </div>
             <span>
               Crie <strong className="text-foreground">quantas categorias quiser</strong>.
@@ -130,7 +128,7 @@ const features = [
           </li>
           <li className="flex items-start gap-3">
             <div className="mt-1 bg-green-100 dark:bg-green-900/30 p-1 rounded-full">
-              <Check className="w-4 h-4 text-green-600" />
+              <Check className="w-4 h-4 text-green-700" />
             </div>
             <span>
               <strong className="text-foreground">Classificação automática</strong> dos gastos.
@@ -138,7 +136,7 @@ const features = [
           </li>
           <li className="flex items-start gap-3">
             <div className="mt-1 bg-green-100 dark:bg-green-900/30 p-1 rounded-full">
-              <Check className="w-4 h-4 text-green-600" />
+              <Check className="w-4 h-4 text-green-700" />
             </div>
             <span>
               Relatórios por categoria <strong className="text-foreground">direto no WhatsApp</strong>.
@@ -148,7 +146,7 @@ const features = [
       </>
     ),
     imagePath: "/features/Categorias_Personalizadas.png",
-    hasButton: true,
+    hasButton: false,
   },
   {
     title: "Limites Inteligentes",
@@ -198,7 +196,7 @@ const features = [
       </>
     ),
     imagePath: "/features/Limites_Inteligentes.png",
-    hasButton: false,
+    hasButton: true,
   },
   {
     title: "Gestão de Contas e Cartões",
@@ -211,8 +209,7 @@ const features = [
         </p>
         <p className="mb-4">
           Tenha mais de uma conta bancária ou mais de um cartão? Sem problema.{" "}
-          <strong className="text-foreground">O Moovi permite acompanhar tudo junto:</strong> conta corrente, poupança e
-          vários cartões de crédito.
+          <strong className="text-foreground">O Moovi permite acompanhar tudo junto.</strong>
         </p>
         <p className="mb-4">
           Registre gastos normalmente no WhatsApp e o Moovi identifica de onde saiu o dinheiro e em qual cartão foi
@@ -247,7 +244,7 @@ const features = [
       </>
     ),
     imagePath: "/features/Gestao_de_Contas_e_Cartoes.png",
-    hasButton: true,
+    hasButton: false,
   },
 ];
 
@@ -259,7 +256,7 @@ export const ContainerScroll = ({ titleComponent, children }: any) => {
           {titleComponent || (
             <>
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
-                Tudo o que você precisa, direto no <span className="text-green-600">WhatsApp</span>
+                Tudo o ,que você precisa direto no <span className="text-green-600">WhatsApp</span>
               </h2>
               <p className="text-lg text-muted-foreground">
                 Conheça todas as funcionalidades que vão transformar sua vida financeira.
@@ -286,7 +283,7 @@ export const ContainerScroll = ({ titleComponent, children }: any) => {
                 {/* --- BLOCO DE TEXTO --- */}
                 <div className="flex-1 space-y-6 text-left order-2 md:order-1">
                   <div className="relative">
-                    <div className="w-20 h-2 bg-green-500 rounded-full mb-6"></div>
+                    <div className="w-20 h-2 bg-green-700 rounded-full mb-6"></div>
                     <h3 className="text-3xl md:text-4xl font-bold text-foreground leading-tight">{feature.title}</h3>
                   </div>
 
@@ -296,7 +293,7 @@ export const ContainerScroll = ({ titleComponent, children }: any) => {
                     <div className="pt-4">
                       <Button
                         size="lg"
-                        className="bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-6 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all text-lg"
+                        className="bg-green-700 hover:bg-green-700 text-white font-bold px-8 py-6 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all text-lg"
                         onClick={() => scrollToSection("pricing-section")}
                       >
                         Quero usar o Moovi 💚

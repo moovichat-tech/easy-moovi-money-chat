@@ -14,8 +14,8 @@ export default function FeaturesScroll() {
   const features: Feature[] = [
     {
       icon: Tags,
-      title: "Categorias Personalizadas",
-      description: "Organize suas despesas do seu jeito com categorias que fazem sentido pra você.",
+      title: "Organização Automática",
+      description: "Não perca tempo categorizando. A Inteligência Artificial faz isso por você.",
       videoId: "80951287-a7d1-430e-a220-067611889e53",
       aspectRatio: "56.25%",
     },
@@ -49,8 +49,8 @@ export default function FeaturesScroll() {
     },
     {
       icon: MessageCircle,
-      title: "Registre tudo no WhatsApp",
-      description: "Por texto, áudio ou até foto do cupom fiscal. Simples assim.",
+      title: "Apenas Fale",
+      description: "Envie um áudio de 5 segundos: 'Gastei 30 na padaria'. Pronto, está registrado.",
       videoId: "0ba8451c-67f5-484d-b034-0e2a687c1411",
       aspectRatio: "56.25%",
     },

@@ -24,21 +24,29 @@ const VSLHero = () => {
           {/* --- BLOCO SUPERIOR --- */}
           <div className="shrink-0 pt-2 md:pt-12">
             <div className="flex justify-center mb-1 md:mb-6">
-              <img src={mooviLogo} alt="Moovi - Controle Financeiro no WhatsApp" className="h-14 md:h-28" />
+              <img src={mooviLogo} alt="Moovi - Controle Financeiro no WhatsApp" className="h-16 md:h-28" />
             </div>
             <AnimatedHero />
           </div>
-
+          <div className="shrink-0 mt-auto pb-0 md:pb-12">
+            <Button
+              size="xl"
+              className="bg-green-700 hover:bg-green-700 text-white font-bold text-lg md:text-xl px-8 py-6 md:px-12 md:py-8 shadow-2xl hover:shadow-3xl transition-all rounded-full w-full md:w-auto animate-pulse"
+              onClick={() => scrollToSection("pricing-section")}
+            >
+              Testar no WhatsApp Agora 💬
+            </Button>
+          </div>
           {/* --- BLOCO DO MEIO (Vídeo) --- */}
           {/* AJUSTE AQUI:
                 Mudei de 'py-2' para 'pt-1 pb-2'.
                 Isso reduz o espaço acima do vídeo pela metade, aproximando-o do subheader.
             */}
-          <div className="flex-grow flex flex-col justify-center pt-1 pb-2 md:py-8">
+          <div className="flex-grow flex flex-col justify-center pt-12 pb-12 md:py-8">
             <div className="relative w-full max-w-3xl mx-auto mb-4">
               <div
-                className="rounded-2xl overflow-hidden shadow-2xl border-4 border-white/50"
-                style={{ position: "relative", paddingTop: "56.25%" }}
+                className="rounded-2xl overflow-hidden shadow-2xl border-12 border-white/50"
+                style={{ position: "relative", paddingTop: "55.25%" }}
               >
                 <iframe
                   id="panda-48616b66-1753-4a6f-b6c5-4e35de714666"
@@ -56,20 +64,9 @@ const VSLHero = () => {
             {/* Texto Emocional */}
             <div className="px-2">
               <p className="text-sm md:text-lg font-medium text-muted-foreground/90 italic leading-tight">
-                "Recupere sua paz e o controle total do seu dinheiro, sem abrir mão do seu tempo."
+                "Dê adeus às planilhas. Mande um áudio e a gente organiza seu dinheiro. Simples assim."
               </p>
             </div>
-          </div>
-
-          {/* --- BLOCO INFERIOR (Botão) --- */}
-          <div className="shrink-0 mt-auto pb-6 md:pb-12">
-            <Button
-              size="xl"
-              className="bg-green-600 hover:bg-green-700 text-white font-bold text-xl px-8 py-6 md:px-12 md:py-8 shadow-2xl hover:shadow-3xl transition-all rounded-full hover:scale-105 w-full md:w-auto"
-              onClick={() => scrollToSection("pricing-section")}
-            >
-              Quero usar o Moovi 💚
-            </Button>
           </div>
         </div>
       </div>

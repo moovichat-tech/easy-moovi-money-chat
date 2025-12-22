@@ -5,17 +5,17 @@ const ComparisonSection = () => {
   const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.15 });
 
   const withoutMoovi = [
-    "Você tenta lembrar onde gastou",
-    "Esquece contas importantes",
-    "Se sente perdido no final do mês",
-    "Vive com sensação de 'não sei pra onde foi meu dinheiro'",
+    "Não sabe onde gastou", // Encurtado
+    "Esquece de pagar contas",
+    "Ansiedade no fim do mês", // Mais emocional
+    "Sensação de dinheiro perdido",
   ];
 
   const withMoovi = [
-    "Clareza total de todas as despesas",
-    "Alertas automáticos de tudo que importa",
-    "Entende seus padrões de gastos",
-    "Decisões financeiras com confiança e tranquilidade",
+    "Controle total dos gastos",
+    "Alertas automáticos no WhatsApp", // Uso de linguagem natural "Zap"
+    "Sabe exatamente para onde vai o dinheiro",
+    "Paz financeira garantida",
   ];
 
   return (

@@ -24,7 +24,7 @@ const testimonialsData: Testimonial[] = [
     quote: "Fiquei impressionado com a rapidez. Em mando uma mensagem e em segundos já tenho tudo registrado!",
     initials: "CM",
     name: "Carlos Mendes",
-    date: "15/11/2024",
+    date: "15/11/2025",
     rating: 5,
   },
   {
@@ -34,7 +34,7 @@ const testimonialsData: Testimonial[] = [
     quote: "Nunca fui organizado com dinheiro, mas o Moovi tornou tudo fácil. Ele me lembra de tudo!",
     initials: "AP",
     name: "Ana Paula",
-    date: "22/11/2024",
+    date: "22/05/2025",
     rating: 5,
   },
   {
@@ -44,7 +44,7 @@ const testimonialsData: Testimonial[] = [
     quote: "Me avisou na hora certa e evitei estourar o orçamento. Salvou meu mês!",
     initials: "RS",
     name: "Ricardo Silva",
-    date: "28/11/2024",
+    date: "28/10/2025",
     rating: 5,
   },
   {
@@ -54,7 +54,7 @@ const testimonialsData: Testimonial[] = [
     quote: "Achei que seria mais um app enrolado, mas funciona MESMO. Me salvou nesses dias corridos!",
     initials: "JF",
     name: "Juliana Ferreira",
-    date: "03/12/2024",
+    date: "03/09/2025",
     rating: 5,
   },
 ];
@@ -129,11 +129,8 @@ const InstagramTestimonials = () => {
           className="text-center mb-12 max-w-4xl mx-auto"
         >
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-            Clientes que <span className="text-primary">transformaram suas finanças</span> com o Moovi
+            Junte-se a <span className="text-primary">+10.000 brasileiros</span> que já simplificaram suas finanças.
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground">
-            Veja como o Moovi está ajudando pessoas reais a alcançar seus objetivos financeiros
-          </p>
         </motion.div>
 
         {/* --- VERSÃO DESKTOP (GRID PARADO) --- */}

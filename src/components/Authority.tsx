@@ -1,122 +1,175 @@
-import { Button } from "@/components/ui/button";
-import { Users, DollarSign, TrendingUp, Shield } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { Users, DollarSign, TrendingUp, Shield, ChevronLeft, ChevronRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { scrollToSection } from "@/utils/scroll";
+import { Button } from "@/components/ui/button";
 import { TextAnimate } from "@/components/ui/text-animate";
-import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
-import { motion } from "framer-motion";
+
+// --- DADOS ---
+const metrics = [
+  {
+    id: 1,
+    icon: Users,
+    number: "+1.243",
+    label: "Usuários Ativos",
+    description: "Pessoas reais retomando o controle financeiro.",
+  },
+  {
+    id: 2,
+    icon: DollarSign,
+    number: "+R$1.3 Mi",
+    label: "Organizados",
+    description: "Dinheiro real gerido e economizado pelo app.",
+  },
+  {
+    id: 3,
+    icon: TrendingUp,
+    number: "27,3%",
+    label: "Economia Média",
+    description: "Gaste menos vendo para onde seu dinheiro vai.",
+  },
+  {
+    id: 4,
+    icon: Shield,
+    number: "100%",
+    label: "Dados Seguros",
+    description: "Criptografia bancária para sua proteção.",
+  },
+];
+
+// --- COMPONENTE DO CARD (Reutilizável) ---
+const MetricCard = ({ metric }: { metric: (typeof metrics)[0] }) => (
+  <div className="bg-white md:bg-card rounded-2xl shadow-lg border border-green-100 p-6 flex flex-col items-start justify-between h-full w-full min-h-[220px]">
+    <div className="w-full">
+      {/* Ícone */}
+      <div className="bg-green-50 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+        <metric.icon className="w-6 h-6 text-green-600" />
+      </div>
+
+      {/* Dados */}
+      <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-1">{metric.number}</h3>
+      <p className="text-lg font-semibold text-green-600 mb-3">{metric.label}</p>
+    </div>
+
+    {/* Descrição */}
+    <p className="text-sm text-gray-500 leading-relaxed">{metric.description}</p>
+  </div>
+);
 
 const Authority = () => {
   const { elementRef, isVisible } = useScrollAnimation({
     threshold: 0.15,
   });
 
-  const metrics = [
-    {
-      icon: Users,
-      number: "+1.243",
-      label: "pessoas usando o Moovi",
-      description: "Gente real que saiu do descontrole financeiro para o controle total.",
-    },
-    {
-      icon: DollarSign,
-      number: "R$1.344.827",
-      label: "já organizados pelo Moovi",
-      description: "Dinheiro real acompanhado, categorizado e controlado!",
-    },
-    {
-      icon: TrendingUp,
-      number: "27,3%",
-      label: "de economia em média",
-      description: "Quem enxerga os gastos, naturalmente passa a gastar menos.",
-    },
-    {
-      icon: Shield,
-      number: "100%",
-      label: "seguro e criptografado",
-      description: "Seus dados protegidos com o mesmo padrão usado por bancos.",
-    },
-  ];
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const MetricCard = ({ metric, index }) => (
-    <CardContainer key={index} className="w-full h-full py-2">
-      <CardBody
-        className={`bg-card rounded-2xl p-5 text-left shadow-lg border border-border w-full h-full flex flex-col items-start min-h-[260px] fade-in-scroll fade-in-scroll-delay-${index * 100} ${isVisible ? "visible" : ""}`}
-      >
-        <div className="w-full flex flex-col h-full">
-          <CardItem translateZ="50" className="flex items-center justify-start mb-4">
-            <metric.icon className="w-10 h-10 md:w-12 md:h-12 text-primary" />
-          </CardItem>
+  // Funções de Navegação
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % metrics.length);
+  };
 
-          <CardItem translateZ="75" className="text-3xl md:text-5xl font-bold text-foreground mb-2">
-            {metric.number}
-          </CardItem>
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + metrics.length) % metrics.length);
+  };
 
-          <CardItem translateZ="60" className="text-sm md:text-lg font-semibold text-primary mb-1 leading-tight">
-            {metric.label}
-          </CardItem>
+  // --- LÓGICA DE AUTOPLAY (5 SEGUNDOS) ---
+  useEffect(() => {
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 5000); // 5000ms = 5 segundos
 
-          <CardItem translateZ="40" className="text-xs md:text-sm text-muted-foreground w-full text-left">
-            {metric.description}
-          </CardItem>
-        </div>
-      </CardBody>
-    </CardContainer>
-  );
+    // Limpa o timer se o componente desmontar ou se o usuário interagir (mudar o index)
+    // Isso evita que o slide pule duas vezes seguidas se você clicar no botão
+    return () => clearInterval(timer);
+  }, [currentIndex]);
 
   return (
-    <section className="py-12 md:py-20 bg-gradient-to-b from-green-50 to-white overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8" ref={elementRef}>
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-8 md:mb-12">
-          <TextAnimate animation="slideUp" by="word">
-            Moovi ajuda milhares de pessoas a organizarem suas vidas financeiras!
-          </TextAnimate>
-        </h2>
+    <section className="py-12 md:py-24 bg-gradient-to-b from-green-50 to-white overflow-hidden">
+      <div className="container mx-auto px-4" ref={elementRef}>
+        {/* Header */}
+        <div className={`text-center mb-12 max-w-4xl mx-auto fade-in-scroll ${isVisible ? "visible" : ""}`}>
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            <TextAnimate animation="slideUp" by="word">
+              Milhares de brasileiros já organizaram suas vidas com o Moovi
+            </TextAnimate>
+          </h2>
+        </div>
 
-        {/* --- VERSÃO DESKTOP --- */}
-        <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6 mt-12 items-stretch">
-          {metrics.map((metric, i) => (
-            <div key={i} className="h-full">
-              <MetricCard metric={metric} index={i} />
-            </div>
+        {/* --- VERSÃO DESKTOP (GRID PARADO - IGUAL INSTAGRAM TESTIMONIALS) --- */}
+        <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          {metrics.map((metric, index) => (
+            <motion.div
+              key={metric.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="h-full"
+            >
+              <MetricCard metric={metric} />
+            </motion.div>
           ))}
         </div>
 
-        {/* --- VERSÃO MOBILE --- */}
-        <div className="md:hidden mt-8 relative w-full">
-          <div className="flex overflow-hidden mask-linear-gradient">
+        {/* --- VERSÃO MOBILE (CARROSSEL MANUAL + AUTOMÁTICO) --- */}
+        <div className="md:hidden mt-4 relative">
+          {/* Container do carrossel */}
+          <div className="overflow-hidden py-4 px-1">
+            {" "}
+            {/* Padding para a sombra não cortar */}
             <motion.div
-              className="flex gap-4 px-4"
-              // CORREÇÃO AQUI:
-              // Mudamos de "-100%" para "-50%".
-              // Como duplicamos a lista, -50% significa rolar exatamente o tamanho da lista original.
-              // Isso faz o loop ser matematicamente perfeito.
-              animate={{
-                x: ["0%", "-50%"],
-              }}
-              transition={{
-                repeat: Infinity,
-                ease: "linear",
-                duration: 25,
-              }}
-              style={{ width: "max-content" }}
+              className="flex"
+              animate={{ x: `-${currentIndex * 100}%` }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
             >
-              {[...metrics, ...metrics].map((metric, i) => (
-                <div key={i} className="w-[280px]">
-                  <MetricCard metric={metric} index={i} />
+              {metrics.map((metric) => (
+                <div key={metric.id} className="w-full flex-shrink-0 px-2">
+                  <MetricCard metric={metric} />
                 </div>
               ))}
             </motion.div>
           </div>
+
+          {/* Botões de navegação */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 backdrop-blur-sm border border-green-200 rounded-full p-2 shadow-lg hover:bg-green-50 transition-colors -ml-2"
+            aria-label="Anterior"
+          >
+            <ChevronLeft className="w-6 h-6 text-green-700" />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 backdrop-blur-sm border border-green-200 rounded-full p-2 shadow-lg hover:bg-green-50 transition-colors -mr-2"
+            aria-label="Próximo"
+          >
+            <ChevronRight className="w-6 h-6 text-green-700" />
+          </button>
+
+          {/* Indicadores (Bolinhas) */}
+          <div className="flex justify-center gap-2 mt-6">
+            {metrics.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentIndex(i)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  i === currentIndex ? "bg-green-600 w-8" : "bg-green-200 w-2"
+                }`}
+                aria-label={`Ir para dado ${i + 1}`}
+              />
+            ))}
+          </div>
         </div>
 
+        {/* Botão CTA Final */}
         <div className="text-center mt-12">
           <Button
             size="xl"
-            className="bg-green-700 hover:bg-green-800 text-white font-bold text-xl px-12 py-8 shadow-2xl hover:shadow-3xl transition-all rounded-2xl"
+            className="bg-green-700 hover:bg-green-800 text-white font-bold text-lg md:text-xl px-8 py-6 md:px-12 md:py-8 shadow-2xl hover:shadow-3xl transition-all rounded-full w-full md:w-auto animate-pulse"
             onClick={() => scrollToSection("pricing-section")}
           >
-            Quero usar o Moovi💚
+            Quero ter esses resultados 🚀
           </Button>
         </div>
       </div>
