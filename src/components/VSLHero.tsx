@@ -48,8 +48,8 @@ const VSLHero = () => {
                   style={{ border: "none", position: "absolute", top: -4, left: -4 }}
                   allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
                   allowFullScreen
-                  width="102%"
-                  height="102%"
+                  width="104%"
+                  height="104%"
                   title="Moovi VSL"
                 />
               </div>
