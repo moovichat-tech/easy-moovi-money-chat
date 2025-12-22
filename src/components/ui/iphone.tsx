@@ -74,10 +74,14 @@ export function Iphone({
       {/* --- CAMADA DE EMBED (PANDA VIDEO via prop) --- */}
       {hasEmbed && !hasChildren && (
         <div 
-          className="pointer-events-auto absolute z-10 overflow-hidden bg-black" 
+          className="pointer-events-auto absolute z-10 overflow-hidden"
           style={{
-            ...mediaContainerStyle,
-            position: 'absolute',
+            left: `${LEFT_PCT}%`,
+            top: `${TOP_PCT}%`,
+            width: `${WIDTH_PCT}%`,
+            height: `${HEIGHT_PCT}%`,
+            borderRadius: "32px",
+            backgroundColor: "#000",
           }}
         >
           <iframe
@@ -85,17 +89,15 @@ export function Iphone({
             src={embedSrc}
             style={{ 
               border: "none",
-              position: "absolute",
-              top: 0,
-              left: 0,
+              display: "block",
               width: "100%",
               height: "100%",
+              minWidth: "100%",
+              minHeight: "100%",
             }}
-            width="100%"
-            height="100%"
-            allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen"
+            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen"
             allowFullScreen
-            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
           />
         </div>
       )}
