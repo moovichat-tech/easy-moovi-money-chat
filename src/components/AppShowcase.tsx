@@ -180,3 +180,15 @@ export function Iphone({
     </div>
   );
 }
+
+export function AppShowcase() {
+  return (
+    <section className="py-16 bg-background">
+      <div className="container mx-auto px-4 flex justify-center">
+        <div className="w-full max-w-xs">
+          <Iphone src="/features/Painel_Profissional.png" />
+        </div>
+      </div>
+    </section>
+  );
+}
