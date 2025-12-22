@@ -11,10 +11,7 @@ const VSLHero = () => {
   });
 
   return (
-    <section
-      // AJUSTE 1: Padding top mínimo (pt-2) para subir tudo o máximo possível
-      className="relative min-h-[100dvh] flex flex-col bg-gradient-to-b from-green-50 via-green-50 to-green-100/20 overflow-x-hidden px-4 md:px-8 pt-2 pb-0 md:pt-0"
-    >
+    <section className="relative min-h-[100dvh] flex flex-col bg-gradient-to-b from-green-50 via-green-50 to-green-100/20 overflow-x-hidden px-4 md:px-8 pt-2 pb-0 md:pt-0">
       {/* Floating Badges */}
       <FloatingBadge icon="💰" value="R$ 234" text="economizado este mês" position="top-left" delay={0.2} />
       <FloatingBadge icon="🍕" value="R$ 156" text="gasto com comida" position="top-right" delay={0.4} />
@@ -27,16 +24,18 @@ const VSLHero = () => {
           {/* --- BLOCO SUPERIOR --- */}
           <div className="shrink-0 pt-2 md:pt-12">
             <div className="flex justify-center mb-1 md:mb-6">
-              {/* AJUSTE 2: Logo reduzida para 'h-14' (56px) no mobile para economizar espaço */}
               <img src={mooviLogo} alt="Moovi - Controle Financeiro no WhatsApp" className="h-14 md:h-28" />
             </div>
-
             <AnimatedHero />
           </div>
 
           {/* --- BLOCO DO MEIO (Vídeo + Frase) --- */}
-          {/* 'justify-center' alinha o vídeo e a frase no centro exato do espaço disponível */}
-          <div className="flex-grow flex flex-col justify-center py-2 md:py-8">
+          {/* AJUSTE IMPORTANTE:
+                1. Mudei 'justify-center' para 'justify-start md:justify-center'.
+                   Isso faz o vídeo subir e encostar no topo no celular.
+                2. Adicionei '-mt-4'. Essa margem negativa puxa o vídeo ainda mais pra cima, colando no texto.
+            */}
+          <div className="flex-grow flex flex-col justify-start md:justify-center -mt-4 md:mt-0 md:py-8">
             {/* Container do Vídeo */}
             <div className="relative w-full max-w-3xl mx-auto mb-4">
               <div
@@ -56,7 +55,7 @@ const VSLHero = () => {
               </div>
             </div>
 
-            {/* AJUSTE 3: Texto Emocional abaixo do vídeo */}
+            {/* Texto Emocional */}
             <div className="px-2">
               <p className="text-sm md:text-lg font-medium text-muted-foreground/90 italic leading-tight">
                 "Recupere sua paz e o controle total do seu dinheiro, sem abrir mão do seu tempo."
