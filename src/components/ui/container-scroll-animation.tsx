@@ -11,7 +11,7 @@ const ImageDisplay = ({ imagePath, alt }: { imagePath: string; alt: string }) =>
 
 const features = [
   {
-    title: "Registre tudo no Whatsapp",
+    title: "Controle direto no Whatsapp",
     description: (
       <>
         <p className="mb-4">
