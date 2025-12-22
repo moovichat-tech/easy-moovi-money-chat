@@ -1,10 +1,6 @@
 function AnimatedHero() {
   return (
     <div className="w-full">
-      {/* AJUSTE AQUI: 
-          Mudei 'py-3' para 'pt-3 pb-0'. 
-          Remover o padding-bottom aqui ajuda a aproximar o vídeo que vem logo depois. 
-      */}
       <div className="flex gap-3 pt-3 pb-0 md:py-5 items-center justify-center flex-col">
         <div className="flex gap-2 flex-col items-center">
           {/* Header */}
@@ -17,13 +13,12 @@ function AnimatedHero() {
           </h1>
 
           {/* SubHeader */}
-          <p className="text-base leading-relaxed tracking-tight text-muted-foreground font-bold max-w-2xl text-center px-4 md:text-lg mt-4">
-            {/* VERSÃO MOBILE */}
+          {/* AJUSTE AQUI: Adicionei 'mb-0' para garantir zero margem inferior. */}
+          <p className="text-base leading-relaxed tracking-tight text-muted-foreground font-bold max-w-2xl text-center px-4 md:text-lg mt-4 mb-0">
             <span className="md:hidden">
               Assista o vídeo, e descubra como pessoas estão organizando suas finanças automaticamente.
             </span>
 
-            {/* VERSÃO DESKTOP */}
             <span className="hidden md:block">
               Assista o vídeo, e descubra como pessoas estão organizando suas finanças automaticamente.
             </span>

@@ -11,10 +11,7 @@ const VSLHero = () => {
   });
 
   return (
-    <section
-      // MANTIDO: Altura 100% da tela (min-h-[100dvh]) e padding leve no topo
-      className="relative min-h-[100dvh] flex flex-col bg-gradient-to-b from-green-50 via-green-50 to-green-100/20 overflow-x-hidden px-4 md:px-8 pt-2 pb-0 md:pt-0"
-    >
+    <section className="relative min-h-[100dvh] flex flex-col bg-gradient-to-b from-green-50 via-green-50 to-green-100/20 overflow-x-hidden px-4 md:px-8 pt-2 pb-0 md:pt-0">
       {/* Floating Badges */}
       <FloatingBadge icon="💰" value="R$ 234" text="economizado este mês" position="top-left" delay={0.2} />
       <FloatingBadge icon="🍕" value="R$ 156" text="gasto com comida" position="top-right" delay={0.4} />
@@ -24,8 +21,7 @@ const VSLHero = () => {
 
       <div className="w-full max-w-5xl mx-auto flex-grow flex flex-col" ref={elementRef}>
         <div className={`flex-grow flex flex-col text-center fade-in-scroll ${isVisible ? "visible" : ""}`}>
-          {/* --- BLOCO SUPERIOR (Logo + Texto) --- */}
-          {/* 'shrink-0' garante que o cabeçalho não seja esmagado */}
+          {/* --- BLOCO SUPERIOR --- */}
           <div className="shrink-0 pt-2 md:pt-12">
             <div className="flex justify-center mb-1 md:mb-6">
               <img src={mooviLogo} alt="Moovi - Controle Financeiro no WhatsApp" className="h-14 md:h-28" />
@@ -34,11 +30,11 @@ const VSLHero = () => {
           </div>
 
           {/* --- BLOCO DO MEIO (Vídeo) --- */}
-          {/* CORREÇÃO AQUI: */}
-          {/* 1. Removi o '-mt-4' (que causava o bug de sobreposição). */}
-          {/* 2. Usei 'justify-center'. O 'flex-grow' vai pegar todo o espaço vazio entre o Header e o Botão,
-                   e o 'justify-center' vai colocar o vídeo exatamente no meio desse espaço. */}
-          <div className="flex-grow flex flex-col justify-center py-2 md:py-8">
+          {/* AJUSTE AQUI:
+                Mudei de 'py-2' para 'pt-1 pb-2'.
+                Isso reduz o espaço acima do vídeo pela metade, aproximando-o do subheader.
+            */}
+          <div className="flex-grow flex flex-col justify-center pt-1 pb-2 md:py-8">
             <div className="relative w-full max-w-3xl mx-auto mb-4">
               <div
                 className="rounded-2xl overflow-hidden shadow-2xl border-4 border-white/50"
@@ -66,7 +62,6 @@ const VSLHero = () => {
           </div>
 
           {/* --- BLOCO INFERIOR (Botão) --- */}
-          {/* 'mt-auto' empurra para o fundo da tela */}
           <div className="shrink-0 mt-auto pb-6 md:pb-12">
             <Button
               size="xl"
