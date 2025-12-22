@@ -12,9 +12,7 @@ export function Pricing() {
       yearlyTotal: 298.8,
       period: "por mês",
       features: [
-        { text: "Conversas por Whatsapp", included: true },
-        { text: "Conversas por áudios", included: true },
-        { text: "Leituras de imagem", included: true },
+        { text: "Entende áudio/texto/imagem", included: true },
         { text: "Gestão de receitas e despesas", included: true },
         { text: "Gestão de categorias ilimitadas", included: true },
         { text: "Lembretes de compromissos", included: true },
@@ -42,9 +40,7 @@ export function Pricing() {
       savingsPercent: 20,
       period: "por mês",
       features: [
-        { text: "Conversas por Whatsapp", included: true },
-        { text: "Conversas por áudios", included: true },
-        { text: "Leituras de imagem", included: true },
+        { text: "Entende áudio/texto/imagem", included: true },
         { text: "Gestão de receitas e despesas", included: true },
         { text: "Gestão de categorias ilimitadas", included: true },
         { text: "Lembretes de compromissos", included: true },
@@ -74,9 +70,7 @@ export function Pricing() {
       savingsPercent: 40,
       period: "por mês",
       features: [
-        { text: "Conversas por Whatsapp", included: true },
-        { text: "Conversas por áudios", included: true },
-        { text: "Leituras de imagem", included: true },
+        { text: "Entende áudio/texto/imagem", included: true },
         { text: "Gestão de receitas e despesas", included: true },
         { text: "Gestão de categorias ilimitadas", included: true },
         { text: "Lembretes de compromissos", included: true },
