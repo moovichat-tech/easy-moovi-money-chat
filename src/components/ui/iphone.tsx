@@ -77,12 +77,16 @@ export function Iphone({
           <iframe
             id="panda-player"
             src={embedSrc}
-            className="w-full h-full object-cover"
-            style={{ border: "none" }}
+            className="absolute inset-0"
+            style={{ 
+              border: "none",
+              width: "100%",
+              height: "100%",
+            }}
+            width="100%"
+            height="100%"
             allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
             allowFullScreen
-            // @ts-ignore
-            fetchpriority="high"
           />
         </div>
       )}
