@@ -129,7 +129,7 @@ const InstagramTestimonials = () => {
           className="text-center mb-12 max-w-4xl mx-auto"
         >
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-            Junte-se a <span className="text-primary">+10.000 brasileiros</span> que já simplificaram suas finanças.
+            Junte-se a <span className="text-primary">+1.000 brasileiros</span> que já simplificaram suas finanças.
           </h2>
         </motion.div>
 
