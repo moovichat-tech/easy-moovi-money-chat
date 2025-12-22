@@ -21,11 +21,19 @@ export interface IphoneProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode;
 }
 
-export function Iphone({ src, videoSrc, embedSrc, children, className, style, ...props }: IphoneProps) {
+export function Iphone({
+  src,
+  videoSrc,
+  embedSrc,
+  children,
+  className,
+  style,
+  ...props
+}: IphoneProps) {
   const hasVideo = !!videoSrc;
   const hasEmbed = !!embedSrc;
   const hasChildren = !!children;
-
+  
   // Estilo que define EXATAMENTE a área da tela
   const mediaContainerStyle: React.CSSProperties = {
     left: `calc(${LEFT_PCT}% - 1px)`, // Pequeno ajuste fino para cobrir pixels pretos
@@ -47,18 +55,14 @@ export function Iphone({ src, videoSrc, embedSrc, children, className, style, ..
       {/* === CAMADA 1: VÍDEO/CONTEÚDO (Z-INDEX 30) === 
          Esta camada fica POR CIMA do corpo do celular, garantindo que nada bloqueie o vídeo.
       */}
-
+      
       {/* Vídeo Local */}
       {hasVideo && !hasEmbed && !hasChildren && (
         <div className="pointer-events-none absolute z-30 overflow-hidden" style={mediaContainerStyle}>
           <video
             className="block size-full object-cover"
             src={videoSrc}
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="metadata"
+            autoPlay loop muted playsInline preload="metadata"
           />
         </div>
       )}
@@ -69,7 +73,7 @@ export function Iphone({ src, videoSrc, embedSrc, children, className, style, ..
           <iframe
             id="panda-player"
             src={embedSrc}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover" 
             style={{ border: "none" }}
             allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; presentation; fullscreen"
             allowFullScreen
@@ -93,6 +97,7 @@ export function Iphone({ src, videoSrc, embedSrc, children, className, style, ..
           <img src={src} alt="" className="block size-full object-cover object-top" />
         </div>
       )}
+
 
       {/* === CAMADA 2: CORPO DO CELULAR (Z-INDEX 20) ===
          Fica atrás do vídeo. Serve de moldura.
@@ -154,12 +159,12 @@ export function Iphone({ src, videoSrc, embedSrc, children, className, style, ..
           d="M254 48.5C254 45.4624 256.462 43 259.5 43C262.538 43 265 45.4624 265 48.5C265 51.5376 262.538 54 259.5 54C256.462 54 254 51.5376 254 48.5Z"
           className="fill-[#222]"
         />
-
+        
         {/* Borda interna da tela (reflexo sutil) */}
         <path
           d={`M${SCREEN_X} 75C${SCREEN_X} 44.2101 46.2101 ${SCREEN_Y} 77 ${SCREEN_Y}H355C385.79 ${SCREEN_Y} 410.75 44.2101 410.75 75V807C410.75 837.79 385.79 862.75 355 862.75H77C46.2101 862.75 ${SCREEN_X} 837.79 ${SCREEN_X} 807V75Z`}
           className="stroke-[#333] stroke-[0.5]"
-          style={{ fill: "none" }}
+          style={{ fill: 'none' }}
         />
       </svg>
     </div>
