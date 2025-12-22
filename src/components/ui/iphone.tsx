@@ -1,36 +1,44 @@
-import type { HTMLAttributes } from "react"
+IPHONE;
 
-const PHONE_WIDTH = 433
-const PHONE_HEIGHT = 882
-const SCREEN_X = 21.25
-const SCREEN_Y = 19.25
-const SCREEN_WIDTH = 389.5
-const SCREEN_HEIGHT = 843.5
-const SCREEN_RADIUS = 55.75
+import type { HTMLAttributes } from "react";
+import type { ReactNode } from "react";
+
+const PHONE_WIDTH = 433;
+const PHONE_HEIGHT = 882;
+const SCREEN_X = 21.25;
+const SCREEN_Y = 19.25;
+const SCREEN_WIDTH = 389.5;
+const SCREEN_HEIGHT = 843.5;
+const SCREEN_RADIUS = 55.75;
 
 // Calculated percentages
-const LEFT_PCT = (SCREEN_X / PHONE_WIDTH) * 100
-const TOP_PCT = (SCREEN_Y / PHONE_HEIGHT) * 100
-const WIDTH_PCT = (SCREEN_WIDTH / PHONE_WIDTH) * 100
-const HEIGHT_PCT = (SCREEN_HEIGHT / PHONE_HEIGHT) * 100
+const LEFT_PCT = (SCREEN_X / PHONE_WIDTH) * 100;
+const TOP_PCT = (SCREEN_Y / PHONE_HEIGHT) * 100;
+const WIDTH_PCT = (SCREEN_WIDTH / PHONE_WIDTH) * 100;
+const HEIGHT_PCT = (SCREEN_HEIGHT / PHONE_HEIGHT) * 100;
 
 export interface IphoneProps extends HTMLAttributes<HTMLDivElement> {
-  src?: string
-  videoSrc?: string
-  embedSrc?: string
+  src?: string;
+  videoSrc?: string;
+  embedSrc?: string;
+  children?: ReactNode; // ADICIONADO: Permite receber conteúdo filho
 }
 
 export function Iphone({
   src,
   videoSrc,
   embedSrc,
+  children, // ADICIONADO
   className,
   style,
   ...props
 }: IphoneProps) {
-  const hasVideo = !!videoSrc
-  const hasEmbed = !!embedSrc
-  const hasMedia = hasVideo || hasEmbed || !!src
+  const hasVideo = !!videoSrc;
+  const hasEmbed = !!embedSrc;
+  const hasChildren = !!children; // ADICIONADO
+
+  // ADICIONADO: Atualizei para considerar children como mídia também
+  const hasMedia = hasVideo || hasEmbed || !!src || hasChildren;
 
   // Estilo comum para os containers de mídia
   const mediaContainerStyle: React.CSSProperties = {
@@ -38,9 +46,8 @@ export function Iphone({
     top: `calc(${TOP_PCT}% - 2px)`,
     width: `calc(${WIDTH_PCT}% + 4px)`,
     height: `calc(${HEIGHT_PCT}% + 4px)`,
-    // ADICIONADO: Arredondamento suave para acompanhar a tela
-    borderRadius: '32px', 
-  }
+    borderRadius: "32px",
+  };
 
   return (
     <div
@@ -52,11 +59,8 @@ export function Iphone({
       {...props}
     >
       {/* --- CAMADA DE VÍDEO LOCAL --- */}
-      {hasVideo && !hasEmbed && (
-        <div
-          className="pointer-events-none absolute z-0 overflow-hidden bg-black"
-          style={mediaContainerStyle}
-        >
+      {hasVideo && !hasEmbed && !hasChildren && (
+        <div className="pointer-events-none absolute z-0 overflow-hidden bg-black" style={mediaContainerStyle}>
           <video
             className="block size-full object-cover"
             src={videoSrc}
@@ -69,17 +73,14 @@ export function Iphone({
         </div>
       )}
 
-      {/* --- CAMADA DE EMBED (PANDA VIDEO) --- */}
-      {hasEmbed && (
-        <div
-          className="pointer-events-auto absolute z-10 overflow-hidden bg-black"
-          style={mediaContainerStyle}
-        >
+      {/* --- CAMADA DE EMBED (PANDA VIDEO via prop) --- */}
+      {hasEmbed && !hasChildren && (
+        <div className="pointer-events-auto absolute z-10 overflow-hidden bg-black" style={mediaContainerStyle}>
           <iframe
             id="panda-player"
             src={embedSrc}
             className="w-full h-full object-cover"
-            style={{ border: 'none' }}
+            style={{ border: "none" }}
             allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
             allowFullScreen
             // @ts-ignore
@@ -88,17 +89,18 @@ export function Iphone({
         </div>
       )}
 
+      {/* --- CAMADA DE CHILDREN (CUSTOMIZADO) --- */}
+      {/* ADICIONADO: Este bloco renderiza o que passamos dentro da tag <Iphone> */}
+      {hasChildren && (
+        <div className="pointer-events-auto absolute z-10 overflow-hidden bg-black" style={mediaContainerStyle}>
+          {children}
+        </div>
+      )}
+
       {/* --- CAMADA DE IMAGEM --- */}
-      {!hasVideo && !hasEmbed && src && (
-        <div
-          className="pointer-events-none absolute z-0 overflow-hidden bg-black"
-          style={mediaContainerStyle}
-        >
-          <img
-            src={src}
-            alt=""
-            className="block size-full object-cover object-top"
-          />
+      {!hasVideo && !hasEmbed && !hasChildren && src && (
+        <div className="pointer-events-none absolute z-0 overflow-hidden bg-black" style={mediaContainerStyle}>
+          <img src={src} alt="" className="block size-full object-cover object-top" />
         </div>
       )}
 
@@ -113,7 +115,7 @@ export function Iphone({
         <g mask={hasMedia ? "url(#screenPunch)" : undefined}>
           <path
             d="M2 73C2 32.6832 34.6832 0 75 0H357C397.317 0 430 32.6832 430 73V809C430 849.317 397.317 882 357 882H75C34.6832 882 2 849.317 2 809V73Z"
-            className="fill-[#1a1a1a]" 
+            className="fill-[#1a1a1a]"
           />
           <path
             d="M0 171C0 170.448 0.447715 170 1 170H3V204H1C0.447715 204 0 203.552 0 203V171Z"
@@ -133,7 +135,7 @@ export function Iphone({
           />
           <path
             d="M6 74C6 35.3401 37.3401 4 76 4H356C394.66 4 426 35.3401 426 74V808C426 846.66 394.66 878 356 878H76C37.3401 878 6 846.66 6 808V74Z"
-            className="fill-black" 
+            className="fill-black"
           />
         </g>
 
@@ -164,13 +166,7 @@ export function Iphone({
 
         <defs>
           <mask id="screenPunch" maskUnits="userSpaceOnUse">
-            <rect
-              x="0"
-              y="0"
-              width={PHONE_WIDTH}
-              height={PHONE_HEIGHT}
-              fill="white"
-            />
+            <rect x="0" y="0" width={PHONE_WIDTH} height={PHONE_HEIGHT} fill="white" />
             <rect
               x={SCREEN_X}
               y={SCREEN_Y}
@@ -184,5 +180,5 @@ export function Iphone({
         </defs>
       </svg>
     </div>
-  )
+  );
 }
