@@ -90,10 +90,14 @@ const VSLHero = () => {
           </div>
           <Button
             size="xl"
-            className="bg-green-600 hover:bg-green-700 text-white font-bold text-lg md:text-xl px-8 py-6 md:px-12 md:py-8 shadow-1xl hover:shadow-3xl transition-all rounded-full hover:scale-105 w-full md:w-auto animate-pulse"
+            // ALTERAÇÕES AQUI:
+            // 1. Removi 'w-full' e coloquei 'w-fit' (o tamanho agora obedece o texto)
+            // 2. Adicionei 'mx-auto' para ele ficar centralizado na tela
+            // 3. Ajustei 'px-8' para 'px-10' (padding lateral equilibrado)
+            className="bg-green-700 hover:bg-green-800 text-white font-bold text-lg md:text-xl px-10 py-6 md:px-12 md:py-8 shadow-2xl hover:shadow-3xl transition-all rounded-full w-fit mx-auto animate-pulse"
             onClick={() => scrollToSection("pricing-section")}
           >
-            Começar no WhatsApp Agora 💬
+            Começar no WhatsApp Agora 🚀
           </Button>
 
           {/* --- BLOCO DO MEIO (Vídeo) --- */}
