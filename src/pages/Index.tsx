@@ -13,11 +13,11 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <VSLHero />
+      <Authority />
       <AppShowcase />
       <FeaturesScroll />
-      <Authority />
-      <InstagramTestimonials />
       <ComparisonSection />
+      <InstagramTestimonials />
       <Pricing />
       <FAQ />
       <Footer />
