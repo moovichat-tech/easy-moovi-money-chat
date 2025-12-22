@@ -11,28 +11,6 @@ const ImageDisplay = ({ imagePath, alt }: { imagePath: string; alt: string }) =>
 
 const features = [
   {
-    title: "Financeiro",
-    description: (
-      <>
-        <p className="mb-4">
-          <strong className="text-foreground font-bold">O Moovi organiza suas finanças direto no WhatsApp.</strong> É só
-          enviar mensagens como <em>"gastei 100 no mercado"</em> ou <em>"recebi 4 mil de salário"</em> e o Moovi
-          entende, registra e classifica tudo automaticamente.
-        </p>
-        <p className="mb-4">
-          <strong className="text-foreground font-bold">Você acompanha seus gastos e receitas</strong> com relatórios
-          inteligentes, gráficos claros e lembretes diários, tudo sem planilhas e sem complicação.
-        </p>
-        <p>
-          <strong className="text-foreground font-bold">Simples, rápido e 100% no WhatsApp</strong>, para você ter mais
-          controle do seu dinheiro no dia a dia.
-        </p>
-      </>
-    ),
-    imagePath: "/features/Financeiro.png",
-    hasButton: true,
-  },
-  {
     title: "Registre tudo no Whatsapp",
     description: (
       <>
@@ -41,7 +19,6 @@ const features = [
           enviar mensagens como <em>"gastei 100 no mercado"</em> ou <em>"recebi 4 mil de salário"</em> e o Moovi
           entende, registra e classifica tudo automaticamente.
         </p>
-        <p className="mb-4 font-semibold text-foreground">Ele te entende de todas as formas!</p>
         <p className="mb-4">
           <strong className="text-foreground font-bold">Você acompanha seus gastos e receitas</strong> com relatórios
           inteligentes, gráficos claros e lembretes diários, tudo sem planilhas e sem complicação.
