@@ -74,8 +74,16 @@ export function Iphone({
       {/* --- CAMADA DE EMBED (PANDA VIDEO via prop) --- */}
       {hasEmbed && !hasChildren && (
         <div className="pointer-events-auto absolute z-10 overflow-hidden " style={mediaContainerStyle}>
-          <iframe id="panda-4e6c28e8-f6eb-4e20-b216-224be1bc17f8" src="https://player-vz-c1e2f242-e38.tv.pandavideo.com.br/embed/?v=4e6c28e8-f6eb-4e20-b216-224be1bc17f8" style="border:none;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" allowfullscreen=true width="720" height="360" fetchpriority="high"></iframe>
-          
+          <iframe
+            id="panda-player"
+            src={embedSrc}
+            className="w-full h-full object-cover"
+            style={{ border: "none" }}
+            allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
+            allowFullScreen
+            // @ts-ignore
+            fetchpriority="high"
+          />
         </div>
       )}
 
