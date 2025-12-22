@@ -21,12 +21,12 @@ function AnimatedHero() {
           {/* SubHeader Inteligente (Mantido) */}
           <p className="text-base leading-relaxed tracking-tight text-muted-foreground font-bold max-w-2xl text-center px-4 md:text-lg mt-4">
             {/* VERSÃO MOBILE */}
-            <span className="md:hidden">
-              Assista o vídeo, e descubra como pessoas estão organizando suas finanças automaticamente.
-            </span>
+            <span className="md:hidden"></span>
 
             {/* VERSÃO DESKTOP */}
-            <span className="hidden md:block"></span>
+            <span className="hidden md:block">
+              Assista o vídeo, e descubra como pessoas estão organizando suas finanças automaticamente.
+            </span>
           </p>
         </div>
       </div>
