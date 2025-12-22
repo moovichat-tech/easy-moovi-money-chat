@@ -1,5 +1,4 @@
 import type { HTMLAttributes } from "react";
-import type { ReactNode } from "react";
 
 const PHONE_WIDTH = 433;
 const PHONE_HEIGHT = 882;
@@ -19,24 +18,12 @@ export interface IphoneProps extends HTMLAttributes<HTMLDivElement> {
   src?: string;
   videoSrc?: string;
   embedSrc?: string;
-  children?: ReactNode; // ADICIONADO: Permite receber conteúdo filho
 }
 
-export function Iphone({
-  src,
-  videoSrc,
-  embedSrc,
-  children, // ADICIONADO
-  className,
-  style,
-  ...props
-}: IphoneProps) {
+export function Iphone({ src, videoSrc, embedSrc, className, style, ...props }: IphoneProps) {
   const hasVideo = !!videoSrc;
   const hasEmbed = !!embedSrc;
-  const hasChildren = !!children; // ADICIONADO
-
-  // ADICIONADO: Atualizei para considerar children como mídia também
-  const hasMedia = hasVideo || hasEmbed || !!src || hasChildren;
+  const hasMedia = hasVideo || hasEmbed || !!src;
 
   // Estilo comum para os containers de mídia
   const mediaContainerStyle: React.CSSProperties = {
@@ -44,6 +31,7 @@ export function Iphone({
     top: `calc(${TOP_PCT}% - 2px)`,
     width: `calc(${WIDTH_PCT}% + 4px)`,
     height: `calc(${HEIGHT_PCT}% + 4px)`,
+    // ADICIONADO: Arredondamento suave para acompanhar a tela
     borderRadius: "32px",
   };
 
@@ -57,7 +45,7 @@ export function Iphone({
       {...props}
     >
       {/* --- CAMADA DE VÍDEO LOCAL --- */}
-      {hasVideo && !hasEmbed && !hasChildren && (
+      {hasVideo && !hasEmbed && (
         <div className="pointer-events-none absolute z-0 overflow-hidden bg-black" style={mediaContainerStyle}>
           <video
             className="block size-full object-cover"
@@ -71,47 +59,24 @@ export function Iphone({
         </div>
       )}
 
-      {/* --- CAMADA DE EMBED (PANDA VIDEO via prop) --- */}
-      {hasEmbed && !hasChildren && (
-        <div 
-          className="pointer-events-auto absolute z-10 overflow-hidden"
-          style={{
-            left: `${LEFT_PCT}%`,
-            top: `${TOP_PCT}%`,
-            width: `${WIDTH_PCT}%`,
-            height: `${HEIGHT_PCT}%`,
-            borderRadius: "32px",
-            backgroundColor: "#000",
-          }}
-        >
+      {/* --- CAMADA DE EMBED (PANDA VIDEO) --- */}
+      {hasEmbed && (
+        <div className="pointer-events-auto absolute z-10 overflow-hidden bg-black" style={mediaContainerStyle}>
           <iframe
             id="panda-player"
             src={embedSrc}
-            style={{ 
-              border: "none",
-              display: "block",
-              width: "100%",
-              height: "100%",
-              minWidth: "100%",
-              minHeight: "100%",
-            }}
-            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen"
+            className="w-full h-full object-cover"
+            style={{ border: "none" }}
+            allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
             allowFullScreen
-            referrerPolicy="no-referrer-when-downgrade"
+            // @ts-ignore
+            fetchpriority="high"
           />
         </div>
       )}
 
-      {/* --- CAMADA DE CHILDREN (CUSTOMIZADO) --- */}
-      {/* ADICIONADO: Este bloco renderiza o que passamos dentro da tag <Iphone> */}
-      {hasChildren && (
-        <div className="pointer-events-auto absolute z-10 overflow-hidden bg-black" style={mediaContainerStyle}>
-          {children}
-        </div>
-      )}
-
       {/* --- CAMADA DE IMAGEM --- */}
-      {!hasVideo && !hasEmbed && !hasChildren && src && (
+      {!hasVideo && !hasEmbed && src && (
         <div className="pointer-events-none absolute z-0 overflow-hidden bg-black" style={mediaContainerStyle}>
           <img src={src} alt="" className="block size-full object-cover object-top" />
         </div>
