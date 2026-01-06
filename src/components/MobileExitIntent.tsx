@@ -45,8 +45,13 @@ export function MobileExitIntent() {
   }, [isMobile]);
 
   const handleClaimOffer = () => {
-    window.open("https://buy.stripe.com/00weVe7JR4i58Tg3TDgMw0f");
     setIsOpen(false);
+    setTimeout(() => {
+      const element = document.getElementById("pricing-section");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 100);
   };
 
   const handleClose = () => {
