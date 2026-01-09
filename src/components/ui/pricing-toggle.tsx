@@ -106,6 +106,11 @@ export function PricingToggle({ plans, title = "Escolha seu plano", description 
                 </span>
                 <span className="text-lg text-muted-foreground font-medium">/mês</span>
               </div>
+              {plan.name !== "Plano Mensal" && (
+                <p className="text-sm text-muted-foreground mt-2">
+                  Cobrado R$ {plan.yearlyTotal.toFixed(2).replace(".", ",")} {plan.name === "Plano Anual" ? "anualmente" : "bianualmente"}
+                </p>
+              )}
             </div>
 
             <ul className="mb-8 space-y-3 text-left">
