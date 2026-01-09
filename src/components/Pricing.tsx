@@ -34,7 +34,7 @@ export function Pricing() {
       name: "Plano Anual",
       monthlyPrice: 24.9,
       yearlyPrice: 19.0,
-      yearlyTotal: 238.8,
+      yearlyTotal: 228.0,
       savings: 60.0,
       savingsPercent: 20,
       period: "por mês",
